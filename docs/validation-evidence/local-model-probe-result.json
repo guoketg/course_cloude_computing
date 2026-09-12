@@ -1,0 +1,11 @@
+{
+  "offline": true,
+  "mode": "semantic",
+  "model_id": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\models\\bge-small-zh-v1.5",
+  "model_revision": "db55204b90e211caf09cc92f4233e6ab11357f83f74e57804e6e9384eb6d8203",
+  "top_doc_ids": [
+    "quota",
+    "budget",
+    "queue"
+  ]
+}

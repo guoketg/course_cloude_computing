@@ -1,0 +1,50 @@
+{
+  "workers": 2,
+  "partitions": 8,
+  "worker_pids": {
+    "tcp://127.0.0.1:57350": 13352,
+    "tcp://127.0.0.1:57884": 79816
+  },
+  "scheduler_workers": 2,
+  "task_count": 115,
+  "partition_rows_after_shuffle": [
+    2023,
+    0,
+    14008,
+    3969,
+    0,
+    0,
+    0,
+    0
+  ],
+  "matches_duckdb": true,
+  "duckdb_seconds": 0.02141069999197498,
+  "startup_seconds": 0.8586631999933161,
+  "compute_seconds": 2.0438146000087727,
+  "total_seconds": 3.6193082999961916,
+  "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+  "aggregate": [
+    {
+      "service": "assistant",
+      "requests": 14008,
+      "input_tokens": 12631850,
+      "output_tokens": 4310029,
+      "latency_ms_sum": 28448309
+    },
+    {
+      "service": "batch",
+      "requests": 2023,
+      "input_tokens": 1816567,
+      "output_tokens": 616515,
+      "latency_ms_sum": 4079006
+    },
+    {
+      "service": "search",
+      "requests": 3969,
+      "input_tokens": 3567223,
+      "output_tokens": 1219318,
+      "latency_ms_sum": 8137035
+    }
+  ],
+  "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+}

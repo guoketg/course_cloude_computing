@@ -1,0 +1,101 @@
+{
+  "created_at": "2026-09-12T06:23:34.048574+00:00",
+  "release_ready": true,
+  "serving_generator": "extractive",
+  "passed_checks": 7,
+  "total_checks": 7,
+  "checks": [
+    {
+      "name": "artifact_integrity",
+      "passed": true,
+      "evidence": {
+        "index_sha256": "763bb31f4e0a8ba279bcc75c6c69ba0cb79e1c75d972bac337838eaf972df518",
+        "source_sha256": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "stats_sha256": "d82ee9b5abd4707e0b7fbe15f692795fb1e04f6f0d334c4546aa7563501cc0a1",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "created_at": "2026-09-12T06:23:22.232331+00:00"
+      }
+    },
+    {
+      "name": "permission_boundary",
+      "passed": true,
+      "evidence": {
+        "public_hit_ids": [
+          "access",
+          "cache",
+          "budget",
+          "citation",
+          "queue",
+          "quota",
+          "release",
+          "retention",
+          "storage",
+          "stream",
+          "upload"
+        ],
+        "internal_hit_ids": [
+          "maintenance",
+          "incident",
+          "access"
+        ],
+        "public_refused": true
+      }
+    },
+    {
+      "name": "injection_quarantine",
+      "passed": true,
+      "evidence": {
+        "attack_refused": true,
+        "reason": "unsafe_instruction",
+        "scope": "固定攻击样本+隔离状态，不能证明通用提示注入免疫"
+      }
+    },
+    {
+      "name": "version_and_cache",
+      "passed": true,
+      "evidence": {
+        "stale_rejected": true,
+        "tampered_rejected": true,
+        "old_index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "new_index_version": "a7e47b80792bef95cfca3d6504b326da1234d2924c59b8b6f146fee4e0e635a6",
+        "cache_keys": [
+          "4088084e6463743dcef77541a6968180346f1987abbc5d5cdd04fab38b3f6a91",
+          "f0f530f41976b94dfab0854f24c20090a914d65d0e68ef134dec1fdca3c63040",
+          "1d2ccbd7b2536b089fc44e1b2181aebb5a666c3bb0483067f23ca35112c5fafe"
+        ]
+      }
+    },
+    {
+      "name": "replay_and_rollback",
+      "passed": true,
+      "evidence": {
+        "rows": 20002,
+        "aggregate_equal": true,
+        "duplicate_insert_ignored": true,
+        "rollback_restored": true,
+        "database_sha256": "45364a0367f51b83426c46024b5879f49d275e07d9dcb0ce74301d421ef80ddb",
+        "scope": "SQLite实际数据副本的重放/回滚；实验04保留消费进度与恢复全链路证据"
+      }
+    },
+    {
+      "name": "frozen_test_evaluation",
+      "passed": true,
+      "evidence": {
+        "evaluation_sha256": "1d45abbe4e8d96aae3a6bb91314ccf5976d92758542d6eed8421f4484203f105",
+        "recall_at_k": 1.0,
+        "unanswerable_refusal_rate": 1.0
+      }
+    },
+    {
+      "name": "http_service_evidence",
+      "passed": true,
+      "evidence": {
+        "load_test_sha256": "8e777aa328f3a1d4f8adb49d457def7ff8d47f34f77421b426ea69d4d214148c",
+        "requests": 20,
+        "errors": 0,
+        "p95_ms": 3.9195949866552837
+      }
+    }
+  ],
+  "scope": "仅针对课程本机extractive默认服务；不代表LLM生产可发布、生产安全认证或真实云部署。"
+}

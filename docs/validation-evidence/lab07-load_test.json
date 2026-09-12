@@ -1,0 +1,1483 @@
+{
+  "requests": 20,
+  "concurrency": 1,
+  "errors": 0,
+  "error_rate": 0.0,
+  "wall_seconds": 0.07070549999480136,
+  "throughput_requests_per_second": 282.86342648691414,
+  "p50_ms": 3.4315999801037833,
+  "p95_ms": 3.9195949866552837,
+  "cache_hits": 20,
+  "cache_hit_rate": 1.0,
+  "server_metrics_before": {
+    "requests": 25,
+    "errors": 1,
+    "cache_hits": 18,
+    "cache_misses": 2,
+    "latency_sample_n": 25,
+    "latency_p50_ms": 3.276300005381927,
+    "latency_p95_ms": 4.420720005873591,
+    "cache_entries": 2,
+    "scope": "当前单进程，含健康检查；耗时窗口最多10000请求"
+  },
+  "server_metrics_after": {
+    "requests": 46,
+    "errors": 1,
+    "cache_hits": 38,
+    "cache_misses": 2,
+    "latency_sample_n": 46,
+    "latency_p50_ms": 2.937549987109378,
+    "latency_p95_ms": 4.292150013498031,
+    "cache_entries": 2,
+    "scope": "当前单进程，含健康检查；耗时窗口最多10000请求"
+  },
+  "health": {
+    "status": "ready",
+    "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+    "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+    "authentication": "simulated_role_loopback_only"
+  },
+  "details": [
+    {
+      "request_no": 1,
+      "question": "查询实时服务统计",
+      "status": 200,
+      "latency_ms": 4.0658000216353685,
+      "response": {
+        "tool": "service_stats",
+        "data_version": "d82ee9b5abd4707e0b7fbe15f692795fb1e04f6f0d334c4546aa7563501cc0a1",
+        "rows": [
+          {
+            "service": "assistant",
+            "requests": 14009,
+            "input_tokens": 12633388,
+            "output_tokens": 4310320
+          },
+          {
+            "service": "batch",
+            "requests": 2023,
+            "input_tokens": 1816567,
+            "output_tokens": 616515
+          },
+          {
+            "service": "search",
+            "requests": 3970,
+            "input_tokens": 3568992,
+            "output_tokens": 1219714
+          }
+        ],
+        "role": "public",
+        "question": "查询实时服务统计",
+        "refused": false,
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "knowledge_data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 2,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.409900004044175,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 3,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.8212999934330583,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 4,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.493900003377348,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 5,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.3937999978661537,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 6,
+      "question": "查询实时服务统计",
+      "status": 200,
+      "latency_ms": 3.9102000009734184,
+      "response": {
+        "tool": "service_stats",
+        "data_version": "d82ee9b5abd4707e0b7fbe15f692795fb1e04f6f0d334c4546aa7563501cc0a1",
+        "rows": [
+          {
+            "service": "assistant",
+            "requests": 14009,
+            "input_tokens": 12633388,
+            "output_tokens": 4310320
+          },
+          {
+            "service": "batch",
+            "requests": 2023,
+            "input_tokens": 1816567,
+            "output_tokens": 616515
+          },
+          {
+            "service": "search",
+            "requests": 3970,
+            "input_tokens": 3568992,
+            "output_tokens": 1219714
+          }
+        ],
+        "role": "public",
+        "question": "查询实时服务统计",
+        "refused": false,
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "knowledge_data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 7,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.193800017470494,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 8,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.336099995067343,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 9,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.440999978920445,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 10,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.2722000032663345,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 11,
+      "question": "查询实时服务统计",
+      "status": 200,
+      "latency_ms": 3.4100000048056245,
+      "response": {
+        "tool": "service_stats",
+        "data_version": "d82ee9b5abd4707e0b7fbe15f692795fb1e04f6f0d334c4546aa7563501cc0a1",
+        "rows": [
+          {
+            "service": "assistant",
+            "requests": 14009,
+            "input_tokens": 12633388,
+            "output_tokens": 4310320
+          },
+          {
+            "service": "batch",
+            "requests": 2023,
+            "input_tokens": 1816567,
+            "output_tokens": 616515
+          },
+          {
+            "service": "search",
+            "requests": 3970,
+            "input_tokens": 3568992,
+            "output_tokens": 1219714
+          }
+        ],
+        "role": "public",
+        "question": "查询实时服务统计",
+        "refused": false,
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "knowledge_data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 12,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.9118999848142266,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 13,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.490100003546104,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 14,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.4571999858599156,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 15,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.508099995087832,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 16,
+      "question": "查询实时服务统计",
+      "status": 200,
+      "latency_ms": 3.7743999855592847,
+      "response": {
+        "tool": "service_stats",
+        "data_version": "d82ee9b5abd4707e0b7fbe15f692795fb1e04f6f0d334c4546aa7563501cc0a1",
+        "rows": [
+          {
+            "service": "assistant",
+            "requests": 14009,
+            "input_tokens": 12633388,
+            "output_tokens": 4310320
+          },
+          {
+            "service": "batch",
+            "requests": 2023,
+            "input_tokens": 1816567,
+            "output_tokens": 616515
+          },
+          {
+            "service": "search",
+            "requests": 3970,
+            "input_tokens": 3568992,
+            "output_tokens": 1219714
+          }
+        ],
+        "role": "public",
+        "question": "查询实时服务统计",
+        "refused": false,
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "knowledge_data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 17,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.2358999887946993,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 18,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.185200010193512,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 19,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.3571000094525516,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    },
+    {
+      "request_no": 20,
+      "question": "学生每周CPU推理配额是多少分钟？",
+      "status": 200,
+      "latency_ms": 3.4221999812871218,
+      "response": {
+        "question": "学生每周CPU推理配额是多少分钟？",
+        "role": "public",
+        "generator": "extractive",
+        "refused": false,
+        "refusal_reason": null,
+        "hits": [
+          {
+            "doc_id": "quota",
+            "title": "学生算力配额",
+            "version": 2,
+            "visibility": "public",
+            "text": "学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 65,
+            "chunk_id": "quota@v2:0-65",
+            "score": 0.03278688524590164,
+            "lexical_cosine": 0.4929165379352643,
+            "primary_score": 0.4929165379352643,
+            "bm25_score": 17.256951775932396
+          },
+          {
+            "doc_id": "budget",
+            "title": "推理任务预算",
+            "version": 1,
+            "visibility": "public",
+            "text": "推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 78,
+            "chunk_id": "budget@v1:0-78",
+            "score": 0.03225806451612903,
+            "lexical_cosine": 0.07037189285254278,
+            "primary_score": 0.07037189285254278,
+            "bm25_score": 2.2352048534852025
+          },
+          {
+            "doc_id": "access",
+            "title": "数据访问分级",
+            "version": 1,
+            "visibility": "public",
+            "text": "数据访问分级包括public公开和internal内部。先过滤调用者无权读取的资料，再检索和生成；实际生产环境必须从服务端认证结果取得身份，不能信任客户端自报role。",
+            "updated_at": "2026-09-01T00:00:00Z",
+            "status": "approved",
+            "start": 0,
+            "end": 84,
+            "chunk_id": "access@v1:0-84",
+            "score": 0.031746031746031744,
+            "lexical_cosine": 0.0,
+            "primary_score": 0.0,
+            "bm25_score": 0.0
+          }
+        ],
+        "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+        "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+        "threshold": 0.13,
+        "citations": [
+          {
+            "doc_id": "quota",
+            "version": 2,
+            "chunk_id": "quota@v2:0-65"
+          },
+          {
+            "doc_id": "budget",
+            "version": 1,
+            "chunk_id": "budget@v1:0-78"
+          }
+        ],
+        "answer": "证据摘录（非大语言模型）：\n[quota@v2:0-65] 学生算力配额：每名本科生每周有120分钟CPU推理时间。配额在周一零点重置。课程必做实验不要求GPU，超出配额的任务进入等待队列。\n[budget@v1:0-78] 推理任务预算：单次请求最多输出512个token，默认超时30秒。大批量任务应先对小样本计量，再估算总量。token数量是资源计量，不能直接当作人民币价格。",
+        "citation_exists": true,
+        "cache_hit": true
+      }
+    }
+  ],
+  "limitations": "串行本机HTTP测量，不是最大承载量；摘录服务耗时不是LLM推理耗时。"
+}

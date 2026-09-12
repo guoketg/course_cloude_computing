@@ -1,0 +1,4146 @@
+{
+  "summary": {
+    "created_at": "2026-09-12T07:08:23.178720+00:00",
+    "scope": "All distributable powershell fenced blocks, matched to current source hashes. A comment-only template is counted separately.",
+    "blocks": 114,
+    "counts": {
+      "PASS": 108,
+      "EXPECTED_FAILURE_VERIFIED": 5,
+      "PASS_NOOP_TEMPLATE": 1
+    },
+    "retained_attempt_records": 180,
+    "unverified": [],
+    "path_redaction": "Local user directories are shown as <USER_PROFILE>. Original paths and logs remain in the separate teacher evidence archive."
+  },
+  "blocks": [
+    {
+      "id": 1,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "4faf7fbc577776a7b94d64be15c01e72082d0c7239957e8b2b2ce8d318c38b33",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "4faf7fbc577776a7b94d64be15c01e72082d0c7239957e8b2b2ce8d318c38b33",
+      "source_was_substituted": false,
+      "expected_outcome": "With the corrected QA wrapper, Get-Location, the course file listing and Python version are all retained in the log.",
+      "exit_code": 0,
+      "duration_seconds": 0.33732309998595156,
+      "substitutions": {},
+      "prerequisites": "",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "coursekit": true,
+          "requirements\\.lock\\.txt": true,
+          "Python 3\\.12\\.": true,
+          "BDP": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/formatter-flush/block-01.log",
+      "evidence_log_sha256": "55a3255ef8439641a12094d26012ac604f04600759e264e3ed80ef113ea0732d",
+      "record_status": "PASS"
+    },
+    {
+      "id": 2,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "bf133e91e1846d06e59246c26d21a0ec70564ceb2bc4ca88f6becf80222cad68",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "bf133e91e1846d06e59246c26d21a0ec70564ceb2bc4ca88f6becf80222cad68",
+      "source_was_substituted": false,
+      "expected_outcome": "Create a new local venv, install requirements.lock.txt, and pass pip check.",
+      "exit_code": 0,
+      "duration_seconds": 72.34495729999617,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "Successfully installed": true,
+          "No broken requirements found": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "pyvenv_cfg": "home = <USER_PROFILE>\\AppData\\Local\\Programs\\Python\\Python312\ninclude-system-site-packages = false\nversion = 3.12.10\nexecutable = <USER_PROFILE>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\ncommand = <USER_PROFILE>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m venv <USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course\\.venv\n",
+          "interpreter_exists": true
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-02.log",
+      "evidence_log_sha256": "2e12966a341147022d8587b160a3478e04427ae777e5d55c8d7441a4197805c4",
+      "record_status": "PASS"
+    },
+    {
+      "id": 3,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "68b3b3143f42a3eae265eb254a9488d9ff5279fa64a491c74b5c20bbd3c88440",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "68b3b3143f42a3eae265eb254a9488d9ff5279fa64a491c74b5c20bbd3c88440",
+      "source_was_substituted": false,
+      "expected_outcome": "Local interpreter path and lab01 identity recorded.",
+      "exit_code": 0,
+      "duration_seconds": 0.3725648999970872,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "20260001": true,
+          "EXPERIMENT_ID": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "student_id": "20260001"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-03.log",
+      "evidence_log_sha256": "9773eaa5c04e88717afe41349173ac9419b3dd03e7f0b19a108ae206838e1d21",
+      "record_status": "PASS"
+    },
+    {
+      "id": 4,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "7b813e88f63a22edf42553f083e96e5f2dfe8be3a6606827cc42489033abf74a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "7b813e88f63a22edf42553f083e96e5f2dfe8be3a6606827cc42489033abf74a",
+      "source_was_substituted": false,
+      "expected_outcome": "Seed produces 20102 raw rows: 20000 unique, 100 duplicates, 2 invalid.",
+      "exit_code": 0,
+      "duration_seconds": 0.5390932000009343,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"raw_rows\": 20102": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "valid_unique": 20000,
+          "duplicates": 100,
+          "invalid": 2,
+          "raw_rows": 20102,
+          "sha256": "0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854",
+          "seed": 42
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-04.log",
+      "evidence_log_sha256": "b24fee88d3d58e7e009261fe5b74e08ccc1a308870383efa52014bac0fa1ad74",
+      "record_status": "PASS"
+    },
+    {
+      "id": 5,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "45e90fabf58e8fe04c0f7445f9cf4bacf117c360213c540dab2df1bcd538c2ce",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "45e90fabf58e8fe04c0f7445f9cf4bacf117c360213c540dab2df1bcd538c2ce",
+      "source_was_substituted": false,
+      "expected_outcome": "Raw line count is 20102 and first JSON object contains the event fields.",
+      "exit_code": 0,
+      "duration_seconds": 0.30931880002026446,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "lines= 20102": true,
+          "event_id": true,
+          "input_tokens": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-05.log",
+      "evidence_log_sha256": "734a68089ae83bc0df401c06e69c6168dcfe3f5427b9d8f302cd4aea242ffff1",
+      "record_status": "PASS"
+    },
+    {
+      "id": 6,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "71e4bec82e9ffb9dc3e768c84d2c5d447e078ac1f3200a3779e8ec29ca49ffc6",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "71e4bec82e9ffb9dc3e768c84d2c5d447e078ac1f3200a3779e8ec29ca49ffc6",
+      "source_was_substituted": false,
+      "expected_outcome": "Temporary Moto HTTP roundtrip verifies equal hash and different version IDs.",
+      "exit_code": 0,
+      "duration_seconds": 1.9545871000154875,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"hash_matches\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "hash_matches": true,
+          "version_ids_differ": true,
+          "source_sha256": "0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854",
+          "bucket": "bdp-teaching",
+          "key": "bronze/events/0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854.jsonl"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-06.log",
+      "evidence_log_sha256": "1de6fa8df1b557e3de6f04ca0728049b72353baaed3bd6a2ee4ef89da45205ad",
+      "record_status": "PASS"
+    },
+    {
+      "id": 7,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "c6880c63f04017da617c38b11e5672c3c2b45ae2d0f05e1375d245815376c9e9",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c6880c63f04017da617c38b11e5672c3c2b45ae2d0f05e1375d245815376c9e9",
+      "source_was_substituted": false,
+      "expected_outcome": "Copy and run untouched student-object baseline; shared key and equal hashes.",
+      "exit_code": 0,
+      "duration_seconds": 1.7090796999982558,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "shared/raw/demo.json": true,
+          "\"equal\": true": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-07.log",
+      "evidence_log_sha256": "ce93688146003af1bcd5ab6b575a1656d11f95714e5888961d764debfd049bd7",
+      "record_status": "PASS"
+    },
+    {
+      "id": 8,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "024e1b9415ad2635981495b7b68ffeaf9b5bdf5da592a86aaae2661641af4fdf",
+      "status": "PASS",
+      "attempt_count": 4,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "024e1b9415ad2635981495b7b68ffeaf9b5bdf5da592a86aaae2661641af4fdf",
+      "source_was_substituted": false,
+      "expected_outcome": "The restored student program completes and Git reports only the expected source difference.",
+      "exit_code": 1,
+      "duration_seconds": 1.760720099991886,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"equal\": true": true,
+          "1d0f0d28612d93ec866d670eab8876e9dfb64d1c2b2cb84ee24fa60d0ee63bec": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/guard-restored-positive/block-08.log",
+      "evidence_log_sha256": "ed5d05f90462e2baf6582a864ff0ec77c1a0c10f11b9ed0a969cd19ddd43b474",
+      "record_status": "PASS"
+    },
+    {
+      "id": 9,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "c2303f83808dcf2e262d2a222ebdcfee4699cdf41eb4aea70eda5a9ea8c01029",
+      "status": "EXPECTED_FAILURE_VERIFIED",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c2303f83808dcf2e262d2a222ebdcfee4699cdf41eb4aea70eda5a9ea8c01029",
+      "source_was_substituted": false,
+      "expected_outcome": "Invalid local endpoint is refused with EndpointConnectionError.",
+      "exit_code": 1,
+      "duration_seconds": 8.944336799992016,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "EndpointConnectionError": true,
+          "127\\.0\\.0\\.1:1": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-09.log",
+      "evidence_log_sha256": "715e686d1a4b6542fd73c18f5e98b0ba6a80d8ec71061c7a3d384c1d68586ba1",
+      "record_status": "EXPECTED_FAILURE_VERIFIED"
+    },
+    {
+      "id": 10,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 10,
+      "source_sha256": "6b1ae938ecee6c7cf830af1e2e6d5aab66f590bbc8b43b7da4e4bef983983811",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "6b1ae938ecee6c7cf830af1e2e6d5aab66f590bbc8b43b7da4e4bef983983811",
+      "source_was_substituted": false,
+      "expected_outcome": "Default emulator path recovers after endpoint failure.",
+      "exit_code": 0,
+      "duration_seconds": 1.6742852000170387,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"hash_matches\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "hash_matches": true,
+          "version_ids_differ": true,
+          "source_sha256": "0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854",
+          "bucket": "bdp-teaching",
+          "key": "bronze/events/0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854.jsonl"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-10.log",
+      "evidence_log_sha256": "ca375cde321e77d67ff9e928447484af7b8c663b1891c44700c130c2e54a077a",
+      "record_status": "PASS"
+    },
+    {
+      "id": 11,
+      "source_file": "01. 云端数据接口与可复现环境/实验手册.md",
+      "block_number": 11,
+      "source_sha256": "94b0d855983d4d4615ed2b300c1d852877802e578f37c0f4155ebebca29f4017",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "94b0d855983d4d4615ed2b300c1d852877802e578f37c0f4155ebebca29f4017",
+      "source_was_substituted": false,
+      "expected_outcome": "Final identity, storage verification and raw-files handoff all succeed.",
+      "exit_code": 0,
+      "duration_seconds": 1.8176648000080604,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"stage\": \"final\"": true,
+          "events.jsonl": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "hash_matches": true,
+          "version_ids_differ": true,
+          "source_sha256": "0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854",
+          "bucket": "bdp-teaching",
+          "key": "bronze/events/0d93bcd25e28047f804238c220bdb5b1d2dadf328647c07de85ba0104e8e2854.jsonl"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab01/main/block-11.log",
+      "evidence_log_sha256": "c8476c5463c311acbd70c0c76565f6e5aa5c62119546da505c0dd5a1753090a4",
+      "record_status": "PASS"
+    },
+    {
+      "id": 12,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "a91fcde02bf4159224ecc894377271538866a37efa7fdb232ddc843863fe8e0c",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "a91fcde02bf4159224ecc894377271538866a37efa7fdb232ddc843863fe8e0c",
+      "source_was_substituted": false,
+      "expected_outcome": "Inherited raw data passes lab02 producing 20000 valid rows, 100 duplicates, 2 quarantined.",
+      "exit_code": 0,
+      "duration_seconds": 1.1056486000015866,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"valid_unique\": 20000": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "raw_rows": 20102,
+          "valid_unique": 20000,
+          "duplicate_rows": 100,
+          "rejected_rows": 2,
+          "conservation": 20102,
+          "raw_bytes": 3892184,
+          "parquet_bytes": 224693,
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309,
+              "errors": 543
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006,
+              "errors": 78
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035,
+              "errors": 179
+            }
+          ]
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-01.log",
+      "evidence_log_sha256": "8f9e02728baf9ff330f26d6b648d352f793c5ac5b1246da8852137220e98a85d",
+      "record_status": "PASS"
+    },
+    {
+      "id": 13,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "1d1332a380ce5b4a16ccdbb635d812bcccf5e818b0799beaf8445b6328506e3a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "1d1332a380ce5b4a16ccdbb635d812bcccf5e818b0799beaf8445b6328506e3a",
+      "source_was_substituted": false,
+      "expected_outcome": "Quality, exact quarantine reasons and Silver lineage manifest are printed.",
+      "exit_code": 0,
+      "duration_seconds": 0.23580829999991693,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "invalid_input_tokens": true,
+          "invalid_event_time": true,
+          "silver_sha256": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "raw_rows": 20102,
+          "valid_unique": 20000,
+          "duplicate_rows": 100,
+          "rejected_rows": 2,
+          "conservation": 20102,
+          "raw_bytes": 3892184,
+          "parquet_bytes": 224693,
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309,
+              "errors": 543
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006,
+              "errors": 78
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035,
+              "errors": 179
+            }
+          ]
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-02.log",
+      "evidence_log_sha256": "30f8c025147c150a225cc1816e120afff13a109ea34784a659b6f8d83ee9f1c2",
+      "record_status": "PASS"
+    },
+    {
+      "id": 14,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "4ea34340f12a8bf3b434573ad610d03ddddfd70787c2bdc213f15f8e4e5e0eca",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "4ea34340f12a8bf3b434573ad610d03ddddfd70787c2bdc213f15f8e4e5e0eca",
+      "source_was_substituted": false,
+      "expected_outcome": "Parquet has 20000 rows and 5 row groups; physical query plan is shown.",
+      "exit_code": 0,
+      "duration_seconds": 0.43687380000483245,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "rows= 20000 row_groups= 5": true,
+          "PARQUET": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-03.log",
+      "evidence_log_sha256": "f251f38d5fa5f13708e2eaf588cd1239724dc208ebeaf2883da524a122c509cb",
+      "record_status": "PASS"
+    },
+    {
+      "id": 15,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "207f92daf9b5c4352c1915c80f85081a839889fd80305090352175efb420a867",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "207f92daf9b5c4352c1915c80f85081a839889fd80305090352175efb420a867",
+      "source_was_substituted": false,
+      "expected_outcome": "Independent SQL verifies Silver and Gold totals.",
+      "exit_code": 0,
+      "duration_seconds": 0.82893309998326,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "'totals_match': True": true,
+          "18015640": true,
+          "6145862": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-04.log",
+      "evidence_log_sha256": "b000b7472cfea6ca2e16283e7b0549b2c21e871d7f65a4c0d09fd95d7286eb0f",
+      "record_status": "PASS"
+    },
+    {
+      "id": 16,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "c2238740613910a74500d023e6142b06cdabde49e8938b5486d653c9cac07ec9",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c2238740613910a74500d023e6142b06cdabde49e8938b5486d653c9cac07ec9",
+      "source_was_substituted": false,
+      "expected_outcome": "Untouched policy threshold 2000 preserves 20000 valid rows and detects three bad probes.",
+      "exit_code": 0,
+      "duration_seconds": 0.42686639999737963,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"max_input_tokens\": 2000": true,
+          "\"valid_unique\": 20000": true,
+          "non_utc_time": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-05.log",
+      "evidence_log_sha256": "8d20c28f5de2ac254d60cc476a3023c14c7c0f2012c259ac00f32fcf0be22773",
+      "record_status": "PASS"
+    },
+    {
+      "id": 17,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "1a5293af45c034bf9cffb1443cdcd81bb0cdf85820236cf9e48b538bca1f6a94",
+      "status": "PASS",
+      "attempt_count": 4,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "1a5293af45c034bf9cffb1443cdcd81bb0cdf85820236cf9e48b538bca1f6a94",
+      "source_was_substituted": false,
+      "expected_outcome": "The restored student program completes and Git reports only the expected source difference.",
+      "exit_code": 1,
+      "duration_seconds": 0.46067599998787045,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"valid_unique\": 13405": true,
+          "\"boolean\": \"invalid_input_tokens\"": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/guard-restored-positive/block-06.log",
+      "evidence_log_sha256": "ad1bbc153309cac2168933872e7efe213c1df39032d3620f8e2cee627ee21abc",
+      "record_status": "PASS"
+    },
+    {
+      "id": 18,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "10a453784111e2d0bf88a1efaad3926ea07063fb5bfdf7e6bca46f3d1fad45f6",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "10a453784111e2d0bf88a1efaad3926ea07063fb5bfdf7e6bca46f3d1fad45f6",
+      "source_was_substituted": false,
+      "expected_outcome": "Raw, Silver, Gold manifests all match actual file hashes.",
+      "exit_code": 0,
+      "duration_seconds": 0.3504276000021491,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "manifest hashes match": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-07.log",
+      "evidence_log_sha256": "e1927403bb1a4fd1a4a34feb73f53261e2cfa4ff0afcfe9e79d95aa65ab82055",
+      "record_status": "PASS"
+    },
+    {
+      "id": 19,
+      "source_file": "02. 数据湖与质量契约/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "8500fb78b301f88bb53fe3637f8f018a909f79a29d617a35ebbbcb43d015edd3",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "8500fb78b301f88bb53fe3637f8f018a909f79a29d617a35ebbbcb43d015edd3",
+      "source_was_substituted": false,
+      "expected_outcome": "Final identity, official lab02 baseline and independent Gold totals pass.",
+      "exit_code": 0,
+      "duration_seconds": 1.87802439997904,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"stage\": \"final\"": true,
+          "'totals_match': True": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "raw_rows": 20102,
+          "valid_unique": 20000,
+          "duplicate_rows": 100,
+          "rejected_rows": 2,
+          "conservation": 20102,
+          "raw_bytes": 3892184,
+          "parquet_bytes": 224693,
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309,
+              "errors": 543
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006,
+              "errors": 78
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035,
+              "errors": 179
+            }
+          ]
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab02/main/block-08.log",
+      "evidence_log_sha256": "a0880d6189885e9574edf56a154b827ec67e9f671dc2e8d964141a1680fcda52",
+      "record_status": "PASS"
+    },
+    {
+      "id": 20,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "55647238f2fe0d132ff43cf869dd666811a543cfb26a12f409ff3f18adcdd469",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "55647238f2fe0d132ff43cf869dd666811a543cfb26a12f409ff3f18adcdd469",
+      "source_was_substituted": false,
+      "expected_outcome": "Silver input exists, has 20000 rows, and matches its manifest.",
+      "exit_code": 0,
+      "duration_seconds": 0.4122419999912381,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "rows= 20000": true,
+          "silver hash verified": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-01.log",
+      "evidence_log_sha256": "ff3f58380d3caedf9b478b1864591c3fba89cef4ac9a6b6871f7f71f7145e6dc",
+      "record_status": "PASS"
+    },
+    {
+      "id": 21,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "67d564c53ec82debcbe59e9aba1d85c2fd09c82dd1f3d33c5351235cad96a78c",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "67d564c53ec82debcbe59e9aba1d85c2fd09c82dd1f3d33c5351235cad96a78c",
+      "source_was_substituted": false,
+      "expected_outcome": "Run both w1p8 and w2p8 with actual separate workers and exact SQL equality.",
+      "exit_code": 0,
+      "duration_seconds": 7.6353267999948,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"scheduler_workers\": 1": true,
+          "\"scheduler_workers\": 2": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "w1p8": {
+            "workers": 1,
+            "partitions": 8,
+            "worker_pids": {
+              "tcp://127.0.0.1:62578": 28604
+            },
+            "scheduler_workers": 1,
+            "task_count": 115,
+            "partition_rows_after_shuffle": [
+              2023,
+              0,
+              14008,
+              3969,
+              0,
+              0,
+              0,
+              0
+            ],
+            "matches_duckdb": true,
+            "duckdb_seconds": 0.02226830000290647,
+            "startup_seconds": 0.7489843999792356,
+            "compute_seconds": 0.8529735000047367,
+            "total_seconds": 2.043103699979838,
+            "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+            "aggregate": [
+              {
+                "service": "assistant",
+                "requests": 14008,
+                "input_tokens": 12631850,
+                "output_tokens": 4310029,
+                "latency_ms_sum": 28448309
+              },
+              {
+                "service": "batch",
+                "requests": 2023,
+                "input_tokens": 1816567,
+                "output_tokens": 616515,
+                "latency_ms_sum": 4079006
+              },
+              {
+                "service": "search",
+                "requests": 3969,
+                "input_tokens": 3567223,
+                "output_tokens": 1219318,
+                "latency_ms_sum": 8137035
+              }
+            ],
+            "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+          },
+          "w2p8": {
+            "workers": 2,
+            "partitions": 8,
+            "worker_pids": {
+              "tcp://127.0.0.1:60217": 77196,
+              "tcp://127.0.0.1:60755": 15012
+            },
+            "scheduler_workers": 2,
+            "task_count": 115,
+            "partition_rows_after_shuffle": [
+              2023,
+              0,
+              14008,
+              3969,
+              0,
+              0,
+              0,
+              0
+            ],
+            "matches_duckdb": true,
+            "duckdb_seconds": 0.024350699997739866,
+            "startup_seconds": 0.8897080999740865,
+            "compute_seconds": 1.2441552999953274,
+            "total_seconds": 2.569507899985183,
+            "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+            "aggregate": [
+              {
+                "service": "assistant",
+                "requests": 14008,
+                "input_tokens": 12631850,
+                "output_tokens": 4310029,
+                "latency_ms_sum": 28448309
+              },
+              {
+                "service": "batch",
+                "requests": 2023,
+                "input_tokens": 1816567,
+                "output_tokens": 616515,
+                "latency_ms_sum": 4079006
+              },
+              {
+                "service": "search",
+                "requests": 3969,
+                "input_tokens": 3567223,
+                "output_tokens": 1219318,
+                "latency_ms_sum": 8137035
+              }
+            ],
+            "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+          }
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-02.log",
+      "evidence_log_sha256": "d6fda655e24052eeb7c63b8184e66dd3d24e15312754a883f3105610b2821f63",
+      "record_status": "PASS"
+    },
+    {
+      "id": 22,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "f322dd8ff46825273b0811865e83b38d047d1e0e81d9783cc3d47c4b6407e273",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "f322dd8ff46825273b0811865e83b38d047d1e0e81d9783cc3d47c4b6407e273",
+      "source_was_substituted": false,
+      "expected_outcome": "Both retained benchmark files show their real configuration, PIDs and equality.",
+      "exit_code": 0,
+      "duration_seconds": 0.257606900006067,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "worker_pids": true,
+          "silver_sha256": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "w1p8": {
+            "workers": 1,
+            "partitions": 8,
+            "worker_pids": {
+              "tcp://127.0.0.1:62578": 28604
+            },
+            "scheduler_workers": 1,
+            "task_count": 115,
+            "partition_rows_after_shuffle": [
+              2023,
+              0,
+              14008,
+              3969,
+              0,
+              0,
+              0,
+              0
+            ],
+            "matches_duckdb": true,
+            "duckdb_seconds": 0.02226830000290647,
+            "startup_seconds": 0.7489843999792356,
+            "compute_seconds": 0.8529735000047367,
+            "total_seconds": 2.043103699979838,
+            "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+            "aggregate": [
+              {
+                "service": "assistant",
+                "requests": 14008,
+                "input_tokens": 12631850,
+                "output_tokens": 4310029,
+                "latency_ms_sum": 28448309
+              },
+              {
+                "service": "batch",
+                "requests": 2023,
+                "input_tokens": 1816567,
+                "output_tokens": 616515,
+                "latency_ms_sum": 4079006
+              },
+              {
+                "service": "search",
+                "requests": 3969,
+                "input_tokens": 3567223,
+                "output_tokens": 1219318,
+                "latency_ms_sum": 8137035
+              }
+            ],
+            "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+          },
+          "w2p8": {
+            "workers": 2,
+            "partitions": 8,
+            "worker_pids": {
+              "tcp://127.0.0.1:60217": 77196,
+              "tcp://127.0.0.1:60755": 15012
+            },
+            "scheduler_workers": 2,
+            "task_count": 115,
+            "partition_rows_after_shuffle": [
+              2023,
+              0,
+              14008,
+              3969,
+              0,
+              0,
+              0,
+              0
+            ],
+            "matches_duckdb": true,
+            "duckdb_seconds": 0.024350699997739866,
+            "startup_seconds": 0.8897080999740865,
+            "compute_seconds": 1.2441552999953274,
+            "total_seconds": 2.569507899985183,
+            "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+            "aggregate": [
+              {
+                "service": "assistant",
+                "requests": 14008,
+                "input_tokens": 12631850,
+                "output_tokens": 4310029,
+                "latency_ms_sum": 28448309
+              },
+              {
+                "service": "batch",
+                "requests": 2023,
+                "input_tokens": 1816567,
+                "output_tokens": 616515,
+                "latency_ms_sum": 4079006
+              },
+              {
+                "service": "search",
+                "requests": 3969,
+                "input_tokens": 3567223,
+                "output_tokens": 1219318,
+                "latency_ms_sum": 8137035
+              }
+            ],
+            "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+          }
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-03.log",
+      "evidence_log_sha256": "45a83fe4d404e7ac8e94c60eeed7398e0b3de634e275ae37de7eb6700a4f7dec",
+      "record_status": "PASS"
+    },
+    {
+      "id": 23,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "9f7a775fe7a2d0907746ff0afc5db0bff254818cbe2414e555c6dad3960eafce",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "9f7a775fe7a2d0907746ff0afc5db0bff254818cbe2414e555c6dad3960eafce",
+      "source_was_substituted": false,
+      "expected_outcome": "Actual shuffled partitions conserve 20000 rows and show low-cardinality skew.",
+      "exit_code": 0,
+      "duration_seconds": 0.345576899999287,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "sum= 20000": true,
+          "nonempty=": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "workers": 2,
+          "partitions": 8,
+          "worker_pids": {
+            "tcp://127.0.0.1:60217": 77196,
+            "tcp://127.0.0.1:60755": 15012
+          },
+          "scheduler_workers": 2,
+          "task_count": 115,
+          "partition_rows_after_shuffle": [
+            2023,
+            0,
+            14008,
+            3969,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matches_duckdb": true,
+          "duckdb_seconds": 0.024350699997739866,
+          "startup_seconds": 0.8897080999740865,
+          "compute_seconds": 1.2441552999953274,
+          "total_seconds": 2.569507899985183,
+          "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035
+            }
+          ],
+          "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-04.log",
+      "evidence_log_sha256": "776637936182f5d02529afc46daf4be00e3fb1648f6b5f4f6138e02a99121601",
+      "record_status": "PASS"
+    },
+    {
+      "id": 24,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "875bfae2a140e8622fc89dee8b35061e483458509ff9c123e4d29b7265726f05",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "875bfae2a140e8622fc89dee8b35061e483458509ff9c123e4d29b7265726f05",
+      "source_was_substituted": false,
+      "expected_outcome": "w2p4 also matches the same DuckDB answer.",
+      "exit_code": 0,
+      "duration_seconds": 6.252152100001695,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"partitions\": 4": true,
+          "\"matches_duckdb\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "workers": 2,
+          "partitions": 4,
+          "worker_pids": {
+            "tcp://127.0.0.1:49494": 71300,
+            "tcp://127.0.0.1:50613": 70616
+          },
+          "scheduler_workers": 2,
+          "task_count": 43,
+          "partition_rows_after_shuffle": [
+            2023,
+            0,
+            14008,
+            3969
+          ],
+          "matches_duckdb": true,
+          "duckdb_seconds": 0.02430109999841079,
+          "startup_seconds": 1.1884373000066262,
+          "compute_seconds": 1.859225599997444,
+          "total_seconds": 3.447761999996146,
+          "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035
+            }
+          ],
+          "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-05.log",
+      "evidence_log_sha256": "b659aadc06c2ae26c0b7129ec8aeeaf29bbdaf76946ed27f4b2e05f6bd7a5dc9",
+      "record_status": "PASS"
+    },
+    {
+      "id": 25,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "ec73063c113b25697aca5eddf2a5a69d58397cef975a84d50b30bfbaef4a477d",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "ec73063c113b25697aca5eddf2a5a69d58397cef975a84d50b30bfbaef4a477d",
+      "source_was_substituted": false,
+      "expected_outcome": "Baseline student latency script starts two worker processes and matches SQL.",
+      "exit_code": 0,
+      "duration_seconds": 3.489492799999425,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"slow_ms\": 1000": true,
+          "\"matches_sql\": true": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-06.log",
+      "evidence_log_sha256": "385d75b48e680ae04ef07a4a10d3c7dd33d8307ebcb59a2a79445a98a61a655f",
+      "record_status": "PASS"
+    },
+    {
+      "id": 26,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "b8eca1a580d03e85bd80d29c9a329a6c4a75d30a64ecd1deb87e02f636992486",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "b8eca1a580d03e85bd80d29c9a329a6c4a75d30a64ecd1deb87e02f636992486",
+      "source_was_substituted": false,
+      "expected_outcome": "The restored student program completes and Git reports only the expected source difference.",
+      "exit_code": 1,
+      "duration_seconds": 3.6958119999908376,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"matches_sql\": true": true,
+          "\"slow_ms\": 2000": true,
+          "\"errors\": 543": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/guard-restored-positive/block-07.log",
+      "evidence_log_sha256": "601bca003b6decd3924ab853eb0b7cd1fef552879833f24239d2e64daec95eff",
+      "record_status": "PASS"
+    },
+    {
+      "id": 27,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "8b016263d50dcadf50a2cf42942f347cfaa2b22d44492220e70fc7cb4508604f",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "8b016263d50dcadf50a2cf42942f347cfaa2b22d44492220e70fc7cb4508604f",
+      "source_was_substituted": false,
+      "expected_outcome": "Implemented error aggregate passes separate Python verifier with 800 total errors.",
+      "exit_code": 0,
+      "duration_seconds": 4.308206599991536,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ERROR_EXTENSION_PASS": true,
+          "'total_errors': 800": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-08.log",
+      "evidence_log_sha256": "bdbf9f949069ff8ecb53af6d1319509584864c7860bee8b76317818b62e46ffb",
+      "record_status": "PASS"
+    },
+    {
+      "id": 28,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "e03008b19a9ebf891f7a610517ba393e35fb7c2f2d4654bfeb76acea20f527cc",
+      "status": "EXPECTED_FAILURE_VERIFIED",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "e03008b19a9ebf891f7a610517ba393e35fb7c2f2d4654bfeb76acea20f527cc",
+      "source_was_substituted": false,
+      "expected_outcome": "Zero-worker configuration is explicitly rejected.",
+      "exit_code": 1,
+      "duration_seconds": 1.7960330999922007,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ValueError: Teaching limits": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-09.log",
+      "evidence_log_sha256": "d629a510b2ce6b29455cfb1e506fdc1f9211a3b6013dac09eb34c465fcb654ed",
+      "record_status": "EXPECTED_FAILURE_VERIFIED"
+    },
+    {
+      "id": 29,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 10,
+      "source_sha256": "108b7304ccf38d8587acd576519ad3472dee1bba5318f04bf691388b14ada5f3",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "108b7304ccf38d8587acd576519ad3472dee1bba5318f04bf691388b14ada5f3",
+      "source_was_substituted": false,
+      "expected_outcome": "Valid two-worker configuration recovers and still matches SQL.",
+      "exit_code": 0,
+      "duration_seconds": 4.181776700017508,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"matches_duckdb\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "workers": 2,
+          "partitions": 8,
+          "worker_pids": {
+            "tcp://127.0.0.1:53167": 34376,
+            "tcp://127.0.0.1:53708": 17352
+          },
+          "scheduler_workers": 2,
+          "task_count": 115,
+          "partition_rows_after_shuffle": [
+            2023,
+            0,
+            14008,
+            3969,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matches_duckdb": true,
+          "duckdb_seconds": 0.023687200009590015,
+          "startup_seconds": 0.835288500005845,
+          "compute_seconds": 1.2549018999852706,
+          "total_seconds": 2.534556300000986,
+          "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035
+            }
+          ],
+          "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-10.log",
+      "evidence_log_sha256": "b4db1d30d18855743f678b9835feb2a561024a83cf4bf847e3a6c55331db0d5a",
+      "record_status": "PASS"
+    },
+    {
+      "id": 30,
+      "source_file": "03. 分布式批处理与性能分析/实验手册.md",
+      "block_number": 11,
+      "source_sha256": "17810ecb36d30f5d2786e1f8aa5506762c05123a9107d6c5e177a294074f3b3a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "17810ecb36d30f5d2786e1f8aa5506762c05123a9107d6c5e177a294074f3b3a",
+      "source_was_substituted": false,
+      "expected_outcome": "Final two-worker run and identity succeed.",
+      "exit_code": 0,
+      "duration_seconds": 4.139225099992473,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"stage\": \"final\"": true,
+          "\"matches_duckdb\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "workers": 2,
+          "partitions": 8,
+          "worker_pids": {
+            "tcp://127.0.0.1:53238": 83412,
+            "tcp://127.0.0.1:54380": 82608
+          },
+          "scheduler_workers": 2,
+          "task_count": 115,
+          "partition_rows_after_shuffle": [
+            2023,
+            0,
+            14008,
+            3969,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matches_duckdb": true,
+          "duckdb_seconds": 0.02006710000569001,
+          "startup_seconds": 0.8529899000131991,
+          "compute_seconds": 1.2277326999756042,
+          "total_seconds": 2.514842000004137,
+          "silver_sha256": "516b3d78aab91c1487d9a24979eaef514c5acb7309d0d82a6688a762836634dc",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14008,
+              "input_tokens": 12631850,
+              "output_tokens": 4310029,
+              "latency_ms_sum": 28448309
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515,
+              "latency_ms_sum": 4079006
+            },
+            {
+              "service": "search",
+              "requests": 3969,
+              "input_tokens": 3567223,
+              "output_tokens": 1219318,
+              "latency_ms_sum": 8137035
+            }
+          ],
+          "timing_note": "total includes separate partition diagnostics; do not claim linear speedup"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab03/main/block-11.log",
+      "evidence_log_sha256": "b55603ae81b1630b197cf761e6601f927a6fe0ae35a140dd340854dfb48b95e3",
+      "record_status": "PASS"
+    },
+    {
+      "id": 31,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "c5f7e42f429624dfabc243ec5ef05f23db725cb83934cd2df683dbe8a14fdf2d",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c5f7e42f429624dfabc243ec5ef05f23db725cb83934cd2df683dbe8a14fdf2d",
+      "source_was_substituted": false,
+      "expected_outcome": "Full isolated microbatch run verifies replay, rollback, reopen recovery and late event.",
+      "exit_code": 0,
+      "duration_seconds": 1.5658587999932934,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"final_rows\": 20002": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "run_id": "c50b173ffbcc",
+          "database": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course\\data\\state\\runs\\c50b173ffbcc\\events.sqlite",
+          "source_rows": 20000,
+          "initial_inserted": 20000,
+          "duplicate_inserted": 0,
+          "failure_injected": true,
+          "rows_after_failure": 20000,
+          "offset_before": 20000,
+          "offset_after_failure": 20000,
+          "recovered_inserted": 1,
+          "late_inserted": 1,
+          "final_rows": 20002,
+          "final_offset": 20002,
+          "late_policy": "accept and recompute historical aggregate; no watermark implemented",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14009,
+              "input_tokens": 12633388,
+              "output_tokens": 4310320
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515
+            },
+            {
+              "service": "search",
+              "requests": 3970,
+              "input_tokens": 3568992,
+              "output_tokens": 1219714
+            }
+          ],
+          "semantics": "single-database transactional effect with event_id deduplication; not global exactly-once"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-01.log",
+      "evidence_log_sha256": "7547422e1b27c8040b9479aaac4158c65345083bd7056e35998a5fd2061a4d1e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 32,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "c39d8214d5ae46ee50858aa7007905fcb2c09f9967a3a9c1289ffd7e7905db9a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c39d8214d5ae46ee50858aa7007905fcb2c09f9967a3a9c1289ffd7e7905db9a",
+      "source_was_substituted": false,
+      "expected_outcome": "Replay evidence and latest database pointer are shown.",
+      "exit_code": 0,
+      "duration_seconds": 0.251226599997608,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"duplicate_inserted\": 0": true,
+          "\"final_offset\": 20002": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "run_id": "c50b173ffbcc",
+          "database": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course\\data\\state\\runs\\c50b173ffbcc\\events.sqlite",
+          "source_rows": 20000,
+          "initial_inserted": 20000,
+          "duplicate_inserted": 0,
+          "failure_injected": true,
+          "rows_after_failure": 20000,
+          "offset_before": 20000,
+          "offset_after_failure": 20000,
+          "recovered_inserted": 1,
+          "late_inserted": 1,
+          "final_rows": 20002,
+          "final_offset": 20002,
+          "late_policy": "accept and recompute historical aggregate; no watermark implemented",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14009,
+              "input_tokens": 12633388,
+              "output_tokens": 4310320
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515
+            },
+            {
+              "service": "search",
+              "requests": 3970,
+              "input_tokens": 3568992,
+              "output_tokens": 1219714
+            }
+          ],
+          "semantics": "single-database transactional effect with event_id deduplication; not global exactly-once"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-02.log",
+      "evidence_log_sha256": "dc5f1ab446f7b8344907403dcc4c2843488a69163bee80caf8d1539ee4f8383a",
+      "record_status": "PASS"
+    },
+    {
+      "id": 33,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "82be60b0b390bc51ef62fef6d6eac7388abad2d17dcc5958120dbd6f141a9a96",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "82be60b0b390bc51ef62fef6d6eac7388abad2d17dcc5958120dbd6f141a9a96",
+      "source_was_substituted": false,
+      "expected_outcome": "Read-only actual SQLite inspection matches Gold.",
+      "exit_code": 0,
+      "duration_seconds": 0.3466093000024557,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"matches_gold\": true": true,
+          "\"rows\": 20002": true,
+          "increment-late": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-03.log",
+      "evidence_log_sha256": "a46ac147498eb28d553edc33a7f4d2290b1dd1253de38605d99c44572eaad318",
+      "record_status": "PASS"
+    },
+    {
+      "id": 34,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "86ef32fe41baf370c27738e70c687a4d6674255c90bdb5d65e50bb8ccfa91086",
+      "status": "EXPECTED_FAILURE_VERIFIED",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "86ef32fe41baf370c27738e70c687a4d6674255c90bdb5d65e50bb8ccfa91086",
+      "source_was_substituted": false,
+      "expected_outcome": "Intentional early-commit baseline visibly fails the atomic contract while script completes.",
+      "exit_code": 0,
+      "duration_seconds": 0.43875699999625795,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"rows_after_failure\": 1": true,
+          "\"atomic_contract_passed\": false": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-04.log",
+      "evidence_log_sha256": "aa4f416361a87099de93a14a206523a57fdb0567088e89bee09b422b3a6252ce",
+      "record_status": "EXPECTED_FAILURE_VERIFIED"
+    },
+    {
+      "id": 35,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "f4e081684609d2d54c99f6d37808de6524b669ad37195d25e194b4f8a7af5ed7",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "f4e081684609d2d54c99f6d37808de6524b669ad37195d25e194b4f8a7af5ed7",
+      "source_was_substituted": false,
+      "expected_outcome": "The restored student program completes and Git reports only the expected source difference.",
+      "exit_code": 1,
+      "duration_seconds": 0.45264259999385104,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"atomic_contract_passed\": true": true,
+          "\"rows_after_failure\": 0": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/guard-restored-positive/block-05.log",
+      "evidence_log_sha256": "d25bf3fec4943baadcf91f87a523eb9c70af07b45645258e7a0aebe21828f82e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 36,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "76f84ca93f828df62a65e86ab34364069d48f9b5026db381ea1706c3b587fb6a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "76f84ca93f828df62a65e86ab34364069d48f9b5026db381ea1706c3b587fb6a",
+      "source_was_substituted": false,
+      "expected_outcome": "Copy the unimplemented transaction function skeleton to the student directory.",
+      "exit_code": 0,
+      "duration_seconds": 0.2541701000009198,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {},
+        "postconditions": {
+          "student_skeleton_exists": true
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-06.log",
+      "evidence_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_status": "PASS"
+    },
+    {
+      "id": 37,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "e9bd604a0157a2e00f4aa8be5b6b69eec4d9fc00e5087dff78e477635b56e447",
+      "status": "PASS",
+      "attempt_count": 4,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "e9bd604a0157a2e00f4aa8be5b6b69eec4d9fc00e5087dff78e477635b56e447",
+      "source_was_substituted": false,
+      "expected_outcome": "The completed implementation passes all transaction assertions; the subsequent Git diff returns 1 only for the intended source difference.",
+      "exit_code": 1,
+      "duration_seconds": 0.41093369998270646,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "STUDENT_TRANSACTION_PASS": true,
+          "failed_and_rolled_back": true,
+          "recovered_and_replayed": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/guard-completed-positive/block-07.log",
+      "evidence_log_sha256": "e45b8d4bb4b79990a2ad2b78d20d0f43a7cb157ff235a1a64444c2e3f867178b",
+      "record_status": "PASS"
+    },
+    {
+      "id": 38,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "44fe48d1424e481cd832bc4c495ee144c61e815e25ed587497897e70ebad2f8b",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "44fe48d1424e481cd832bc4c495ee144c61e815e25ed587497897e70ebad2f8b",
+      "source_was_substituted": false,
+      "expected_outcome": "Gold contains the actual final service totals.",
+      "exit_code": 0,
+      "duration_seconds": 0.24775760000920855,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"requests\": 14009": true,
+          "\"requests\": 2023": true,
+          "\"requests\": 3970": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-08.log",
+      "evidence_log_sha256": "a2320d672a1ae79e881cdad47c747be1de1543c0e982239db253d95db5fca73e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 39,
+      "source_file": "04. 增量事件处理与故障恢复/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "c84fb1b2624bfcfafb772d2b76d3a74d97679cafcfec4dd08525521c3adadbce",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c84fb1b2624bfcfafb772d2b76d3a74d97679cafcfec4dd08525521c3adadbce",
+      "source_was_substituted": false,
+      "expected_outcome": "Final identity, fresh retained DB run, and read-only state/Gold check pass.",
+      "exit_code": 0,
+      "duration_seconds": 1.6638507999887224,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"stage\": \"final\"": true,
+          "\"matches_gold\": true": true
+        },
+        "forbidden_patterns": {},
+        "postconditions": {
+          "run_id": "7cbd28fd5c91",
+          "database": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs01-04\\course\\data\\state\\runs\\7cbd28fd5c91\\events.sqlite",
+          "source_rows": 20000,
+          "initial_inserted": 20000,
+          "duplicate_inserted": 0,
+          "failure_injected": true,
+          "rows_after_failure": 20000,
+          "offset_before": 20000,
+          "offset_after_failure": 20000,
+          "recovered_inserted": 1,
+          "late_inserted": 1,
+          "final_rows": 20002,
+          "final_offset": 20002,
+          "late_policy": "accept and recompute historical aggregate; no watermark implemented",
+          "aggregate": [
+            {
+              "service": "assistant",
+              "requests": 14009,
+              "input_tokens": 12633388,
+              "output_tokens": 4310320
+            },
+            {
+              "service": "batch",
+              "requests": 2023,
+              "input_tokens": 1816567,
+              "output_tokens": 616515
+            },
+            {
+              "service": "search",
+              "requests": 3970,
+              "input_tokens": 3568992,
+              "output_tokens": 1219714
+            }
+          ],
+          "semantics": "single-database transactional effect with event_id deduplication; not global exactly-once"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs01-04/logs/lab04/main/block-09.log",
+      "evidence_log_sha256": "42d1fd6955d7883c94b0b287caa8d8e94f43aec77f81c0ff8f51e3df62d11c6e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 40,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "c09beb53fbcbc06a5804df78110d0a9ce3645adbaa6351b7e7356999d71d8067",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "e0239e073ab88909033cf55816ff1eb9e400ca556e5851e447c598ee42a5c387",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.4719372000254225,
+      "substitutions": {
+        "20260001": "QA-0506"
+      },
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "True.*True": true,
+          "QA-0506": true,
+          "3.12": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-01.log",
+      "evidence_log_sha256": "efc8edb377d7392d3cdbf9f6894474692a0ad3c07bd5a1ff9d884f096fb71ca8",
+      "record_status": "PASS"
+    },
+    {
+      "id": 41,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "ebef23c9e7eed80df814946e0758b607e15bc91e3963960d150ae97b808cccdc",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "ebef23c9e7eed80df814946e0758b607e15bc91e3963960d150ae97b808cccdc",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.36106789999757893,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "SHA256": true,
+          "\"doc_id\": \"quota\"": true,
+          "\"version\": 2": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-02.log",
+      "evidence_log_sha256": "5963eda6d6e3740aab33f27cf780e837b7414c5c874ee44ab80b64e6536b4170",
+      "record_status": "PASS"
+    },
+    {
+      "id": 42,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "aaba22ac8568f929f6dfec48cb2da91af518bbfd85913ac2226a77d7003199be",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "5077a053bfec395933976dfeb32d0e25dc1fca30e6f7f1d504cbb722e5d059dd",
+      "source_was_substituted": true,
+      "expected_outcome": "The same source file is launched in a hidden Notepad window; GUI visibility alone is substituted to avoid taking user's foreground",
+      "exit_code": 0,
+      "duration_seconds": 0.4128248000051826,
+      "substitutions": {
+        "notepad .\\coursekit\\intelligence.py": "$editor = Start-Process -FilePath notepad.exe -ArgumentList '.\\coursekit\\intelligence.py' -WindowStyle Hidden -PassThru\nWrite-Output ('EDITOR_STARTED_PID=' + $editor.Id)\nGet-FileHash .\\coursekit\\intelligence.py -Algorithm SHA256"
+      },
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "EDITOR_STARTED_PID=": true,
+          "SHA256": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-03.log",
+      "evidence_log_sha256": "845bc5a3fba50f385e7ee09e39a2d815af31200950c59f0b823a0e16f3ab6618",
+      "record_status": "PASS"
+    },
+    {
+      "id": 43,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "5bc6f40ea8330b0bd2625e3af959c054b5fef000e6d284be63374b95dcfd5a9c",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "5bc6f40ea8330b0bd2625e3af959c054b5fef000e6d284be63374b95dcfd5a9c",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.46410420001484454,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "raw= 16 active= 13": true,
+          "quota.*2": true,
+          "maintenance.*internal": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-04.log",
+      "evidence_log_sha256": "19f8da12db95f4c2a19d57fb6e9aaefb7efd6270ab8690222c076dfa7c402385",
+      "record_status": "PASS"
+    },
+    {
+      "id": 44,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "59f4132a9c19befd9bdda59039a1101b78f806f266057f32c6003c285d9b796d",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "59f4132a9c19befd9bdda59039a1101b78f806f266057f32c6003c285d9b796d",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.7051372000132687,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"chunks\": 13": true,
+          "chunks= 13": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-05.log",
+      "evidence_log_sha256": "a3580091cd28585a74da8c75e38ea9b27614ea5b3409a6069899b787cd2d7b7b",
+      "record_status": "PASS"
+    },
+    {
+      "id": 45,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "f9e8ecf3327bc3b118b0e48c90a496b87e9e741e3115bc80f502a9564c146670",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "f9e8ecf3327bc3b118b0e48c90a496b87e9e741e3115bc80f502a9564c146670",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.43371209999895655,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "算力": true,
+          "力配": true,
+          "配额": true,
+          "cpu": true,
+          "event_id": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-06.log",
+      "evidence_log_sha256": "425983e17a832bb244b32dfe4674393af2699c2e033eb818a940e17eef56eb14",
+      "record_status": "PASS"
+    },
+    {
+      "id": 46,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "9e7d9722ab7d0e8445df842fa4faa229d3a90995c200b0069a54fd546eed4864",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "9e7d9722ab7d0e8445df842fa4faa229d3a90995c200b0069a54fd546eed4864",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.48973689999547787,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "tfidf.*cache": true,
+          "bm25.*cache": true,
+          "hybrid.*cache": true,
+          "0.03279": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-07.log",
+      "evidence_log_sha256": "ae9ff3f52252a89072b38cc07cb5f8ddefaa5f7f3e45d6f87180dd182fc59cd3",
+      "record_status": "PASS"
+    },
+    {
+      "id": 47,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "ef2053f777dea9ee66bc576ade832e4fa4d18998aeb3b9f079ba8e02551af24e",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "ef2053f777dea9ee66bc576ade832e4fa4d18998aeb3b9f079ba8e02551af24e",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.4561536000110209,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "public": true,
+          "internal.*maintenance": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-08.log",
+      "evidence_log_sha256": "416becb4d8517595ab8c33e37bed05e871cec4498e483066b9a34f7f88fe5c3a",
+      "record_status": "PASS"
+    },
+    {
+      "id": 48,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "a50cf3644f279469e5099ffaf043cc5fcf6c5f41dc2d4b4cdc4363c3cf8a3803",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "a50cf3644f279469e5099ffaf043cc5fcf6c5f41dc2d4b4cdc4363c3cf8a3803",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.26219559999299236,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-09.log",
+      "evidence_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_status": "PASS"
+    },
+    {
+      "id": 49,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 10,
+      "source_sha256": "9e299b587b84f8391887193becb6a0f141e08df2afa52a4c37f6734609af248d",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "9e299b587b84f8391887193becb6a0f141e08df2afa52a4c37f6734609af248d",
+      "source_was_substituted": false,
+      "expected_outcome": "After actual source constants changed to48/12, index rebuild and printed quota offsets show12-character overlap; quota text length65",
+      "exit_code": 0,
+      "duration_seconds": 0.6352223999856506,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "chunks": true,
+          "\\(0, 48\\).*\\(36, 65\\)": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-10.log",
+      "evidence_log_sha256": "e476ac210c298f32fd6356f37af475766ec746ccbc35616c1984dafb8216a33e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 50,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 11,
+      "source_sha256": "90abf471d16ff7c8cac445bdddc390c3a4c9e6aa949b9f750e9c09227e97552f",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 3,
+      "comment_only": false,
+      "executed_code_sha256": "90abf471d16ff7c8cac445bdddc390c3a4c9e6aa949b9f750e9c09227e97552f",
+      "source_was_substituted": false,
+      "expected_outcome": "Actual CPU BGE in independent venv using copied local weights, normalized13x512 matrix",
+      "exit_code": 0,
+      "duration_seconds": 7.4130759999970905,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "semantic": true,
+          "\\(13, 512\\)": true,
+          "bge-small-zh-v1.5": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-11.log",
+      "evidence_log_sha256": "8effcd808309cbd40add50885251510d7b150c1cecf84093f77338a36f4cfaff",
+      "record_status": "PASS"
+    },
+    {
+      "id": 51,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 12,
+      "source_sha256": "1385b23bcbb33b8509bdbdf66da378eb1ecfdcbb41cfb9e9412a3325d8c932df",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "1385b23bcbb33b8509bdbdf66da378eb1ecfdcbb41cfb9e9412a3325d8c932df",
+      "source_was_substituted": false,
+      "expected_outcome": "Restore standard lexical index after semantic comparison",
+      "exit_code": 0,
+      "duration_seconds": 0.461456699995324,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"mode\": \"lexical\"": true,
+          "\"chunks\": 13": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-12.log",
+      "evidence_log_sha256": "70eca591103c901a6becad852a4e060304ecd6e187655cc9cf8978b91a604847",
+      "record_status": "PASS"
+    },
+    {
+      "id": 52,
+      "source_file": "05. AI知识数据与混合检索/实验手册.md",
+      "block_number": 13,
+      "source_sha256": "4a8f684b052c2a9a92777c4c936d4c123ffb05704f1fee0190e1dddfd7c490e3",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "4a8f684b052c2a9a92777c4c936d4c123ffb05704f1fee0190e1dddfd7c490e3",
+      "source_was_substituted": false,
+      "expected_outcome": "Original here-string executes source-byte change, rejects stale index, rebuilds and confirms changed version",
+      "exit_code": 0,
+      "duration_seconds": 0.48866300002555363,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "EXPECTED_FAILURE": true,
+          "version_changed= True": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab05/block-13.log",
+      "evidence_log_sha256": "d84e7ac2e527449029ac09e767d504888279f774fc2c62eee8e0f5337ae2cc49",
+      "record_status": "PASS"
+    },
+    {
+      "id": 53,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "192740d0d83738d6e50b8585d7ab9a0cb19e2dc31c524937b336df27d3d46395",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 3,
+      "comment_only": false,
+      "executed_code_sha256": "be36018c7a2a0ef870a75bce2a24524bacf7212a4ab70b37006693f3c45b6aef",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.5130387999815866,
+      "substitutions": {
+        "20260001": "QA-0506"
+      },
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "QA-0506": true,
+          "lexical": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-01.log",
+      "evidence_log_sha256": "e198fada5f67ff29f78acd7a5585ed10d1d760ebfb00b607794703f2d85a4bdc",
+      "record_status": "PASS"
+    },
+    {
+      "id": 54,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "dd65745242f01d6584e4d12b58ccf7e99b560afb974da02a76d5ccaa28d14a6f",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "dd65745242f01d6584e4d12b58ccf7e99b560afb974da02a76d5ccaa28d14a6f",
+      "source_was_substituted": false,
+      "expected_outcome": "UTF8 here-string preserves all4Chinese questions; oneanswer, out-of-scope/private/attack refusals",
+      "exit_code": 0,
+      "duration_seconds": 0.4319843999983277,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "学生每周CPU推理配额是多少分钟": true,
+          "120": true,
+          "unsafe_instruction": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-02.log",
+      "evidence_log_sha256": "71527816a7aa082891ca60cffaf9ef166989ef926ab3c88f735e7bd550147a59",
+      "record_status": "PASS"
+    },
+    {
+      "id": 55,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "16c05905f8e952a716996daa10235bd69a1e87919c67a93b374b14dfd1d2ff88",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "16c05905f8e952a716996daa10235bd69a1e87919c67a93b374b14dfd1d2ff88",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.43530250000185333,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"n\": 12": true,
+          "\"answerable_n\": 9": true,
+          "\"unanswerable_n\": 3": true,
+          "\"recall_at_k\": 1.0": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-03.log",
+      "evidence_log_sha256": "ff6282fe6c792707a98f7bd5984b4e19508813fb92dc248ce5ce1483772401a1",
+      "record_status": "PASS"
+    },
+    {
+      "id": 56,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "0e11db78356e81d525e0ea19044bb1e8cc48c309e351eb4ae239e75694075068",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "0e11db78356e81d525e0ea19044bb1e8cc48c309e351eb4ae239e75694075068",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented command completes and assertions match",
+      "exit_code": 0,
+      "duration_seconds": 0.32942710001952946,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "d11.*1.0": true,
+          "None, True": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-04.log",
+      "evidence_log_sha256": "bc8eecb266fa163eb4e9e633b3b538bfb5d7c5db57ec7385144af43c298b1e3b",
+      "record_status": "PASS"
+    },
+    {
+      "id": 57,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "2bca967a6546ee53e97b19b8a051354c45584fecdc8c63d95821babd444e9f1d",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "2bca967a6546ee53e97b19b8a051354c45584fecdc8c63d95821babd444e9f1d",
+      "source_was_substituted": false,
+      "expected_outcome": "Execute real3-threshold dev-only sweep and save groupedmetrics",
+      "exit_code": 0,
+      "duration_seconds": 0.4481099999975413,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "0.05": true,
+          "0.13": true,
+          "0.4": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-05.log",
+      "evidence_log_sha256": "8bd616a199ce354e8e73e86689ec6d1b2012c5b4a9c1e408960e9460877b0774",
+      "record_status": "PASS"
+    },
+    {
+      "id": 58,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "cb7d1090ef31a49dc060c3f34a6025336a86c0fce1b931da3fe3dc65025b5998",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "cb7d1090ef31a49dc060c3f34a6025336a86c0fce1b931da3fe3dc65025b5998",
+      "source_was_substituted": false,
+      "expected_outcome": "Actually list and pullcachedQwenmodel and callHTTPtags without stopping shared Ollama",
+      "exit_code": 0,
+      "duration_seconds": 1.632759999978589,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "qwen3:0.6b": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-06.log",
+      "evidence_log_sha256": "d3ba733463c0904e224b9355a29ffb330e60e6784484a980cdf0b8db39d6fff5",
+      "record_status": "PASS"
+    },
+    {
+      "id": 59,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "07bd967c7c5e6708b4da8c88ff0c53158f45a9928e100a134b462af9e2003122",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "07bd967c7c5e6708b4da8c88ff0c53158f45a9928e100a134b462af9e2003122",
+      "source_was_substituted": false,
+      "expected_outcome": "Actual CPUQwen generates9answerabledevcases; retain token/timing/digest and citation failures",
+      "exit_code": 0,
+      "duration_seconds": 8.892078999982914,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"generator\": \"ollama\"": true,
+          "\"n\": 12": true,
+          "\"citation_existence_rate\"": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-07.log",
+      "evidence_log_sha256": "c2eff74445c550ee8e471cec96e3dcc1e821b68e0c5831f0660809b886185587",
+      "record_status": "PASS"
+    },
+    {
+      "id": 60,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "96c26b5b954b876a24d24bde56eda68eb53d635ffe7a909029247a5144e66c93",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "96c26b5b954b876a24d24bde56eda68eb53d635ffe7a909029247a5144e66c93",
+      "source_was_substituted": false,
+      "expected_outcome": "Read actualmodelIDs and timing/tokenfields from generatedevaluation",
+      "exit_code": 0,
+      "duration_seconds": 0.3265996999980416,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "qwen3:0.6b": true,
+          "prompt_eval_count": true,
+          "eval_count": true,
+          "elapsed_seconds": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-08.log",
+      "evidence_log_sha256": "a7256e26a0465ff163a3575844e829f681411269f38ab31a1252f8c1cf24b1de",
+      "record_status": "PASS"
+    },
+    {
+      "id": 61,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "0051e9e159f206a46cbe980c3087d94d0090f5195297aef88c13ecd53272ad53",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "0051e9e159f206a46cbe980c3087d94d0090f5195297aef88c13ecd53272ad53",
+      "source_was_substituted": false,
+      "expected_outcome": "Refreeze after exactZIP-byte source restoration and rerun actualtestevaluation",
+      "exit_code": 0,
+      "duration_seconds": 0.6414210999791976,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"split\": \"test\"": true,
+          "\"n\": 12": true,
+          "\"recall_at_k\": 1.0": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-09.log",
+      "evidence_log_sha256": "f8c58702fe45741481139bc94d95e967701058c7c8352bb207fae597e05d773e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 62,
+      "source_file": "06. 证据问答与系统评价/实验手册.md",
+      "block_number": 10,
+      "source_sha256": "cff9c7147003832e9ecd8ddc28a21809c5ded8b5f509c9fd95ef0fa66efcfd8e",
+      "status": "EXPECTED_FAILURE_VERIFIED",
+      "attempt_count": 3,
+      "current_source_attempts": 3,
+      "comment_only": false,
+      "executed_code_sha256": "cff9c7147003832e9ecd8ddc28a21809c5ded8b5f509c9fd95ef0fa66efcfd8e",
+      "source_was_substituted": false,
+      "expected_outcome": "Wrong-port11435 produces a realconnectionexception; this is an expectedfailure, not a fakeLLMresult",
+      "exit_code": 1,
+      "duration_seconds": 2.73350170001504,
+      "substitutions": {},
+      "prerequisites": "# Launcher normalized PSModulePath to native WindowsPowerShell5.1 modules.\n$env:PYTHONUTF8='1'\n$env:BDP_ROOT='<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course'\n",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs05-06\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ConnectError": true
+        },
+        "forbidden_patterns": {},
+        "source_block_still_matches_current_manual": true
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs05-06/final_v2/lab06/block-10.log",
+      "evidence_log_sha256": "c3ff33d6f1a2f0df6fb1db7181031f8dd5f78b3c2c03392a8cc24f3bedf88c20",
+      "record_status": "EXPECTED_FAILURE_VERIFIED"
+    },
+    {
+      "id": 63,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "fe35896961fffca6f84c7be45c0e33c91d9ed8b5b717fd0d5de24b7b9e4e922f",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "fe35896961fffca6f84c7be45c0e33c91d9ed8b5b717fd0d5de24b7b9e4e922f",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.48027810000348836,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"STUDENT_ID\": \"20260001\"": true,
+          "True": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/identity-field-assertion-corrected/block-01.log",
+      "evidence_log_sha256": "70550bb96557ae0a5836e30d1d6b164419654c0631ae4cbfc1c877f2ab91430c",
+      "record_status": "PASS"
+    },
+    {
+      "id": 64,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "fff56919a1c77e8ebe809f64599362b9ca6d7c185d5c0c224aa0822a29d1320a",
+      "status": "PASS",
+      "attempt_count": 6,
+      "current_source_attempts": 6,
+      "comment_only": false,
+      "executed_code_sha256": "8834c38f9238bf7bbb5942d4303baae648b003c8372c5b1233b6a6499c9b2565",
+      "source_was_substituted": true,
+      "expected_outcome": "Persistent service starts and serves a real HTTP request",
+      "exit_code": null,
+      "duration_seconds": null,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "http_status": 200,
+        "health": {
+          "status": "ready",
+          "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+          "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+          "authentication": "simulated_role_loopback_only"
+        },
+        "process_alive": true,
+        "lifecycle": "Long-running process retained for subsequent requests"
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/final-baseline/block-02.log",
+      "evidence_log_sha256": "c7ca3707b2ca961e92655699ceac32de9dc2413d0eca45110f88d44cae8ff1e6",
+      "record_status": "PASS"
+    },
+    {
+      "id": 65,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "6453d081f88220b6687f35223a74ed1306407b78fd3c40f8546f588fc944b86b",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "4365650716842326e6918a29bd48ee9209602a6ee5582f49e716ec99c243a899",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.2964989999891259,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ready": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-03.log",
+      "evidence_log_sha256": "dffd243ba4d235b63e46fa056b898138bce09224a6193062473d14c219989879",
+      "record_status": "PASS"
+    },
+    {
+      "id": 66,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "c7fb6d7a418463ae09cbe6a70428efb7d17c07058ee26c4c3d7ece0d1ae7810c",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "9114a3b4ed1925554ce2b2c6b20966a63b3f33f1cb83e7c5d247a3450aaa53e9",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.28604489998542704,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "120": true,
+          "quota": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-04.log",
+      "evidence_log_sha256": "cdad80586087cc8240535b230968a094255bf65a62f361b6babb4e84429aa608",
+      "record_status": "PASS"
+    },
+    {
+      "id": 67,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "6a02b2aa26ef71ac486c8c91a77cad90b2eb82a71d42b74e22fc298f0c86aec4",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "384b6352d8c5524e883435d96e9711fd8cdc05318fce3ca81af722a56607b7e0",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.2729676000017207,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "service_stats": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-05.log",
+      "evidence_log_sha256": "6970fa2d681073d0eb99e33296cf48c66ecb11220c5f78e8a40ea4c0006d6fef",
+      "record_status": "PASS"
+    },
+    {
+      "id": 68,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 6,
+      "source_sha256": "95f75127d0d7b5bb4d39a3070a95b10ba455840a11cd27e3849215d4f6132c7e",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "ef208b7ee414f423bf38eb5928d5680772b0bc738e009ddc89c6096c7b4201ee",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.2805481000104919,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "service_stats": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-06.log",
+      "evidence_log_sha256": "893ce1198c3e83b2d7288a32b9ffeaaa71d506fdd731b43eb512a65dfc22f2d7",
+      "record_status": "PASS"
+    },
+    {
+      "id": 69,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 7,
+      "source_sha256": "72839e6625eb4ce213b3e070b70de5e81db89800ec8334ac283031afb0f82331",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "72839e6625eb4ce213b3e070b70de5e81db89800ec8334ac283031afb0f82331",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.7725754999846686,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "[a-f0-9]{64}": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-07.log",
+      "evidence_log_sha256": "add0c4069df552b2182e4a72ba2fdf7fb1fde0791f543cd7a08484805f149816",
+      "record_status": "PASS"
+    },
+    {
+      "id": 70,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 8,
+      "source_sha256": "662c2ce96fa83a1f27ce8173ef3db15913ac772c3ee9a57699c64e3fd4d1540c",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "5a8edf6cd72d3d941240df9d5621714573fd17905230534ab0d793574ddc0f7a",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 1.0855707000009716,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"errors\": 0": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/restored/block-08.log",
+      "evidence_log_sha256": "069633557ae73e2c1cb91708d93506c14af960ee09b87dee488fb1455a4a3d18",
+      "record_status": "PASS"
+    },
+    {
+      "id": 71,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 9,
+      "source_sha256": "6cbe7c628dc069ccba1cfd9ab5b0a0e5887087e6d1cc71aa84d2baa4c38a9a65",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "7ce4f389dbe8962037f6d29af7951419ab2655f6ea597f814006445ac54c3031",
+      "source_was_substituted": true,
+      "expected_outcome": "HTTP 422 is caught for invalid administrator role",
+      "exit_code": 0,
+      "duration_seconds": 0.2912536999792792,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "422": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-09.log",
+      "evidence_log_sha256": "2e37f01d4d0b0e105d167ef5bcdb0a086e61b8fa742e07982f6cdce756ef37d4",
+      "record_status": "PASS"
+    },
+    {
+      "id": 72,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 10,
+      "source_sha256": "500b332339a0ead695286f4cde72b44dff0fb9f2e76f790372b9f6be0ece455f",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "500b332339a0ead695286f4cde72b44dff0fb9f2e76f790372b9f6be0ece455f",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.23418810000293888,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "FROM": true,
+          "services:": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/07/initial/block-10.log",
+      "evidence_log_sha256": "c0960c3cf77fb1eee037113e5887176131ed5b3566bdd2af48f42497380a74fb",
+      "record_status": "PASS"
+    },
+    {
+      "id": 73,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 11,
+      "source_sha256": "bd3035a86e188397bed120a02287cf81ed86562da01a23fe6a05f970c50b278d",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "bd3035a86e188397bed120a02287cf81ed86562da01a23fe6a05f970c50b278d",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 14.811987299995963,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ready": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/docker-fixed/block-11.log",
+      "evidence_log_sha256": "0a8d4b268c823a690dc11935d724d2e09feaaf39269e4264e44bd530b705f1f8",
+      "record_status": "PASS"
+    },
+    {
+      "id": 74,
+      "source_file": "07. 云服务部署与推理可观测性/实验手册.md",
+      "block_number": 12,
+      "source_sha256": "9128f46afbc037aeeb65c2ac9ef3df84f488531fa0ed7484c8b95f0077bde2c9",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "9128f46afbc037aeeb65c2ac9ef3df84f488531fa0ed7484c8b95f0077bde2c9",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 3.1033424000197556,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"errors\": 0": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/docker-fixed/block-12.log",
+      "evidence_log_sha256": "9ddbdd893dec75e7572d77dc1e0094bb80d107f0c76188ed702172c58895ea74",
+      "record_status": "PASS"
+    },
+    {
+      "id": 75,
+      "source_file": "08. 数据治理与可信发布/实验手册.md",
+      "block_number": 1,
+      "source_sha256": "90cb5443c4893cf61c23be8269d3a10fcc3179c489f40ba2b59f792c22d159d1",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "90cb5443c4893cf61c23be8269d3a10fcc3179c489f40ba2b59f792c22d159d1",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.32560370001010597,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "True": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/08/initial/block-01.log",
+      "evidence_log_sha256": "b59e3f602f8273a73a76281a6c0a64568cb8f74242c95c67a7df5ffbe1b0073e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 76,
+      "source_file": "08. 数据治理与可信发布/实验手册.md",
+      "block_number": 2,
+      "source_sha256": "3d0aa8ea3a73619b8ddeb2e928fbbd633615c35c18547c865cbd90a5bb95f72b",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "3d0aa8ea3a73619b8ddeb2e928fbbd633615c35c18547c865cbd90a5bb95f72b",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.8565312999999151,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"release_ready\": true": true,
+          "\"passed_checks\": 7": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/08/initial/block-02.log",
+      "evidence_log_sha256": "d7d6340f72ccd49dc2e38dee566f192a8031510982ed3775f9b75b50027974a7",
+      "record_status": "PASS"
+    },
+    {
+      "id": 77,
+      "source_file": "08. 数据治理与可信发布/实验手册.md",
+      "block_number": 3,
+      "source_sha256": "e06815fc1fd4ff276a82f8a2b60cc45e649c919ba44f336fc46b7b3639026b90",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "e06815fc1fd4ff276a82f8a2b60cc45e649c919ba44f336fc46b7b3639026b90",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.30110680000507273,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "stale_rejected": true,
+          "tampered_rejected": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/08/initial/block-03.log",
+      "evidence_log_sha256": "e213afbe937ef5a063ff675c08f10a90525f13dd8f44582692978802bdc21872",
+      "record_status": "PASS"
+    },
+    {
+      "id": 78,
+      "source_file": "08. 数据治理与可信发布/实验手册.md",
+      "block_number": 4,
+      "source_sha256": "a78d01d97e51e90483b9171055641acc06d6e7bd3994a48016f48865d1ce3da7",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "a78d01d97e51e90483b9171055641acc06d6e7bd3994a48016f48865d1ce3da7",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.44995619999826886,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "EXPECTED_FAILURE:": true,
+          "RECOVERED:": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/08/explicit-utf8-source/block-04.log",
+      "evidence_log_sha256": "a68889b8c85c9cbefd8ce59c460e78ddec4be0b58e1243b8c1130809e5725aeb",
+      "record_status": "PASS"
+    },
+    {
+      "id": 79,
+      "source_file": "08. 数据治理与可信发布/实验手册.md",
+      "block_number": 5,
+      "source_sha256": "457f7b04c3e9af85c387b654d23e8715b909a78fad5784c41bcb47bc517e0239",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "457f7b04c3e9af85c387b654d23e8715b909a78fad5784c41bcb47bc517e0239",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 2.0447171999840066,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"release_ready\": true": true,
+          "\"passed_checks\": 7": true,
+          "\"errors\": 0": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/08/final-baseline-restored/block-05.log",
+      "evidence_log_sha256": "5234226eb5187e334c4b0f6a83158a32833b045a67027ba1fd09952be1d7b962",
+      "record_status": "PASS"
+    },
+    {
+      "id": 80,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 1,
+      "source_sha256": "2c62d6ab9c9b5774c06d96c2f4658f64ac92544d314377500773d0b193ea2dcb",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "571083bd3d1a2299a1bbf35589456661049be5377cd5e1343e53bb937874cb86",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.4697224000119604,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "Python 3.12": true,
+          "silver": true,
+          "lab08": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/formatter-flush-fixed/block-01.log",
+      "evidence_log_sha256": "6876241d65f907c6b08622169dc84a124dba1865b8796c6224bef633eda8939e",
+      "record_status": "PASS"
+    },
+    {
+      "id": 81,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 2,
+      "source_sha256": "c96885f0a85f64c61b0d76510ca80e4a19be674e163a73b68a0a3d57f4dc15b6",
+      "status": "EXPECTED_FAILURE_VERIFIED",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c96885f0a85f64c61b0d76510ca80e4a19be674e163a73b68a0a3d57f4dc15b6",
+      "source_was_substituted": false,
+      "expected_outcome": "Git reports this independent extracted directory is not a repository, as documented",
+      "exit_code": 128,
+      "duration_seconds": 0.28843320001033135,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "not a git repository": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/initial/block-02.log",
+      "evidence_log_sha256": "cbd7253ed1a5569e4d074e4758d98cdb50206ea818b3daba3521c86484a4fc7f",
+      "record_status": "EXPECTED_FAILURE_VERIFIED"
+    },
+    {
+      "id": 82,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 3,
+      "source_sha256": "ce6c19cf95e34253f65a0364206e2c3488bf635caf4c6940827cfcb84b319289",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "ce6c19cf95e34253f65a0364206e2c3488bf635caf4c6940827cfcb84b319289",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.2322386000014376,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/initial/block-03.log",
+      "evidence_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_status": "PASS"
+    },
+    {
+      "id": 83,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 4,
+      "source_sha256": "15f40dfa0a77c1ec71d2906e275567ba7f57636cad004e4f1193103dad54085d",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "15f40dfa0a77c1ec71d2906e275567ba7f57636cad004e4f1193103dad54085d",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 2.7222799999872223,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/initial/block-04.log",
+      "evidence_log_sha256": "f89a0adc117a5b99486c119e2c790ff0dd8bdc46ba17a765d88dc1a6573fa57c",
+      "record_status": "PASS"
+    },
+    {
+      "id": 84,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 5,
+      "source_sha256": "ec8337653b3eefeb16594d44d0b482ca71e9a97d5c41767d4b6c875840713cba",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "272592a61348264d4332c142411dbe05a4afab8570147299dab9905bbda2506a",
+      "source_was_substituted": true,
+      "expected_outcome": "Persistent service starts and serves a real HTTP request",
+      "exit_code": null,
+      "duration_seconds": null,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "http_status": 200,
+        "health": {
+          "status": "ready",
+          "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+          "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+          "authentication": "simulated_role_loopback_only"
+        },
+        "process_alive": true,
+        "lifecycle": "Long-running process retained for subsequent requests"
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/initial/block-05.log",
+      "evidence_log_sha256": "58c8274c892362e41ffad304890d0b03d6eb13ea4bbe5600e7528b8c6a6d2b98",
+      "record_status": "PASS"
+    },
+    {
+      "id": 85,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 6,
+      "source_sha256": "4253a08cde08a3345b44b9b426933d00120cd99d40bbd70aa9653c93fb8bf1fe",
+      "status": "PASS",
+      "attempt_count": 3,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "37dd39c51145cca4e0400ed4041403cd417d841a061d101846ee495180b5392b",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 0.311275400017621,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "ready": true,
+          "service_stats": true,
+          "citations": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/response-json-fixed/block-06.log",
+      "evidence_log_sha256": "223283bfca7fa20a831240890a0c72af78c833918e2c30773595e2e48a544812",
+      "record_status": "PASS"
+    },
+    {
+      "id": 86,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 7,
+      "source_sha256": "beac272a077927a36f852aa8d9cdc0c73537375f9a66a2033fb74d5f020a7bfb",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "beac272a077927a36f852aa8d9cdc0c73537375f9a66a2033fb74d5f020a7bfb",
+      "source_was_substituted": false,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 29.00293870002497,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"mode\": \"semantic\"": true,
+          "\"generator\": \"ollama\"": true
+        },
+        "forbidden_patterns": {},
+        "model_evidence": {
+          "retrieval_mode": "semantic",
+          "embedding_model_id": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5",
+          "embedding_model_revision": "db55204b90e211caf09cc92f4233e6ab11357f83f74e57804e6e9384eb6d8203",
+          "n": 12,
+          "recall_at_k": 1.0,
+          "citation_existence_rate": 0.0,
+          "keyword_coverage": 0.7777777777777778,
+          "generated_answers": 9,
+          "model_ids": [
+            "qwen3:0.6b"
+          ],
+          "model_digests": [
+            "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435"
+          ],
+          "quality_status": "Citation formatting failed in actual model output; execution PASS does not mean model quality passed",
+          "artifact": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\09\\semantic-chain-evidence\\evaluation_dev_ollama.json"
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/initial/block-07.log",
+      "evidence_log_sha256": "013c41b13d7868add22a2c08911fdb25301f74b51adbcf0907614dbe2fde3cb6",
+      "record_status": "PASS"
+    },
+    {
+      "id": 87,
+      "source_file": "09. 两周个人综合项目/项目方案手册.md",
+      "block_number": 8,
+      "source_sha256": "fc01ea7fd0ef465a7d94a1e0644bc17a5fc6f4cd0065f50620585b9c0495bc64",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "0e9cad50fea5ebbb79645043f9ae9400303366590065d986dfdab7b7560f2392",
+      "source_was_substituted": true,
+      "expected_outcome": "Documented block executes; output and dependent artifacts verified",
+      "exit_code": 0,
+      "duration_seconds": 1.2043433999933768,
+      "substitutions": {
+        "http://127.0.0.1:8000": "http://127.0.0.1:18000",
+        "--port 8000": "--port 18000",
+        "C:\\BDP": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'\n$env:BDP_ROOT = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course'\n$env:BDP_SERVICE_URL = 'http://127.0.0.1:18000'\n$env:BDP_EMBED_MODEL = '<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course\\models\\bge-small-zh-v1.5'\n$env:HF_HUB_OFFLINE = '1'\n$env:BDP_OLLAMA_URL = 'http://127.0.0.1:11434'",
+      "workdir": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\full-validation\\labs07-09\\course",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"errors\": 0": true,
+          "cache_entries": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "labs07-09/09/response-json-fixed/block-08.log",
+      "evidence_log_sha256": "4eff359a00100d18ce3bee87cbe4bc88dddcf0ad05211aafabbecf06f3a886c5",
+      "record_status": "PASS"
+    },
+    {
+      "id": 88,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 1,
+      "source_sha256": "d15913036d3d172a2376e25e918798b6114939466d45c7b7f377089f4be45086",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "d15913036d3d172a2376e25e918798b6114939466d45c7b7f377089f4be45086",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.2331349999876693,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-01.log",
+      "evidence_log_sha256": "f08153d16a9490d994a25d5a341ff8acfc405deddabd0d2134ef9af9d46acd54",
+      "record_status": "PASS"
+    },
+    {
+      "id": 89,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 2,
+      "source_sha256": "dfe4b3406aa565841b92cce5cbe7c351a38bcf28c2ce37242d1a7a7936913b96",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "dfe4b3406aa565841b92cce5cbe7c351a38bcf28c2ce37242d1a7a7936913b96",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.26967189999413677,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-02.log",
+      "evidence_log_sha256": "97c4ee7faf2f58f68e7447fe4983310b006cf8aec024effa4ea8b6e7811a9411",
+      "record_status": "PASS"
+    },
+    {
+      "id": 90,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 3,
+      "source_sha256": "d2ee75501fabc2987b65a64d1cacfd6803cae54ef58c662ca83cc52334e8be50",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "d2ee75501fabc2987b65a64d1cacfd6803cae54ef58c662ca83cc52334e8be50",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 2.2173924000235274,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-03.log",
+      "evidence_log_sha256": "4e84ee67339474c33de5bd5610767accc11a5c5729a7b412037ee60ded9b92b4",
+      "record_status": "PASS"
+    },
+    {
+      "id": 91,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 4,
+      "source_sha256": "5005f0c1a96cbb20c18b3fd03614e7da84bff951afab41f7fa15a79944a05942",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "5005f0c1a96cbb20c18b3fd03614e7da84bff951afab41f7fa15a79944a05942",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 3.5430415000009816,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-04.log",
+      "evidence_log_sha256": "10253b22bd1aa63eb00fa82a723ead0c6daab558a70cb73e7ec675aaae9ef721",
+      "record_status": "PASS"
+    },
+    {
+      "id": 92,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 5,
+      "source_sha256": "cae712ffcff724984494cea675f1e4cb2494a48730ac7a1c83d072d48d4e9949",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "cae712ffcff724984494cea675f1e4cb2494a48730ac7a1c83d072d48d4e9949",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 30.602570999995805,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-05.log",
+      "evidence_log_sha256": "7e20b69a2a6281dce8ddcca0c864a95cacf36a28e3fd568847d1b505b35375db",
+      "record_status": "PASS"
+    },
+    {
+      "id": 93,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 6,
+      "source_sha256": "19a79c8806e16cf24eaf4dcae9e1f993183c6e2607ab20398260db607ec0e1a0",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "19a79c8806e16cf24eaf4dcae9e1f993183c6e2607ab20398260db607ec0e1a0",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 164.0623915999895,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "Successfully installed": true
+        },
+        "forbidden_patterns": {
+          "ERROR:": false,
+          "https://": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-06.log",
+      "evidence_log_sha256": "5b33e10e3c3657b3f5eca291ba659920de59ee0c9bb8fcc5b90f55873b07d6a9",
+      "record_status": "PASS"
+    },
+    {
+      "id": 94,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 7,
+      "source_sha256": "879a28ae13a36ee70f46b4c725e0397fffa3543ef96d62492bc9967109815610",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "879a28ae13a36ee70f46b4c725e0397fffa3543ef96d62492bc9967109815610",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.8783149000082631,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-07.log",
+      "evidence_log_sha256": "f546c8df441e1367b4381c31a272a891defa9e2252106be15f9fc9c5dc25ed55",
+      "record_status": "PASS"
+    },
+    {
+      "id": 95,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 8,
+      "source_sha256": "9d2fd03a881246cb9edc251f1578e7e87d2d754ae6dfbfe896c3381edb6367f8",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "9d2fd03a881246cb9edc251f1578e7e87d2d754ae6dfbfe896c3381edb6367f8",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 2.625804799987236,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-08.log",
+      "evidence_log_sha256": "694d3a5c2de8ce52e8df123bb38d29db95e3f4092725ef9f93a29e1ac9e8bd64",
+      "record_status": "PASS"
+    },
+    {
+      "id": 96,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 9,
+      "source_sha256": "149ac20ba375c258767d8ba6d30ccbf438e4f9308cc77ad216491c6ef49bd2f5",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "149ac20ba375c258767d8ba6d30ccbf438e4f9308cc77ad216491c6ef49bd2f5",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.9057381000020541,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-09.log",
+      "evidence_log_sha256": "6787241b9b4c45e99307088686099444537a9cf6abac21d0396406bff0ebe8de",
+      "record_status": "PASS"
+    },
+    {
+      "id": 97,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 10,
+      "source_sha256": "e68401f42aa4e7b2fec9f35c69f365f110359595bf8de0eb92ebf2c272b3a570",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "e68401f42aa4e7b2fec9f35c69f365f110359595bf8de0eb92ebf2c272b3a570",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 9.607893799984595,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "semantic": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-10.log",
+      "evidence_log_sha256": "e93833726f37901008a49d52ff7e1617b88ee98a47f62f66fadb30fd017bfb57",
+      "record_status": "PASS"
+    },
+    {
+      "id": 98,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 11,
+      "source_sha256": "ff48c63d78bf7ff657abe3dbb47f76bacdf526b0d60506b44cd0fcd427e2f632",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "ff48c63d78bf7ff657abe3dbb47f76bacdf526b0d60506b44cd0fcd427e2f632",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.42742140000336803,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "lexical": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-11.log",
+      "evidence_log_sha256": "b8e2bc73aa3152bd8dba1c7c699fc377f25877cbeeab8823f093f07dd35be20c",
+      "record_status": "PASS"
+    },
+    {
+      "id": 99,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 12,
+      "source_sha256": "1a1edc9949ef8999a2b5d31f28740f149f092c0d854870bc610a825157d1f185",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "1a1edc9949ef8999a2b5d31f28740f149f092c0d854870bc610a825157d1f185",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 1.530600099998992,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "qwen3:0.6b": true
+        },
+        "forbidden_patterns": {
+          "Error:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment/block-12.log",
+      "evidence_log_sha256": "7f7bf057f53f6d1f31d7e89320bdcdf676d15d83d7afcc95dc6276e44e995507",
+      "record_status": "PASS"
+    },
+    {
+      "id": 100,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 13,
+      "source_sha256": "f7be49cb6208880e3faa14be927ec9c3a08fe4a8514a17826d09426f03ed6b50",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "f7be49cb6208880e3faa14be927ec9c3a08fe4a8514a17826d09426f03ed6b50",
+      "source_was_substituted": false,
+      "expected_outcome": "Persistent service starts and serves a real HTTP request",
+      "exit_code": null,
+      "duration_seconds": 2.3482974999933504,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "health": {
+          "status": "ready",
+          "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+          "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+          "authentication": "simulated_role_loopback_only"
+        },
+        "dependent_http_blocks": "PASS"
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment-recheck/block-13.log",
+      "evidence_log_sha256": "a284d34e92b28da7ea1c66b1734b363bef067428dcd90861b8627e6fd1fa8cf5",
+      "record_status": "PASS"
+    },
+    {
+      "id": 101,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 14,
+      "source_sha256": "c3563f381994ac0018ebcfee035d7ac0ef5819e1d9081ff239bd3a26ae3370bd",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "c3563f381994ac0018ebcfee035d7ac0ef5819e1d9081ff239bd3a26ae3370bd",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 1.2980390999873634,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "\"errors\": 0": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment-recheck/block-14.log",
+      "evidence_log_sha256": "348620c5f2f08353f9c24c1405e752c6038b694e9074d9c838ab176b4b161b72",
+      "record_status": "PASS"
+    },
+    {
+      "id": 102,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 15,
+      "source_sha256": "d5772f31c64467052068abfa63c1acc62a9b0334dac3b55cdf30d9c6525c8adb",
+      "status": "PASS",
+      "attempt_count": 2,
+      "current_source_attempts": 2,
+      "comment_only": false,
+      "executed_code_sha256": "d5772f31c64467052068abfa63c1acc62a9b0334dac3b55cdf30d9c6525c8adb",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 1.0785527999978513,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "Server:": true,
+          "linux/amd64": true
+        },
+        "forbidden_patterns": {
+          "failed to connect": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/docker-fixed/block-15.log",
+      "evidence_log_sha256": "3ef9752eab6b8581940385c4c13ac1579f6254d577f3f9c05d33e7e7ab14c1eb",
+      "record_status": "PASS"
+    },
+    {
+      "id": 103,
+      "source_file": "docs/Windows环境准备.md",
+      "block_number": 16,
+      "source_sha256": "f89cbf86551748b5c3bb9b74ce2ef05257f0ce3a6b49f838a6794fd71959465a",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "f89cbf86551748b5c3bb9b74ce2ef05257f0ce3a6b49f838a6794fd71959465a",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 1.5068638999946415,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "passed": true
+        },
+        "forbidden_patterns": {
+          "FAILED": false,
+          "ERROR": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/environment-recheck/block-16.log",
+      "evidence_log_sha256": "52fe66dc7c52f8ffb3b039e0bd38a9c168e70c76de17db34861ca35a9d63ec67",
+      "record_status": "PASS"
+    },
+    {
+      "id": 104,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 1,
+      "source_sha256": "b1e3e08bf52fec661de6a7c20009089939f0a0749b9f8733747737abd541fc5f",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "b1e3e08bf52fec661de6a7c20009089939f0a0749b9f8733747737abd541fc5f",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 5.971036799979629,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "passed": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR": false,
+          "FAILED": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-01.log",
+      "evidence_log_sha256": "ed5540469296fc7b75eb252e751b1fb797c424612877d635f2ce1a30ade73322",
+      "record_status": "PASS"
+    },
+    {
+      "id": 105,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 2,
+      "source_sha256": "7420b8b56126dfb9202769593c4e2a48fb1fd42d94694357e5628f472ef37988",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "7420b8b56126dfb9202769593c4e2a48fb1fd42d94694357e5628f472ef37988",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 17.710503900016192,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "Baseline 01-06 complete": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR": false,
+          "FAILED": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-02.log",
+      "evidence_log_sha256": "35058cbd0a1868d700a6c6c6b454b79566e78743b20ebaac211debb383ed43f7",
+      "record_status": "PASS"
+    },
+    {
+      "id": 106,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 3,
+      "source_sha256": "de6004236eaeb2fcd8143f3cd1ceed753cc012740ebcc10e703db1320ce45694",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "bb9c437fa04fa63e4d071377df58973f3ede019e54ce404f3c46f2f2c1d4482e",
+      "source_was_substituted": true,
+      "expected_outcome": "Persistent service starts and serves a real HTTP request",
+      "exit_code": null,
+      "duration_seconds": 3.316443999996409,
+      "substitutions": {
+        "C:\\BDP\\outputs\\smoke-实际编号": "C:\\BDP\\outputs\\smoke-4f25db62748a40d4b33fcf7b8ef6a7f1"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "health": {
+          "status": "ready",
+          "index_version": "f20e967d0b24963e8df9f126a0ca72557c509ec07f107551fa2138b852abd3db",
+          "data_version": "3be8e82251cbf2b3aa189da8a711ea4b0db0b78f011c88ef6ce29e1d5a435d13",
+          "authentication": "simulated_role_loopback_only"
+        },
+        "dependent_http_blocks": "PASS"
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-03.log",
+      "evidence_log_sha256": "8a670cd98602ec24f683ab8a0d6f6d87d991065646057629851776e3bae73ac9",
+      "record_status": "PASS"
+    },
+    {
+      "id": 107,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 4,
+      "source_sha256": "ee0a888d1f3d14aab5f0a1fddc74b217b6ff858f2ef45b12c55373c28c5bc192",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "62de0102e8e308ce670537aa8df1564e84e3870af3aac2b75233fa1c1fb7d0c5",
+      "source_was_substituted": true,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 2.254272599995602,
+      "substitutions": {
+        "C:\\BDP\\outputs\\smoke-实际编号": "C:\\BDP\\outputs\\smoke-4f25db62748a40d4b33fcf7b8ef6a7f1"
+      },
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "release_ready.*true": true
+        },
+        "forbidden_patterns": {
+          "Traceback": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-04.log",
+      "evidence_log_sha256": "1ae5a118c7a0310e61d7163b343878d465e5d9bf3490e53555835c5e6ef2dc56",
+      "record_status": "PASS"
+    },
+    {
+      "id": 108,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 5,
+      "source_sha256": "5b9c135483f2fa9c7bd2ccb78942edcb2c7176cf221923ec486bcf79a2fe9ade",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "5b9c135483f2fa9c7bd2ccb78942edcb2c7176cf221923ec486bcf79a2fe9ade",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 0.2699964000203181,
+      "substitutions": {},
+      "prerequisites": "$env:BDP_ROOT = 'C:\\BDP\\outputs\\smoke-4f25db62748a40d4b33fcf7b8ef6a7f1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-05.log",
+      "evidence_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_status": "PASS"
+    },
+    {
+      "id": 109,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 6,
+      "source_sha256": "26c5d6629c1fed690a6dc469aa64c916ceee6288ca377e6840318c36df937b71",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "26c5d6629c1fed690a6dc469aa64c916ceee6288ca377e6840318c36df937b71",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 3.796721799997613,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-06.log",
+      "evidence_log_sha256": "4882483150b7801502ca594da2b28b65e2afc419b5c1227ddf23764a67a55316",
+      "record_status": "PASS"
+    },
+    {
+      "id": 110,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 7,
+      "source_sha256": "c163a7166aea72b02159b194db9047c0ce28c6f216f2df6930a1a96078288269",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "c163a7166aea72b02159b194db9047c0ce28c6f216f2df6930a1a96078288269",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 8.709690399991814,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-07.log",
+      "evidence_log_sha256": "e91cc46a63c4d906dc295cfed172e126da2b8f4e6100224a4555cebeedde4ae1",
+      "record_status": "PASS"
+    },
+    {
+      "id": 111,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 8,
+      "source_sha256": "59a35241cb920f71b096a73161898e041b73418c846f84200c5b2705ec970894",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "59a35241cb920f71b096a73161898e041b73418c846f84200c5b2705ec970894",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 9.384060699987458,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-08.log",
+      "evidence_log_sha256": "636e2609c6142a6f731f81f4ca8ade05932fa8f7c53dea3fbd0ab57fcdef6967",
+      "record_status": "PASS"
+    },
+    {
+      "id": 112,
+      "source_file": "docs/教师实施与验收指南.md",
+      "block_number": 9,
+      "source_sha256": "78192b4a6e5c19c460dc1533b094296e0dc365b39f42be28f9dc6e8333f02c32",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "78192b4a6e5c19c460dc1533b094296e0dc365b39f42be28f9dc6e8333f02c32",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 15.847540100017795,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {
+          "Traceback": false,
+          "ERROR:": false
+        }
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/teacher/block-09.log",
+      "evidence_log_sha256": "94f3f36dbc4d6c7c258e6b14390ce194e1c62b9114e97489c02e1db490db975c",
+      "record_status": "PASS"
+    },
+    {
+      "id": 113,
+      "source_file": "README.md",
+      "block_number": 1,
+      "source_sha256": "3b117e34e91358a0ff652af69d0d6c6233975f7dc31dfa193d34f8a475c104cc",
+      "status": "PASS",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": false,
+      "executed_code_sha256": "3b117e34e91358a0ff652af69d0d6c6233975f7dc31dfa193d34f8a475c104cc",
+      "source_was_substituted": false,
+      "expected_outcome": "Command completes and its expected output is observed",
+      "exit_code": 0,
+      "duration_seconds": 136.03602819997468,
+      "substitutions": {},
+      "prerequisites": "",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {
+          "hash_matches": true,
+          "true": true
+        },
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/readme/block-01.log",
+      "evidence_log_sha256": "465729010320ec9b927bd3203703f9a6f63f814b6ea5343a742c5aa6445ae7c4",
+      "record_status": "PASS"
+    },
+    {
+      "id": 114,
+      "source_file": "报告模板/实验报告模板.md",
+      "block_number": 1,
+      "source_sha256": "274af2fc4f865a85e74941171f6a2f3c0ed56e53460e1cd95dfc0498260f4889",
+      "status": "PASS_NOOP_TEMPLATE",
+      "attempt_count": 1,
+      "current_source_attempts": 1,
+      "comment_only": true,
+      "executed_code_sha256": "274af2fc4f865a85e74941171f6a2f3c0ed56e53460e1cd95dfc0498260f4889",
+      "source_was_substituted": false,
+      "expected_outcome": "Comment-only evidence template is valid PowerShell; no computational claim",
+      "exit_code": 0,
+      "duration_seconds": 0.24980109999887645,
+      "substitutions": {},
+      "prerequisites": "$env:PYTHONUTF8 = '1'",
+      "workdir": "C:\\BDP",
+      "observed_outcome": {
+        "expected_patterns": {},
+        "forbidden_patterns": {}
+      },
+      "evidence_files_verified": true,
+      "evidence_log": "root/report/block-01.log",
+      "evidence_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_status": "PASS"
+    }
+  ]
+}

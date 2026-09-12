@@ -1,0 +1,118 @@
+{
+  "captured_at_utc": "2026-09-12T06:25:43.448777+00:00",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1",
+    "dask": "2026.8.0",
+    "distributed": "2026.8.0",
+    "moto": "5.2.3",
+    "fastapi": "0.141.1",
+    "uvicorn": "0.52.4",
+    "numpy": "2.5.3",
+    "sentence-transformers": "6.0.1",
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "huggingface-hub": "1.31.0"
+  },
+  "evidence": [
+    {
+      "source": "outputs/lab01/storage.json",
+      "file": "lab01-storage.json",
+      "sha256": "a2ea9db340da48e17cac7a8c6d55dc35ab75e278f98e66a48702478c125d57a7",
+      "source_sha256": "a2ea9db340da48e17cac7a8c6d55dc35ab75e278f98e66a48702478c125d57a7"
+    },
+    {
+      "source": "outputs/lab02/quality.json",
+      "file": "lab02-quality.json",
+      "sha256": "e3b5d16e78ca23ec12a25e172e63f34ec5e970719bf7ff7da0764a025b7c1ecc",
+      "source_sha256": "e3b5d16e78ca23ec12a25e172e63f34ec5e970719bf7ff7da0764a025b7c1ecc"
+    },
+    {
+      "source": "outputs/lab02/quarantine.json",
+      "file": "lab02-quarantine.json",
+      "sha256": "005e294fcf577774b4b1de52492657116da2b1507b2d762cfde80c7d2287678e",
+      "source_sha256": "005e294fcf577774b4b1de52492657116da2b1507b2d762cfde80c7d2287678e"
+    },
+    {
+      "source": "outputs/lab03/benchmark-w1-p8.json",
+      "file": "lab03-benchmark-w1-p8.json",
+      "sha256": "cfef12e39d3f3eae62c38f5a70fabc9a49bfdc03a1fb8f2974b82e1538bce7f8",
+      "source_sha256": "cfef12e39d3f3eae62c38f5a70fabc9a49bfdc03a1fb8f2974b82e1538bce7f8"
+    },
+    {
+      "source": "outputs/lab03/benchmark-w2-p8.json",
+      "file": "lab03-benchmark-w2-p8.json",
+      "sha256": "1c46f2bb5f64c41623ddbbf41365bf1ee692e96e33f4711d8f69a853e08ae7f4",
+      "source_sha256": "1c46f2bb5f64c41623ddbbf41365bf1ee692e96e33f4711d8f69a853e08ae7f4"
+    },
+    {
+      "source": "outputs/lab04/replay.json",
+      "file": "lab04-replay.json",
+      "sha256": "128c3ae305d652ab20bed967c920862c535f3d77538f851828a589bbd8c41491",
+      "source_sha256": "fad3c7e8005d66fbebe664189091af9250a9f4c7fd846f5f59839ef32e46b8eb"
+    },
+    {
+      "source": "outputs/lab05/retrieval_lexical.json",
+      "file": "lab05-retrieval_lexical.json",
+      "sha256": "2b05b3f59b11a03b4eef048c3d686ffb6f0bd04ef32011561fc73a808f9bf68c",
+      "source_sha256": "2b05b3f59b11a03b4eef048c3d686ffb6f0bd04ef32011561fc73a808f9bf68c"
+    },
+    {
+      "source": "outputs/lab05/retrieval_semantic.json",
+      "file": "lab05-retrieval_semantic.json",
+      "sha256": "77ff940543c7444cf5d62d3db57096a255dc899be6c2762ca966dc4e36b4a4de",
+      "source_sha256": "77ff940543c7444cf5d62d3db57096a255dc899be6c2762ca966dc4e36b4a4de"
+    },
+    {
+      "source": "outputs/lab06/evaluation_dev_extractive.json",
+      "file": "lab06-evaluation_dev_extractive.json",
+      "sha256": "30fc074c735fc8b938ebd1808e216b668f3aed9e3311b121211532ff12d5156c",
+      "source_sha256": "30fc074c735fc8b938ebd1808e216b668f3aed9e3311b121211532ff12d5156c"
+    },
+    {
+      "source": "outputs/lab06/evaluation_test_extractive.json",
+      "file": "lab06-evaluation_test_extractive.json",
+      "sha256": "1d45abbe4e8d96aae3a6bb91314ccf5976d92758542d6eed8421f4484203f105",
+      "source_sha256": "1d45abbe4e8d96aae3a6bb91314ccf5976d92758542d6eed8421f4484203f105"
+    },
+    {
+      "source": "outputs/lab06/evaluation_dev_semantic_extractive.json",
+      "file": "lab06-evaluation_dev_semantic_extractive.json",
+      "sha256": "6939de33dcae060d8f99892ce2089c5d9166b2d56ba6dc678942c072a2d5f056",
+      "source_sha256": "6939de33dcae060d8f99892ce2089c5d9166b2d56ba6dc678942c072a2d5f056"
+    },
+    {
+      "source": "outputs/lab06/evaluation_dev_ollama.json",
+      "file": "lab06-evaluation_dev_ollama.json",
+      "sha256": "6fea072d569527982252b97f02c325034f8e855a92a0634089d92c3d1ca30e04",
+      "source_sha256": "6fea072d569527982252b97f02c325034f8e855a92a0634089d92c3d1ca30e04"
+    },
+    {
+      "source": "outputs/lab06/evaluation_test_ollama.json",
+      "file": "lab06-evaluation_test_ollama.json",
+      "sha256": "a73cebbeb56d96a6e603ff984da175d3852e29957d669331adb542402b844e47",
+      "source_sha256": "a73cebbeb56d96a6e603ff984da175d3852e29957d669331adb542402b844e47"
+    },
+    {
+      "source": "outputs/lab07/load_test.json",
+      "file": "lab07-load_test.json",
+      "sha256": "8e777aa328f3a1d4f8adb49d457def7ff8d47f34f77421b426ea69d4d214148c",
+      "source_sha256": "8e777aa328f3a1d4f8adb49d457def7ff8d47f34f77421b426ea69d4d214148c"
+    },
+    {
+      "source": "outputs/lab08/release_checks.json",
+      "file": "lab08-release_checks.json",
+      "sha256": "f1bf33e57c93ae13ac3f4b222ed037ff9b97252970023980deaad81a55a8a714",
+      "source_sha256": "f1bf33e57c93ae13ac3f4b222ed037ff9b97252970023980deaad81a55a8a714"
+    },
+    {
+      "source": "outputs/local-model-probe/result.json",
+      "file": "local-model-probe-result.json",
+      "sha256": "69b4bec20920d09c93aea1402d5b357f44361967e7636f4b222a3269ed4cf31b",
+      "source_sha256": "212f5ee92110228aea8f7ea488986daf0750877766e277eec6cb45efd6c9ea7c"
+    }
+  ],
+  "note": "Actual instructor artifacts, not student submission evidence. Public summaries replace local user directories with <USER_PROFILE>; original teacher outputs remain unchanged."
+}
