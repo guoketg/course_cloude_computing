@@ -7,4 +7,4 @@
 
 在项目根目录执行 `python -m coursekit lab08`，解释器应为项目 `.venv\Scripts\python.exe`。必须先拥有实验01—07产物；不能只复制一份通过报告代替运行。
 
-个人核心改动为加入silver_lineage第八项检查；另在临时语料副本中完成审核状态对照。当前发布门禁仅验证课程本机extractive服务，真实LLM的失败需另外披露。
+个人核心改动为加入 silver_lineage 第八项检查；审核状态对照为观察项。当前发布门禁验证课程本机 extractive 服务；只有选择模型路径者才另外披露本人模型结果和失败。

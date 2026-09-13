@@ -1,0 +1,17 @@
+{
+  "offline": true,
+  "mode": "semantic",
+  "model_id": "BAAI/bge-small-zh-v1.5",
+  "model_revision": "57f3460a6110a0c86fc263b155d6ca28a86a3c1dd87aacbe78220d4a2e5f7de0",
+  "query": "课程令牌配额和预算是多少？",
+  "top_doc_ids": [
+    "quota",
+    "budget",
+    "citation"
+  ],
+  "top_scores": [
+    0.5339598387605364,
+    0.4309383785263058,
+    0.3233840147683573
+  ]
+}

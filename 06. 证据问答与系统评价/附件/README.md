@@ -9,4 +9,4 @@
 
 标准命令为 `python -m coursekit lab06 --split dev --generator extractive` 和 `--generator ollama`。测试阶段使用 `--split test`。请始终用项目 `.venv\Scripts\python.exe`。
 
-独立作业位于 `answer()` 的证据选择逻辑；不要修改测试标签或把评价结果固定写成1.0。默认摘录路径不是LLM，模型无法运行须留下真实SKIP记录。
+独立作业位于 `answer()` 的证据选择逻辑；不要修改测试标签或把评价结果固定写成 1.0。默认摘录路径不是 LLM；未选择模型路径无需模型状态记录，选择者必须保留真实调用或失败证据。

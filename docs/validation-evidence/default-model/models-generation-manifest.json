@@ -1,0 +1,29 @@
+{
+  "schema": 2,
+  "repo_id": "ggml-org/Qwen3.5-0.8B-GGUF",
+  "repo_revision": "8fea620810c4afa23dd6443f999a48574c1611a3",
+  "source_repo_id": "ggml-org/Qwen3.5-0.8B-GGUF",
+  "source_revision": "f4fd0fca9036bac9116b2abf38797fad94b0087e",
+  "filename": "Qwen3.5-0.8B-Q8_0.gguf",
+  "quantization": "Q8_0",
+  "artifact_bytes": 833592096,
+  "artifact_sha256": "37ae482d336108d23516fa35e8e0c4126688d81018b87178a18d752a1357814f",
+  "source_kind": "local-distribution",
+  "download_endpoint": "https://modelscope.cn",
+  "source_url": null,
+  "redirect_hosts": [],
+  "final_host": null,
+  "ollama_tag": "bdp-qwen35:0.8b-q8_0",
+  "modelfile": "qwen35/Modelfile",
+  "modelfile_sha256": "83c937fc4f41626c5101c3651bc55c3a82c516ef5633392a00e4d1e873526a55",
+  "runtime_defaults": {
+    "think": false,
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "num_gpu": 0
+  },
+  "note": "Community GGUF conversion, distinct from the official Ollama tag and digest.",
+  "ollama_digest": "de4506c7a2b826cc6f540640208223a770dc62d49513b8ff59d21f6e3364fdea",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "source_reference_url": "https://modelscope.cn/models/ggml-org/Qwen3.5-0.8B-GGUF/resolve/f4fd0fca9036bac9116b2abf38797fad94b0087e/Qwen3.5-0.8B-Q8_0.gguf"
+}

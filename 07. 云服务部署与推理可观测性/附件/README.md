@@ -7,4 +7,4 @@
 
 在项目根目录终端A运行 `python -m uvicorn coursekit.service:app --host 127.0.0.1 --port 8000`，终端B运行 `python -m coursekit lab07 --requests 20`；请把python替换为项目 `.venv\Scripts\python.exe`。
 
-学生独立修改缓存容量和固定统计短语。此服务的role由请求模拟，只能本机教学；当前HTTP默认摘录，真实LLM计量沿用实验06，不得混称。
+学生独立增加一条固定统计短语并提交正负例；缓存容量改为观察项。此服务的 role 由请求模拟，只能本机教学；当前 HTTP 默认摘录，选择模型路径者可引用本人实验 06 的模型计量，不得混称。

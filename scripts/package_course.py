@@ -23,11 +23,14 @@ def main():
         raise RuntimeError(f'Missing deliverable: {missing}')
     manifest = [{'file': str(p.relative_to(ROOT)).replace('\\', '/'), 'bytes': p.stat().st_size,
                  'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]
+    manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2)
+    # Write bytes so Windows newline translation cannot turn LF into CRLF.
+    (ROOT / '交付文件清单.json').write_bytes(manifest_text.encode('utf-8'))
     path = ROOT / 'BDP_云计算与大数据处理_课程完整包.zip'
     with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as archive:
         for file in files:
             archive.write(file, 'BDP/' + file.relative_to(ROOT).as_posix())
-        archive.writestr('BDP/交付文件清单.json', json.dumps(manifest, ensure_ascii=False, indent=2))
+        archive.writestr('BDP/交付文件清单.json', manifest_text)
     with zipfile.ZipFile(path) as archive:
         bad = archive.testzip()
         if bad:

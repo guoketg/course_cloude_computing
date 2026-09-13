@@ -16,13 +16,13 @@ Get-ChildItem
 
 第一条切换当前工作目录；第二条应显示 `C:\BDP`；第三条列出文件。路径只是本手册约定，如果实际路径不同，修改 `Set-Location` 后所有相对路径仍可使用。含空格的路径要加引号，例如 `Set-Location 'D:\My Courses\BDP'`。
 
-各章用 Git 的 `diff --no-index` 保存本人改动，因此也需安装 [Git for Windows](https://git-scm.com/downloads/win)，可由学校统一部署。安装后重开 PowerShell，运行 `git --version` 核对。这里不需要注册 Git 账号，也不需要创建远程仓库。`git diff --no-index` 比较两个本地文件，有差异时退出码为1，这是它的正常约定，不表示文件比较失败。代码编辑器可用已有的 VS Code 或其他能保存 UTF-8 的文本编辑器。
+各章用 Git 的 `diff --no-index` 保存本人改动，因此也需安装 Git for Windows，优先使用学校校内分发并经 SHA256 核对的安装包；教师准备机可从[官方页面](https://git-scm.com/downloads/win)取得并归档同一制品。安装后重开 PowerShell，运行 `git --version` 核对。这里不需要注册 Git 账号，也不需要创建远程仓库。`git diff --no-index` 比较两个本地文件，有差异时退出码为1，这是它的正常约定，不表示文件比较失败。代码编辑器可用已有的 VS Code 或其他能保存 UTF-8 的文本编辑器。
 
 复制代码块时不包含前后的三个反引号。出现 `PS C:\BDP>` 之类终端提示符时也不应复制。不要把 Python 代码直接当 PowerShell 命令执行。
 
 ## 2. 安装 Python 3.12 并创建独立环境
 
-从 [Python 官方 Windows 下载页面](https://www.python.org/downloads/windows/) 获取 Python 3.12 系列 x64 安装器。本次运行验证使用 3.12.10；学校统一部署时优先沿用该已验组合，升级补丁后需重跑验收。安装时启用 Python Launcher；若已安装 3.12，不要重复安装。
+优先使用学校校内分发并经 SHA256 核对的 Python 3.12 x64 安装器；教师准备机可从 [Python 官方 Windows 下载页面](https://www.python.org/downloads/windows/) 取得并归档同一制品。本次运行验证使用 3.12.10；学校统一部署时优先沿用该已验组合，升级补丁后需重跑验收。安装时启用 Python Launcher；若已安装 3.12，不要重复安装。
 
 ```powershell
 py -0p
@@ -45,7 +45,8 @@ py -3.12 -m venv .venv
 
 ```powershell
 $env:PYTHONUTF8 = '1'
-.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
+$coursePyPI = 'https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple'
+.\.venv\Scripts\python.exe -m pip install --index-url $coursePyPI -r requirements.lock.txt
 if ($LASTEXITCODE -ne 0) { throw '依赖安装失败，请先处理上方第一条错误' }
 .\.venv\Scripts\python.exe -m pip check
 .\.venv\Scripts\python.exe -c "import duckdb, pyarrow, dask, distributed, moto, numpy, fastapi; print('BASE_IMPORT_OK')"
@@ -53,7 +54,7 @@ if ($LASTEXITCODE -ne 0) { throw '依赖安装失败，请先处理上方第一�
 
 环境变量 `PYTHONUTF8` 使 Python 在终端/文件默认处理时使用 UTF-8；关闭窗口后本次设置失效，可在新窗口重设。文件读写代码仍显式声明 UTF-8。`pip install -r` 按锁文件逐项安装，包括间接依赖；`pip check` 检查包之间的版本要求；最后一条只做导入预检。导入成功不代表后续八个实验已经运行。
 
-本次依赖分为三个用途：`requirements.lock.txt` 是原生 Windows 基线；`requirements-models.lock.txt` 在基线上增加真实嵌入模型的 Python 依赖；`requirements.container.txt` 供 Linux 容器构建，剔除了 Windows 专有包。不要用 `pip install -U` 随意升级单个包后继续宣称同一环境。
+本次依赖分为三个用途：`requirements.lock.txt` 是原生 Windows 基线；`requirements-models.lock.txt` 在基线上增加真实嵌入模型的 Python 依赖；`requirements.container.txt` 供 Linux 容器构建，剔除了 Windows 专有包。两个 Windows 锁文件固定版本，但没有内嵌 wheel 哈希；镜像改变了制品来源，不能仅凭版本号声称字节一致。不要使用 `extra-index-url` 混合多个来源，也不要用 `pip install -U` 随意升级单个包后继续宣称同一环境。
 
 首次依赖安装时间受校园网影响，可能数分钟至更久，因此计入课前部署。不要把安装耗时当作算法推理耗时。
 
@@ -64,16 +65,19 @@ if ($LASTEXITCODE -ne 0) { throw '依赖安装失败，请先处理上方第一�
 ```powershell
 Set-Location C:\BDP
 New-Item -ItemType Directory -Force wheelhouse | Out-Null
-.\.venv\Scripts\python.exe -m pip download -r requirements-models.lock.txt -d wheelhouse
+$coursePyPI = 'https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple'
+.\.venv\Scripts\python.exe -m pip download --index-url $coursePyPI -r requirements-models.lock.txt -d wheelhouse
+.\.venv\Scripts\python.exe scripts\artifact_manifest.py create .\wheelhouse .\wheelhouse-manifest.json
 ```
 
 教师须确认下载完整，并在断网的干净学生环境演练安装。将 `wheelhouse` 随部署包分发后，学生执行：
 
 ```powershell
+.\.venv\Scripts\python.exe scripts\artifact_manifest.py verify .\wheelhouse .\wheelhouse-manifest.json
 .\.venv\Scripts\python.exe -m pip install --no-index --find-links .\wheelhouse -r requirements-models.lock.txt
 ```
 
-`--no-index` 禁止联网搜索，`--find-links` 指向本地包目录。Windows wheel 不能直接拿到 Linux 容器安装。wheel 包只包含 Python 程序依赖，不包含 BGE 模型权重，也不包含 Ollama 模型。
+`--no-index` 禁止联网搜索，`--find-links` 指向本地包目录。校验失败必须停止并重新取得教师发布的制品，不能静默切换到境外源。Windows wheel 不能直接拿到 Linux 容器安装。wheel 包只包含 Python 程序依赖，不包含 BGE 模型权重，也不包含 Ollama 模型。
 
 ## 4. 建立个人身份与数据
 
@@ -88,28 +92,30 @@ New-Item -ItemType Directory -Force wheelhouse | Out-Null
 
 生成的数据可以直接用于课程，不需要学生注册数据平台，也不包含真实个人信息。文档中的 CPU 配额、保留时间等均为虚构题设，不是实际校规。
 
-## 5. 模型课前准备：标准教学的第二阶段
+## 5. 可选模型对照的课前准备
 
-先在实验 01–04 完成后运行词法基线，再按实验 05 的具体步骤构建真实语义索引。模型准备可以提前下载，不能提前替学生完成检索分析。
+不安装模型也能完成 01—08 的基础路径并取得完整基础分。选择模型对照的学生，先在实验 01—04 后运行词法基线，再按实验 05 的具体步骤构建真实语义索引；模型准备可由教师提前完成，不能替学生完成检索分析。
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-models.lock.txt
+.\.venv\Scripts\python.exe scripts\artifact_manifest.py verify .\wheelhouse .\wheelhouse-manifest.json
+.\.venv\Scripts\python.exe -m pip install --no-index --find-links .\wheelhouse -r requirements-models.lock.txt
 ```
 
-嵌入模型使用 `BAAI/bge-small-zh-v1.5`，短查询与文档使用的前缀规则见 [官方模型卡](https://huggingface.co/BAAI/bge-small-zh-v1.5)。课程将其作为可在 CPU 上复现的中文嵌入示例，不称其为当前性能最强的模型。首次模型下载需网络，实际 revision 会记录到索引报告；教师应固定、分发并验证同一 revision。
+嵌入模型固定为 `BAAI/bge-small-zh-v1.5`。课程将其作为可在 CPU 上复现的中文嵌入示例，不称其为当前性能最强的模型。教师固定并分发同一制品；学生无须访问 Hugging Face 或 ModelScope。
 
-教师在联网机器上执行以下命令，可得到不依赖账户缓存路径的普通文件目录：
+教师在可访问国内 ModelScope 的机器上执行以下命令，可得到不依赖账户缓存路径的普通文件目录。脚本逐文件固定版本、字节数和 SHA256，只允许 `modelscope.cn` 及其子域；若重定向到境外或其他未授权域名会立即失败，不会改走 Hugging Face：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\prepare_embedding.py
 Get-Content -LiteralPath .\models\embedding-manifest.json -Encoding UTF8
 ```
 
-脚本固定上游提交 `7999e1d3359715c523056ef9478215996d62a620`，只下载所需配置和 safetensors 权重，将文件复制到 `models\bge-small-zh-v1.5`，并把逐文件散列清单放在模型目录外。该模型包单独分发；课程的小型 ZIP 不包含模型权重。
+脚本同时记录 Hugging Face 上游提交 `7999e1d3359715c523056ef9478215996d62a620` 和国内 ModelScope 源提交 `8399f11f8da998fe932df2684586c92024219d05`，只下载运行所需的配置、分词器和 safetensors 权重。权重为 95827648 字节，SHA256 为 `354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026`。逐文件散列清单位于 `models\embedding-manifest.json`；模型包单独分发，课程的小型 ZIP 不包含模型权重。
 
 学生收到模型目录后，在完成01—04且准备进行05的语义对照时，可复制执行：
 
 ```powershell
+.\.venv\Scripts\python.exe scripts\prepare_embedding.py --verify-only
 $env:BDP_EMBED_MODEL = (Resolve-Path .\models\bge-small-zh-v1.5).Path
 $env:HF_HUB_OFFLINE = '1'
 .\.venv\Scripts\python.exe -m coursekit lab05 --mode semantic
@@ -123,18 +129,26 @@ Remove-Item Env:BDP_EMBED_MODEL -ErrorAction SilentlyContinue
 .\.venv\Scripts\python.exe -m coursekit lab05 --mode lexical
 ```
 
-这些 `Remove-Item Env:` 命令只移除当前终端的环境变量，不删除模型文件。离线部署时应同时准备 Python wheel、模型普通目录与 Ollama 模型；三者作用不同。
+这些 `Remove-Item Env:` 命令只移除当前终端的环境变量，不删除模型文件。学生运行语义实验只读取教师分发的本地目录，不需要连接 Hugging Face。离线部署时应同时准备 Python wheel、模型普通目录与 Ollama 模型；三者作用不同。
 
-Ollama 从 [官方 Windows 说明](https://docs.ollama.com/windows) 下载并安装，完成后重开终端：
+Ollama Windows 安装包由学校按许可校内分发并附 SHA256；当前没有经课程确认的高校公共镜像地址。教师另行准备固定社区 GGUF：仓库 `ggml-org/Qwen3.5-0.8B-GGUF`、Hugging Face 上游 revision `8fea620810c4afa23dd6443f999a48574c1611a3`、ModelScope 源 revision `f4fd0fca9036bac9116b2abf38797fad94b0087e`、文件 `Qwen3.5-0.8B-Q8_0.gguf`、833592096 字节、SHA256 `37ae482d336108d23516fa35e8e0c4126688d81018b87178a18d752a1357814f`。教师从国内 ModelScope 准备文件和清单：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_generation.py prepare
+```
+
+教师将 `models\qwen35` 与 `models\generation-manifest.json` 随离线模型包分发。学生把它们放到课程根目录后执行：
 
 ```powershell
 ollama --version
-ollama pull qwen3:0.6b
+.\.venv\Scripts\python.exe scripts\prepare_generation.py verify
+.\.venv\Scripts\python.exe scripts\prepare_generation.py import-ollama
 ollama list
+$env:BDP_OLLAMA_MODEL = 'bdp-qwen35:0.8b-q8_0'
 Invoke-RestMethod -Uri http://127.0.0.1:11434/api/tags
 ```
 
-`pull` 下载模型；`list` 列出本机已安装模型；最后一条访问本地模型服务的 API。模型文件大小和真正运行时的内存占用不同，还需给运行时、KV cache 和 Windows 留出空间。下载模型后无需按 token 付费。Ollama 的默认应用通常在安装后运行；如本地接口无法连接，先打开 Ollama，再检查端口，不能把下载完成当作服务已可用。
+`prepare_generation.py` 的默认下载同样只允许 ModelScope 国内域名；学校已有同一 SHA256 的静态镜像时，可用 `--artifact-url` 指定，并用 `--allowed-host` 明确列出必要的国内重定向域名。脚本在导入前再次检查 GGUF 和 Modelfile，使用自定义 tag，避免连接 Ollama Registry。该 GGUF 是社区转换制品，不等于 Ollama 官方 tag 或 digest。默认请求关闭 thinking，使用 CPU、2线程、上下文2048、最多输出256 token；代码不会自动启用 GPU。模型文件大小和真正运行时内存不同，还需给运行时、KV cache 和 Windows 留出空间。本地运行无需按 token 付费。Ollama 应用通常在安装后运行；如本地接口无法连接，先打开 Ollama，再检查端口，不能把文件导入完成当作服务已可用。
 
 此课程的小模型可能生成错误引用、遗漏条件或错误回答，这些都是实验 06 应保留和分析的观察。课程评价不要求小模型必然优于摘录基线。
 

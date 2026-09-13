@@ -1,0 +1,37 @@
+{
+  "run_id": "a4846cd28a6a",
+  "database": "<USER_PROFILE>\\Documents\\AgenticProjects\\BDP\\outputs\\smoke-35241a20411644c7ab420f7defe20cbc\\data\\state\\runs\\a4846cd28a6a\\events.sqlite",
+  "source_rows": 20000,
+  "initial_inserted": 20000,
+  "duplicate_inserted": 0,
+  "failure_injected": true,
+  "rows_after_failure": 20000,
+  "offset_before": 20000,
+  "offset_after_failure": 20000,
+  "recovered_inserted": 1,
+  "late_inserted": 1,
+  "final_rows": 20002,
+  "final_offset": 20002,
+  "late_policy": "accept and recompute historical aggregate; no watermark implemented",
+  "aggregate": [
+    {
+      "service": "assistant",
+      "requests": 14009,
+      "input_tokens": 12633388,
+      "output_tokens": 4310320
+    },
+    {
+      "service": "batch",
+      "requests": 2023,
+      "input_tokens": 1816567,
+      "output_tokens": 616515
+    },
+    {
+      "service": "search",
+      "requests": 3970,
+      "input_tokens": 3568992,
+      "output_tokens": 1219714
+    }
+  ],
+  "semantics": "single-database transactional effect with event_id deduplication; not global exactly-once"
+}
