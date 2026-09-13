@@ -178,7 +178,7 @@ def capture(profile: str, root: Path = ROOT, target_root: Path | None = None,
     if profile not in {'base', 'default-model'}:
         raise ValueError('profile must be base or default-model')
     paths = BASE_PATHS if profile == 'base' else DEFAULT_MODEL_PATHS
-    target_root = target_root or root / 'docs/validation-evidence'
+    target_root = target_root or root / '控制文档/验证证据'
     model_root = model_root or root
     target = target_root / profile
     target.mkdir(parents=True, exist_ok=True)

@@ -5,6 +5,6 @@
 - [完整手册](../实验手册.md)：两个终端、UTF-8请求、指标、故障与容器说明。
 - [评分标准](../实验报告提交及评分标准.md)：独立改动、证据和报告结构。
 
-在项目根目录终端A运行 `python -m uvicorn coursekit.service:app --host 127.0.0.1 --port 8000`，终端B运行 `python -m coursekit lab07 --requests 20`；请把python替换为项目 `.venv\Scripts\python.exe`。
+在项目根目录的终端 A 运行 `.\.venv\Scripts\python.exe -m uvicorn coursekit.service:app --host 127.0.0.1 --port 8000`，终端 B 运行 `.\.venv\Scripts\python.exe -m coursekit lab07 --requests 20`。
 
-学生独立增加一条固定统计短语并提交正负例；缓存容量改为观察项。此服务的 role 由请求模拟，只能本机教学；当前 HTTP 默认摘录，选择模型路径者可引用本人实验 06 的模型计量，不得混称。
+请独立增加一条固定统计短语并提交正负例；缓存容量是观察项。此服务的 role 由请求模拟，只在本机实验；当前 HTTP 默认使用摘录生成器，模型计量来自本人实验 06 的 Ollama 结果，两类时间应分列记录。

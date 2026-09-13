@@ -7,6 +7,6 @@
 - [完整实验手册](../实验手册.md)：逐阶段操作及预期结果。
 - [报告与评分](../实验报告提交及评分标准.md)：必交证据和评分分母。
 
-标准入口：`python -m coursekit lab05 --mode lexical`，真实语义对照为 `--mode semantic`；实际执行请使用项目 `.venv\Scripts\python.exe`。
+标准入口：`.\.venv\Scripts\python.exe -m coursekit lab05 --mode lexical`；语义对照把最后一个参数改为 `--mode semantic`。
 
-附件不再提供一份脱离前四次实验的数据副本。源码已可运行；基础路径学生在 `coursekit/intelligence.py` 的 `search()` 候选过滤处完成未知可见性 fail-closed 改动，并用正常 public/internal 正例和未知标签负例验证。第二种关键词方法、RRF 和切分参数变式为进阶；“只运行现成脚本”不能取得独立操作分。
+本实验同时读取 `data/raw/documents.jsonl` 中的规则文档和实验 04 生成的 `data/gold/realtime_service.json`，两者的哈希共同进入索引身份，因此附件目录不含单独的数据副本。请在 `coursekit/intelligence.py` 的 `search()` 候选过滤处完成未知可见性 fail-closed 改动，并用正常 public/internal 正例和未知标签负例验证。第二种关键词方法、RRF 和切分参数变式可用于进阶比较；独立操作分以你的代码改动、预测和正负例证据为准。

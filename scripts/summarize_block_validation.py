@@ -97,7 +97,7 @@ def main():
                'scope':'All distributable powershell fenced blocks, matched to current source hashes. A comment-only template is counted separately.',
                'blocks':len(ledger),'counts':dict(Counter(e['status'] for e in ledger)),
                'retained_attempt_records':len(records),'unverified':[e['id'] for e in ledger if e['status']=='UNVERIFIED_CURRENT_SOURCE']}
-    target=ROOT/'docs/validation-evidence/powershell-block-coverage.json'
+    target=ROOT/'控制文档/验证证据/powershell-block-coverage.json'
     published = public_metadata({'summary':summary,'blocks':ledger})
     published['summary']['path_redaction'] = 'Local user directories are shown as <USER_PROFILE>. Original paths and logs remain in the separate teacher evidence archive.'
     target.write_text(json.dumps(published,ensure_ascii=False,indent=2),encoding='utf-8')
@@ -106,12 +106,12 @@ def main():
           '这份清单由当前文档代码散列与真实执行记录匹配生成。更改代码块后，旧记录不会自动计为通过。完整日志、初次失败及复验过程保存在独立的《BDP_全量验证证据_教师留存.zip》中。','',
           'PASS 表示实际执行并满足该块的输出或产物检查；EXPECTED_FAILURE_VERIFIED 表示故障演示按预期拒绝；PASS_NOOP_TEMPLATE 仅表示注释模板可解析，不代表一次计算实验。人工操作、跨窗口环境和测试路径替换见全量验证报告。','',
           f'共 {len(ledger)} 个代码块；状态计数：`{json.dumps(summary["counts"],ensure_ascii=False)}`。','',
-          '[机器可读清单](validation-evidence/powershell-block-coverage.json) · [验证报告](全量验证报告.md)','',
+          '[机器可读清单](../验证证据/powershell-block-coverage.json) · [验证报告](全量验证报告.md)','',
           '| 编号 | 文档 | 块号 | 状态 | 当前源码 SHA256 前12位 |','|---|---|---:|---|---|']
     for row in ledger:
-        link=quote('../'+row['source_file'],safe='/')
+        link=quote('../../'+row['source_file'],safe='/')
         rows.append(f'| {row["id"]:03d} | [{row["source_file"]}]({link}) | {row["block_number"]} | {row["status"]} | `{row["source_sha256"][:12]}` |')
-    (ROOT/'docs/全量命令验证清单.md').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+    (ROOT/'控制文档/验证记录/全量命令验证清单.md').write_text('\n'.join(rows)+'\n',encoding='utf-8')
     print(json.dumps(summary,ensure_ascii=False,indent=2))
     if summary['unverified']:
         raise SystemExit(1)
