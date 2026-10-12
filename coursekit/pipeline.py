@@ -6,15 +6,17 @@ import random
 import sqlite3
 import time
 import uuid
+from contextlib import closing
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-from .common import DATA, OUT, emit, read_json, sha256, write_json
+from .common import DATA, OUT, emit, read_evidence, read_json, require_identity, sha256, write_json
 
 
 def seed(rows=20000):
     """Deterministic data; refuses to silently overwrite a modified raw file."""
+    require_identity()
     if rows < 100:
         raise ValueError('rows must be >= 100')
     rng = random.Random(42)
@@ -52,6 +54,7 @@ def require(path, prior):
 
 def lab01(endpoint=None):
     """A real HTTP SDK roundtrip against a clearly labelled cloud API emulator."""
+    require_identity()
     import boto3
     from botocore.config import Config
     from moto.server import ThreadedMotoServer
@@ -120,13 +123,14 @@ def validate_event(row):
 
 
 def lab02():
+    require_identity()
     import duckdb
     import pyarrow as pa
     import pyarrow.parquet as pq
     source = DATA / 'raw/events.jsonl'
     require(source, 'seed / lab01')
     require(OUT / 'lab01/storage.json', 'lab01')
-    if read_json(OUT / 'lab01/storage.json')['source_sha256'] != sha256(source):
+    if read_evidence(OUT / 'lab01/storage.json', lab='01')['source_sha256'] != sha256(source):
         raise ValueError('Raw data changed after lab01; rerun the storage verification before lab02.')
     unique, rejected, duplicates = {}, [], 0
     for line_no, line in enumerate(source.read_text(encoding='utf-8').splitlines(), start=1):
@@ -135,6 +139,10 @@ def lab02():
             reason = validate_event(row) if isinstance(row, dict) else 'not_an_object'
         except json.JSONDecodeError:
             row, reason = {'raw_line': line}, 'invalid_json'
+        if not reason:
+            # All UTC formats accepted by the contract have one stored representation.
+            # Normalize before deduplication, so equivalent timestamps describe one fact.
+            row = {**row, 'event_time': datetime.fromisoformat(row['event_time']).isoformat()}
         if reason:
             rejected.append({'line': line_no, 'reason': reason, 'record': row})
         elif row['event_id'] in unique:
@@ -156,7 +164,7 @@ def lab02():
           SUM(latency_ms)::BIGINT AS latency_ms_sum,
           SUM(CASE WHEN status='error' THEN 1 ELSE 0 END)::BIGINT AS errors
           FROM events GROUP BY service ORDER BY service''').fetchdf()
-        daily = con.execute('''SELECT substr(event_time, 1, 10) AS day, service,
+        daily = con.execute('''SELECT CAST(CAST(event_time AS TIMESTAMP) AS DATE)::VARCHAR AS day, service,
           COUNT(*) AS requests, SUM(input_tokens)::BIGINT AS input_tokens,
           SUM(output_tokens)::BIGINT AS output_tokens
           FROM events GROUP BY day, service ORDER BY day, service''').fetch_arrow_table()
@@ -175,11 +183,13 @@ def lab02():
     (OUT / 'lab02/query-plan.txt').write_text('\n'.join(str(x) for x in plan), encoding='utf-8')
     write_json(DATA / 'manifests/silver.json', {'source_sha256': sha256(source),
                'silver_sha256': sha256(silver), 'rows': len(unique), 'schema': str(table.schema),
-               'contract_version': 1, 'gold_sha256': sha256(gold)})
+               'contract_version': 2, 'gold_sha256': sha256(gold),
+               'time_policy': 'parse accepted UTC ISO timestamps and store canonical datetime.isoformat()'})
     return emit('02', 'verify', quality)
 
 
 def lab03(workers=2, partitions=8):
+    require_identity()
     import duckdb
     import dask.dataframe as dd
     from distributed import Client, LocalCluster
@@ -231,8 +241,19 @@ def lab03(workers=2, partitions=8):
 EVENT_FIELDS = ['event_id', 'event_time', 'service', 'model', 'input_tokens', 'output_tokens', 'latency_ms', 'status']
 
 
+def unused_event_id(prefix, existing_ids):
+    """Choose a deterministic demonstration ID without reserving input namespaces."""
+    candidate, suffix = prefix, 0
+    while candidate in existing_ids:
+        suffix += 1
+        candidate = f'{prefix}-{suffix}'
+    return candidate
+
+
 def apply_batch(con, rows, next_offset, fail_before_commit=False):
     """One SQLite transaction covers the data effect and its checkpoint."""
+    if type(next_offset) is not int or next_offset < 0:
+        raise ValueError('next_offset must be a nonnegative integer')
     before = con.execute('SELECT COUNT(*) FROM events').fetchone()[0]
     try:
         con.execute('BEGIN IMMEDIATE')
@@ -256,55 +277,64 @@ def apply_batch(con, rows, next_offset, fail_before_commit=False):
 
 
 def lab04():
+    require_identity()
     import pyarrow.parquet as pq
     silver = DATA / 'silver/events.parquet'
     require(silver, 'lab02 and lab03')
     require(OUT / 'lab03/benchmark.json', 'lab03')
-    if read_json(OUT / 'lab03/benchmark.json')['silver_sha256'] != sha256(silver):
+    source_hash = sha256(silver)
+    if read_evidence(OUT / 'lab03/benchmark.json', lab='03')['silver_sha256'] != source_hash:
         raise ValueError('Silver data changed after lab03; recompute the batch oracle first.')
     source_rows = pq.read_table(silver).to_pylist()
+    if not source_rows:
+        raise ValueError('No stream input; run lab02 with valid data first.')
+    existing_ids = {row['event_id'] for row in source_rows}
+    fresh_id = unused_event_id('increment-new', existing_ids)
+    existing_ids.add(fresh_id)
+    late_id = unused_event_id('increment-late', existing_ids)
     # A new run directory preserves all previous experiments, including failure evidence.
     run_id = uuid.uuid4().hex[:12]
     db_path = DATA / f'state/runs/{run_id}/events.sqlite'
     db_path.parent.mkdir(parents=True, exist_ok=True)
-    con = sqlite3.connect(db_path)
-    con.executescript('''CREATE TABLE events(event_id TEXT PRIMARY KEY, event_time TEXT NOT NULL,
+    with closing(sqlite3.connect(db_path)) as con:
+        con.executescript('''CREATE TABLE events(event_id TEXT PRIMARY KEY, event_time TEXT NOT NULL,
       service TEXT NOT NULL, model TEXT NOT NULL, input_tokens INTEGER NOT NULL,
       output_tokens INTEGER NOT NULL, latency_ms INTEGER NOT NULL, status TEXT NOT NULL);
       CREATE TABLE checkpoint(id INTEGER PRIMARY KEY CHECK(id=1), offset INTEGER NOT NULL);''')
-    inserted = 0
-    for start in range(0, len(source_rows), 500):
-        batch = source_rows[start:start + 500]
-        inserted += apply_batch(con, batch, start + len(batch))
-    repeated = apply_batch(con, source_rows[:100], len(source_rows))
-    offset_before = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
-    fresh = {**source_rows[-1], 'event_id': 'increment-new'}
-    failed = False
-    try:
-        apply_batch(con, [fresh], len(source_rows) + 1, fail_before_commit=True)
-    except RuntimeError as error:
-        failed = str(error) == 'INJECTED_FAILURE_BEFORE_COMMIT'
-    after_failure = con.execute('SELECT COUNT(*) FROM events').fetchone()[0]
-    offset_after_failure = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
-    con.close()
+        inserted = 0
+        for start in range(0, len(source_rows), 500):
+            batch = source_rows[start:start + 500]
+            inserted += apply_batch(con, batch, start + len(batch))
+        repeated = apply_batch(con, source_rows[:100], len(source_rows))
+        offset_before = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
+        fresh = {**source_rows[-1], 'event_id': fresh_id}
+        failed = False
+        try:
+            apply_batch(con, [fresh], len(source_rows) + 1, fail_before_commit=True)
+        except RuntimeError as error:
+            failed = str(error) == 'INJECTED_FAILURE_BEFORE_COMMIT'
+        after_failure = con.execute('SELECT COUNT(*) FROM events').fetchone()[0]
+        offset_after_failure = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
     # Reopen from disk: recovery uses durable state, not a surviving Python collection.
-    con = sqlite3.connect(db_path)
-    recovered = apply_batch(con, [fresh], len(source_rows) + 1)
-    late = {**source_rows[0], 'event_id': 'increment-late',
-            'event_time': '2026-02-28T23:59:00+00:00'}
-    late_inserted = apply_batch(con, [late], len(source_rows) + 2)
-    agg = con.execute('''SELECT service,COUNT(*),SUM(input_tokens),SUM(output_tokens)
+    with closing(sqlite3.connect(db_path)) as con:
+        recovered = apply_batch(con, [fresh], len(source_rows) + 1)
+        late = {**source_rows[0], 'event_id': late_id,
+                'event_time': '2026-02-28T23:59:00+00:00'}
+        late_inserted = apply_batch(con, [late], len(source_rows) + 2)
+        agg = con.execute('''SELECT service,COUNT(*),SUM(input_tokens),SUM(output_tokens)
                          FROM events GROUP BY service ORDER BY service''').fetchall()
-    total = con.execute('SELECT COUNT(*) FROM events').fetchone()[0]
-    final_offset = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
-    con.close()
+        total = con.execute('SELECT COUNT(*) FROM events').fetchone()[0]
+        final_offset = con.execute('SELECT offset FROM checkpoint').fetchone()[0]
     assert failed and inserted == len(source_rows) and repeated == 0
     assert after_failure == len(source_rows) and offset_before == offset_after_failure
     assert recovered == 1 and late_inserted == 1 and total == len(source_rows) + 2
     summary = [dict(zip(['service', 'requests', 'input_tokens', 'output_tokens'], row)) for row in agg]
     write_json(DATA / 'gold/realtime_service.json', summary)
-    write_json(DATA / 'state/latest.json', {'run_id': run_id, 'database': str(db_path), 'source_sha256': sha256(silver)})
-    result = {'run_id': run_id, 'database': str(db_path), 'source_rows': len(source_rows),
+    state = {'run_id': run_id, 'database': str(db_path), 'source_sha256': source_hash,
+             'database_sha256': sha256(db_path), 'stats_sha256': sha256(DATA / 'gold/realtime_service.json'),
+             'final_offset': final_offset}
+    result = {**state, 'source_rows': len(source_rows),
+              'demo_event_ids': {'recovered': fresh_id, 'late': late_id},
               'initial_inserted': inserted, 'duplicate_inserted': repeated, 'failure_injected': failed,
               'rows_after_failure': after_failure, 'offset_before': offset_before,
               'offset_after_failure': offset_after_failure, 'recovered_inserted': recovered,
@@ -312,4 +342,6 @@ def lab04():
               'late_policy': 'accept and recompute historical aggregate; no watermark implemented',
               'aggregate': summary, 'semantics': 'single-database transactional effect with event_id deduplication; not global exactly-once'}
     write_json(OUT / 'lab04/replay.json', result)
+    # Publish the pointer last: it must refer to a completed report and database.
+    write_json(DATA / 'state/latest.json', state)
     return emit('04', 'verify', result)

@@ -4,8 +4,13 @@ from contextlib import closing
 import importlib.util
 import json
 import sqlite3
+import sys
 import tempfile
 from pathlib import Path
+
+COURSE_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(COURSE_ROOT))
+from coursekit.evidence import capture_callable
 
 
 def state(con):
@@ -54,4 +59,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(capture_callable("04", "check_student_transaction", main))

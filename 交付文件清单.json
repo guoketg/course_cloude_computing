@@ -16,103 +16,103 @@
   },
   {
     "file": "00. 课程导论与准备/课程导论.md",
-    "bytes": 13180,
-    "sha256": "b302019832238095c138c353a6b7360aa7fe11f2404b74fe159113ad1b7a9376"
+    "bytes": 27918,
+    "sha256": "19a2d975b1e5a61feab5dd74e46f09a65db52e872ad97a11fc9d95c0c8a32d08"
   },
   {
     "file": "01. 云端数据接口与可复现环境/实验手册.md",
-    "bytes": 15964,
-    "sha256": "a87a306170e606f8239760b29321da44df3a1c08a415a2c9c6667360cd99a53e"
+    "bytes": 17161,
+    "sha256": "18787ebec0d1a1e4b2b14bf459f8c20db18f7dbcea2a16d83b9a9037598830f5"
   },
   {
     "file": "01. 云端数据接口与可复现环境/实验报告提交及评分标准.md",
-    "bytes": 3991,
-    "sha256": "81cf5f1ecb6f500a54e94723975cdfb557d0cab4ef5815abb577b3d2a0ce3f10"
+    "bytes": 5685,
+    "sha256": "d64cb12e6bd1b9a7a1ca24b0268fc67f9f6f229926c962087ded070addab7a88"
   },
   {
     "file": "01. 云端数据接口与可复现环境/附件/README.md",
-    "bytes": 950,
-    "sha256": "df4f789d47ac09bf101da6848de3e9d3e922ae87783f75c51a4619d39f196022"
+    "bytes": 1810,
+    "sha256": "855780f80278043fc177f2a77d7d0484246500695828b0ff28ea747df16b5ea3"
   },
   {
     "file": "01. 云端数据接口与可复现环境/附件/student_object_roundtrip.py",
-    "bytes": 1542,
-    "sha256": "709e7b80c2cf00886f4e4165a32af572223a9632a1b8676fc6af6d61b15775ae"
+    "bytes": 1966,
+    "sha256": "d9d5a9259542d9a8b14e2a8584f6d219c299edf9e17753a71fc487cc8c7f0e18"
   },
   {
     "file": "02. 数据湖与质量契约/实验手册.md",
-    "bytes": 15914,
-    "sha256": "e8f449d967a118f45ae2f84482a8f20160aeb97a4c67d9e5df3bb40c2208ad81"
+    "bytes": 17403,
+    "sha256": "2b420395bf2e1fee9d9d8237379e60332911c1bd28d151a2ae5d21a6c57c2bea"
   },
   {
     "file": "02. 数据湖与质量契约/实验报告提交及评分标准.md",
-    "bytes": 3554,
-    "sha256": "a5012335ed3533c6119a3bee2351c5c631123f26ce2cb035ae1bd92becbbcd30"
-  },
-  {
-    "file": "02. 数据湖与质量契约/附件/inspect_gold.py",
-    "bytes": 764,
-    "sha256": "fd45ddc2300950c473fc1d74d7439460960028c3031de429a531dc808fda7bf6"
+    "bytes": 5099,
+    "sha256": "bca1e7a72b4518f5daf9d4c238cd0fb8ef51e9f2ca7d283f0f82f09c2c0e9973"
   },
   {
     "file": "02. 数据湖与质量契约/附件/README.md",
-    "bytes": 928,
-    "sha256": "d24dca46be2c6cb4928e019abe87f51fbfbb93f32e749fd2bf5d2b746b5d7ea1"
+    "bytes": 1531,
+    "sha256": "6859ce026788a1f5a7dd2acd1913e0cbb578159d1243e47e8caccd59ebf4b9c2"
+  },
+  {
+    "file": "02. 数据湖与质量契约/附件/inspect_gold.py",
+    "bytes": 1038,
+    "sha256": "d2cbbe1e0b6e12fe03b4e3e670a34a00bb369e744a1dd162d358defb7aa4a5e7"
   },
   {
     "file": "02. 数据湖与质量契约/附件/student_quality_policy.py",
-    "bytes": 2107,
-    "sha256": "da6a67633b3986301e2dc03b3c20371dc314ff235c03f06492341004ee3bc377"
+    "bytes": 2174,
+    "sha256": "a430468658c2f802e003d27b7d20f1e55c21f4ad21a8b362283b3bd8f9307503"
   },
   {
     "file": "03. 分布式批处理与性能分析/实验手册.md",
-    "bytes": 16934,
-    "sha256": "4dff7407a0da82033ff37fb4687c54887e15ce41b28b74833b4ca31788b15b10"
+    "bytes": 19742,
+    "sha256": "ace24f8c1c7e372cc43f890f1a4b595bd88988efee476e5e2728aef96e13998b"
   },
   {
     "file": "03. 分布式批处理与性能分析/实验报告提交及评分标准.md",
-    "bytes": 3656,
-    "sha256": "f9ab864e910d006fb36dfd3ecf5cfff47bc4565261c5abaf7828af3d56ef0c9f"
-  },
-  {
-    "file": "03. 分布式批处理与性能分析/附件/check_error_extension.py",
-    "bytes": 1566,
-    "sha256": "47b5b7eec351839d517a7308a37a230dd59673e6cc6ec703c93ba4bbf102fe10"
+    "bytes": 5217,
+    "sha256": "071e5d37876b93d5a71bddc34a83a5e64bcd36b081520ded1198b5fb58c8202f"
   },
   {
     "file": "03. 分布式批处理与性能分析/附件/README.md",
-    "bytes": 1205,
-    "sha256": "811b8d20a8746ef2f8a3ab3b7bcc1ac77d775b5b56a938bb6070342103e6471d"
+    "bytes": 1814,
+    "sha256": "ef84df1ce5dd0d90980340108c2aa4df0e8ee76fe7b894ae06958fd213086352"
+  },
+  {
+    "file": "03. 分布式批处理与性能分析/附件/check_error_extension.py",
+    "bytes": 1763,
+    "sha256": "7837a7c34d872123094acec3dfe3b05a12c76f2fed76cfd0f2c34117612473c7"
   },
   {
     "file": "03. 分布式批处理与性能分析/附件/student_latency_aggregate.py",
-    "bytes": 2163,
-    "sha256": "c259c13f6a99e921a684443761bf5e21108513dc452dbe7901dc8cae00b6c490"
+    "bytes": 2272,
+    "sha256": "833a28ad806328f4d8abbe85d06da49a770e4f7a5f748c832491741bacaa7bc2"
   },
   {
     "file": "04. 增量事件处理与故障恢复/实验手册.md",
-    "bytes": 17723,
-    "sha256": "4efceec832af855708590107de61ad0a71992f277591afe61336183b24e1c95e"
+    "bytes": 18704,
+    "sha256": "f4f1170d9f1190b36dd587fa65064939dc6be55ad3fb7eee578f5aaa65a0015a"
   },
   {
     "file": "04. 增量事件处理与故障恢复/实验报告提交及评分标准.md",
-    "bytes": 4010,
-    "sha256": "3026bbc3b327d49be243a5eaf20f8b7e8458f26d739e6d8b65a8790f517b5222"
-  },
-  {
-    "file": "04. 增量事件处理与故障恢复/附件/check_student_transaction.py",
-    "bytes": 2887,
-    "sha256": "2144d006e5a544076cf81cccfd4c9237133ddef63b5ab4d2bed6709a38cfaa0d"
-  },
-  {
-    "file": "04. 增量事件处理与故障恢复/附件/inspect_state.py",
-    "bytes": 1260,
-    "sha256": "5e05781b661e5415e3857dee0ea18247da3013c4811f05db0cd3c64f956b176a"
+    "bytes": 5555,
+    "sha256": "1af9281fd5d07092f8da4e2506e665a536582d9d60eab299a39ed41112986c85"
   },
   {
     "file": "04. 增量事件处理与故障恢复/附件/README.md",
-    "bytes": 1653,
-    "sha256": "87e8d7fab64a06a28564b432093e5f1bd2cc3198ffffb96fcb6441beff798f7a"
+    "bytes": 2262,
+    "sha256": "29de5956dc570aad52d2a61235ce4cca90c4c00ee9f64e79e2e74883a236df68"
+  },
+  {
+    "file": "04. 增量事件处理与故障恢复/附件/check_student_transaction.py",
+    "bytes": 3103,
+    "sha256": "8d125db08a0b0320f7a0c75075d30509adc196807389b88789ee4f9f5e1b4309"
+  },
+  {
+    "file": "04. 增量事件处理与故障恢复/附件/inspect_state.py",
+    "bytes": 1638,
+    "sha256": "5013bd4b96ba7bd2cf08292e922c63b583feaa4558194726d6db16319813030b"
   },
   {
     "file": "04. 增量事件处理与故障恢复/附件/student_apply_batch.py",
@@ -121,83 +121,93 @@
   },
   {
     "file": "04. 增量事件处理与故障恢复/附件/student_atomicity.py",
-    "bytes": 2532,
-    "sha256": "dfd4a88e6963e67b9de8c40c63df592f2c9967df4aa35697e6012c864108c2c7"
+    "bytes": 2630,
+    "sha256": "3ad665a46087fdc2f410c285cc7c7faab556785b95206a639f7d4fbaf5c1ecc3"
   },
   {
     "file": "05. AI知识数据与混合检索/实验手册.md",
-    "bytes": 22539,
-    "sha256": "6e7bfb3a455437639a4b5a8a1206069a58a903bcaf3131765463957abb99c1f2"
+    "bytes": 24452,
+    "sha256": "63ad90717746c71c0ae9762847405d5c875f29e96952040e5e2e52eb92396edb"
   },
   {
     "file": "05. AI知识数据与混合检索/实验报告提交及评分标准.md",
-    "bytes": 5681,
-    "sha256": "2bd3276c5f72486b9add0f5e0c25c74526160df54275c7811e286788a4c30c4f"
+    "bytes": 7109,
+    "sha256": "0d7212d62c083f75aefe3769c4bea460571c150a5bc692ba07453516f544545b"
   },
   {
     "file": "05. AI知识数据与混合检索/附件/README.md",
-    "bytes": 1281,
-    "sha256": "b1985e753668fe7a37147fb5512b824c9c91d5b39ebf39c4d057b9f27b0ff741"
+    "bytes": 1711,
+    "sha256": "0d1b68f44abe42d1296657d7f2c0ab8fab4e3bb5ff7adf5e57a2c910ca67bcd0"
   },
   {
     "file": "06. 证据问答与系统评价/实验手册.md",
-    "bytes": 20768,
-    "sha256": "977001ae67a8521d74df239b818e7a753eaf47358bab451c24c97b66b3c98e40"
+    "bytes": 22869,
+    "sha256": "061735930bb31f38457b955f7de73ec430ace2b747e7dabff44819245368acf8"
   },
   {
     "file": "06. 证据问答与系统评价/实验报告提交及评分标准.md",
-    "bytes": 5227,
-    "sha256": "8ce8b18ce39112bb7a30ed1f70bc4b03985a9bba25c01da0203d2368ba66d98f"
+    "bytes": 6841,
+    "sha256": "15da30325e74054c0be46df40466f4dcdd408444b718a81b5b0cbb6f42afd191"
   },
   {
     "file": "06. 证据问答与系统评价/附件/README.md",
-    "bytes": 938,
-    "sha256": "46df637084e52039306df8f4c4e4b99c5da80d280754120c6c95f4aa3a17a3fa"
+    "bytes": 1368,
+    "sha256": "f67a8200a98468420ddb47d90d6b23de9d2db7016711f6a873f0885a294fbd44"
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验手册.md",
-    "bytes": 19656,
-    "sha256": "3eb563d114877ced22b140812c4a7b7af014707a5c67f05608ff3ce4fe54f347"
+    "bytes": 21724,
+    "sha256": "0e2bded8927c2719cbf6e08003bade9773603a76559d317c702a472f1181949a"
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验报告提交及评分标准.md",
-    "bytes": 5148,
-    "sha256": "0c5f57ab63cfffe0e9e2c13673270ac5265dbf304304134b7207118f75070fb7"
+    "bytes": 6522,
+    "sha256": "aa2b788dcb916198afef34b63260ccc80c2b0c80e7fdcbda79b1375bf4d3e4d3"
   },
   {
     "file": "07. 云服务部署与推理可观测性/附件/README.md",
-    "bytes": 929,
-    "sha256": "7ef2642f5ce33d7091ae878bf57916dd93cdc546a7b3e9536e85d9472bc9628a"
+    "bytes": 1359,
+    "sha256": "0bb083d13b639b1fd77b6860ea7eebdf5c39fe9e5980ae91294fa1eeee8ea8ed"
   },
   {
     "file": "08. 数据治理与可信发布/实验手册.md",
-    "bytes": 19742,
-    "sha256": "2676839b6f4afe64b8c874e1129df11a2fb843b3f5771ddb2d8beec1ee73f16f"
+    "bytes": 21944,
+    "sha256": "d8ffa02f1dc6a1c1288658dee39f5710aba474b8a002425f43d2ca61df2ea58b"
   },
   {
     "file": "08. 数据治理与可信发布/实验报告提交及评分标准.md",
-    "bytes": 4699,
-    "sha256": "6e798ed5391f91034dc805ec1fca378276285baefc2198eefcb8a0160fe84aa5"
+    "bytes": 6149,
+    "sha256": "e0d174410fabaf7713cf01ab20119c90ff675a6484a293ca50e6468edd71a888"
   },
   {
     "file": "08. 数据治理与可信发布/附件/README.md",
-    "bytes": 792,
-    "sha256": "c1813fee50f30a3946f657c583e5b835a67eb99e25f21ae176e3414c095e84bc"
+    "bytes": 1344,
+    "sha256": "b73a7d1a42406e56d9de423796ae6175a7e4def88063dbeb26b6343071c923ff"
   },
   {
     "file": "09. 两周个人综合项目/项目任务书.md",
-    "bytes": 12378,
-    "sha256": "5685486333176546168ea9ae84114353ed9e44b7f0dae947df1d3e66387560c9"
+    "bytes": 15018,
+    "sha256": "a2452025c0841a5753f51b138e313da5a5f0e147b41118deaaa0a25ac2ecd739"
   },
   {
     "file": "09. 两周个人综合项目/项目方案手册.md",
-    "bytes": 18148,
-    "sha256": "2596ecd566bd72b0acfddce887d7de4fe7a183c7988fd596f9564e88f7ae7952"
+    "bytes": 22953,
+    "sha256": "427ffb646b852ac802fd0e3bca02d71b23a8727a3535c96db7acc070bf998ed3"
+  },
+  {
+    "file": "Dockerfile",
+    "bytes": 344,
+    "sha256": "a0ca8ce1ef2384a24f2c42d4e5146d713c4994a4f565bb202a5773db632d8168"
+  },
+  {
+    "file": "README.md",
+    "bytes": 8494,
+    "sha256": "026f067b1ac3a76087d475f3b0b90edcd0407fa1404682788b1d6e1645f19ebb"
   },
   {
     "file": "compose.yaml",
-    "bytes": 447,
-    "sha256": "75d1de68aa68e4530e347b266cd617be3314d7f1c63fc0389e72c31800d08e0f"
+    "bytes": 497,
+    "sha256": "9cba47a11e96c3fbdf6a6688960f3ef7e6f3107cafc9223519a890c6a58395a0"
   },
   {
     "file": "coursekit/__init__.py",
@@ -206,28 +216,38 @@
   },
   {
     "file": "coursekit/__main__.py",
-    "bytes": 2269,
-    "sha256": "7b2c70a6fee8f6f2026c28a87c208cbac15e0cdca3a0041bfb5a325608d2b526"
+    "bytes": 5124,
+    "sha256": "9856ee9268e8fac89f2d01314db25470bee328480fe51d2a0da959cf9be89d6e"
+  },
+  {
+    "file": "coursekit/artifact_identity.py",
+    "bytes": 1190,
+    "sha256": "c95f198a532159d571c440e20d4ee652def9eca770b5f4665794e9cb2d68df3c"
   },
   {
     "file": "coursekit/common.py",
-    "bytes": 1381,
-    "sha256": "ec86e1315720df2301258447fca4fa8a701fbcd326cb23c1fabc01cbf100898f"
+    "bytes": 8649,
+    "sha256": "47f00ce51a514fa45e62cc8bb47e1f5bf66405dda4a313b9d9c8f287e1abcfee"
   },
   {
     "file": "coursekit/download_policy.py",
-    "bytes": 3622,
-    "sha256": "1ec98773d264cba9a5e0cf10fd499757f7e26eb058f262bf7d699651d8eb15f0"
+    "bytes": 4651,
+    "sha256": "b79e8ab3f35702adc531a9a8f551dcaa1ce0a9e8249b8c368a6253a7675eddba"
+  },
+  {
+    "file": "coursekit/evidence.py",
+    "bytes": 12362,
+    "sha256": "0a7cb4eb2683d751d8977790c5ac31b7fd704171a9e5f8e5e97dce8ee22138aa"
   },
   {
     "file": "coursekit/governance.py",
-    "bytes": 9683,
-    "sha256": "247310551a84c7eaf59a5a05fe3ebd563cb2e7befb93d6b21935e24ed65efbfc"
+    "bytes": 16600,
+    "sha256": "2d24d23bc0f0ac40e270614232fb0bbd8e5a0c235407ba195d8f003d7a2c3612"
   },
   {
     "file": "coursekit/intelligence.py",
-    "bytes": 28333,
-    "sha256": "f51fefc93cf894dc92e9ef65c8978040430303a8a65d4557e8138c7ae9b21bcc"
+    "bytes": 36934,
+    "sha256": "c0f52992b41c170fd02e772c8864af472d715668418da2ff85d651d92d566235"
   },
   {
     "file": "coursekit/model_config.py",
@@ -236,48 +256,43 @@
   },
   {
     "file": "coursekit/pipeline.py",
-    "bytes": 17329,
-    "sha256": "d5213e360dbfde0c6205cbc637be47d0a3ab79107720e70c2c1b25b6923bc511"
+    "bytes": 19084,
+    "sha256": "ff58b1276a1b248e2183f169798e14f51543cb17c48cbc41896700fb2abc6573"
   },
   {
     "file": "coursekit/service.py",
-    "bytes": 6450,
-    "sha256": "cfbf194db04b12884157ae2b68685274a144c41c8c83006bf9e7140097cb97ba"
-  },
-  {
-    "file": "Dockerfile",
-    "bytes": 344,
-    "sha256": "a0ca8ce1ef2384a24f2c42d4e5146d713c4994a4f565bb202a5773db632d8168"
+    "bytes": 13767,
+    "sha256": "be0d8fbb3d38aeea83a24e49e99538143deb4c1814e3ec6651dc68facb51a3f9"
   },
   {
     "file": "docs/Windows环境准备.md",
-    "bytes": 15971,
-    "sha256": "9969ab2f5a49bada312f94c25329bdb2e166226ae72d89a2c15f8b64274be2e3"
+    "bytes": 18074,
+    "sha256": "3776c99520ca23cb5dc2f7309b561646d91c18eef1272ed369c282ee3521382c"
+  },
+  {
+    "file": "docs/学号与提交验收.md",
+    "bytes": 13027,
+    "sha256": "0f0170ccab3c218969c620ce8c91af6ed77179986cf3a1e5b2060729a16328a5"
   },
   {
     "file": "docs/运行包接口说明.md",
-    "bytes": 6455,
-    "sha256": "4f7f06390ffab5978bc913b800bc4e93bfa0ce29beae56ea0edea2ca17896f27"
-  },
-  {
-    "file": "README.md",
-    "bytes": 7155,
-    "sha256": "cc48f56d16ecfd5d1c17ca0099b39db795d5415225f4e6cddf77231356e4e690"
+    "bytes": 9347,
+    "sha256": "e2e6f732a8a90fcaa7e5dc72e0c7bbbacdd1c3b33de5f28d4c74ce17a3ebf390"
   },
   {
     "file": "requirements-models.lock.txt",
     "bytes": 2122,
-    "sha256": "ed49193a35e58dd556f485d0e793b55d5ab28bd4ea7c272e4d13ae5f7bb94b0c"
+    "sha256": "3b8f3061a140ec287a3384ab6ea6a352c5ad96a0f6ac0590290555b3d920e562"
   },
   {
     "file": "requirements.container.txt",
     "bytes": 1843,
-    "sha256": "9627354e187968b109a224b4e8584cabb32403db70e5b6522954a8c5a309c771"
+    "sha256": "31713d4fe71d7a2085899355677672751710ba5b88d2b15e538d579a2282d8ac"
   },
   {
     "file": "requirements.lock.txt",
     "bytes": 1857,
-    "sha256": "b470e8ccc2db469e49636c5c576414655564fec35335af805383350362831709"
+    "sha256": "6bba0c2ba4eb0c89fa194451a5eb2c7d311d3fcac60906d04a55f21409647f0d"
   },
   {
     "file": "requirements.txt",
@@ -291,13 +306,13 @@
   },
   {
     "file": "scripts/prepare_embedding.py",
-    "bytes": 7303,
-    "sha256": "25471c5fc9a81fbe5db36d13a655681f445eec7c95ce680b3951abb8d21ea0cf"
+    "bytes": 7871,
+    "sha256": "e879704e5bb1e3b3d382ea54260cd433a3d1e08649b937d3395524fe7602def1"
   },
   {
     "file": "scripts/prepare_generation.py",
-    "bytes": 9292,
-    "sha256": "ea22805f8a58985457333cb63f1b31a497ed8ec5f1f2bd6b561780a54eebdbcc"
+    "bytes": 9403,
+    "sha256": "654b6892f20c0e42ef1c469a26fbbf4eaca00e8e16b68b414d32e584e5db5b00"
   },
   {
     "file": "scripts/verify-environment.ps1",
@@ -305,28 +320,48 @@
     "sha256": "0473ce71aac8d1fc61b3494043e0b7ffd1eeb81c9cdca89f413be496d5b88d23"
   },
   {
+    "file": "tests/test_evidence.py",
+    "bytes": 23719,
+    "sha256": "dabe1f863baf1ba76bd5fe794bca388de10b51f382d38294db23ab1f91b56bcf"
+  },
+  {
+    "file": "tests/test_governance.py",
+    "bytes": 14181,
+    "sha256": "5abd533d8b1bbc8f8762b7791f2c98ce6f91790c1fbc3ecb433bb68011e3acd2"
+  },
+  {
     "file": "tests/test_intelligence.py",
-    "bytes": 3829,
-    "sha256": "0bb347f44813b13e46f31b3bbb62578499761e2b6ce39418e8f1f2c95d479fa8"
+    "bytes": 13560,
+    "sha256": "5d9c208e6e290dc4564d29206b422fc73faf282c13789dbb0783f55758efa679"
   },
   {
     "file": "tests/test_model_tools.py",
-    "bytes": 7437,
-    "sha256": "5b17c6b2f5c0a8eb8170704c407a37b4bb02ebc835baa0bf1318927fe6fa813d"
+    "bytes": 13908,
+    "sha256": "1aae1d5e279ffcd54907f779ad2fd7d992324cf6d7055d7fd0861543b391fe28"
   },
   {
     "file": "tests/test_pipeline.py",
-    "bytes": 1912,
-    "sha256": "f2a88befeadb45fc90752b8c1ea978e9ed5d1af611a658c04dc202ead78f25d1"
+    "bytes": 5985,
+    "sha256": "5fdd3284da204474ce181b4fed2f5850d2b1a48567ea16c3fc41af6d51c274a6"
+  },
+  {
+    "file": "tests/test_service.py",
+    "bytes": 6322,
+    "sha256": "b6b926c72ff81d100bce7fcacc95aafa67d498c3aba69c3894481c9521d014b8"
+  },
+  {
+    "file": "tests/test_student_scripts.py",
+    "bytes": 11494,
+    "sha256": "655f97735c80aac7168f4b62d4de20e16713ec4f162d4c6f5419bf611619d7ec"
   },
   {
     "file": "报告模板/AI使用记录模板.md",
-    "bytes": 2712,
-    "sha256": "4b74a3fc88ef4e9c0f2d0a03981821cc4ab66fc12af1ec7f1568fe3860f51261"
+    "bytes": 2971,
+    "sha256": "327f5d7c2bde73f015d413a627d6981f4e7b3f58047808def11f6cb3e1e54f1e"
   },
   {
     "file": "报告模板/实验报告模板.md",
-    "bytes": 5898,
-    "sha256": "4057e6edf59b884d745c701788de96fc2db728ec6fbd2828647556f01838d039"
+    "bytes": 7732,
+    "sha256": "8f05541767d0118ae94a63c53340f14533409e827289fe645cbc186005258890"
   }
 ]

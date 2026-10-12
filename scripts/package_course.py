@@ -8,13 +8,15 @@ ROOT = Path(__file__).resolve().parent.parent
 TOP_FILES = ['README.md', 'requirements.txt', 'requirements.lock.txt',
              'requirements-models.lock.txt', 'requirements.container.txt', 'Dockerfile',
              'compose.yaml', '.gitignore', '.dockerignore', '.gitattributes']
-STUDENT_DOCS = ['docs/Windows环境准备.md', 'docs/运行包接口说明.md']
+STUDENT_DOCS = ['docs/Windows环境准备.md', 'docs/运行包接口说明.md', 'docs/学号与提交验收.md']
 STUDENT_TOOLS = [
     'scripts/artifact_manifest.py', 'scripts/prepare_embedding.py',
     'scripts/prepare_generation.py', 'scripts/verify-environment.ps1',
 ]
 STUDENT_TESTS = [
     'tests/test_intelligence.py', 'tests/test_model_tools.py', 'tests/test_pipeline.py',
+    'tests/test_evidence.py', 'tests/test_governance.py', 'tests/test_service.py',
+    'tests/test_student_scripts.py',
 ]
 DIRECTORIES = ['coursekit', '报告模板']
 

@@ -1,15 +1,17 @@
 import hashlib
 import io
 import json
+import os
 import subprocess
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 import pytest
 
 from coursekit.intelligence import answer, build_index, embedding_model_selection, local_model_revision
 from coursekit.model_config import BGE_MODEL_ID
 from coursekit import download_policy
+from coursekit.artifact_identity import revision_from_hashes
 from coursekit.model_config import DEFAULT_OLLAMA_MODEL, ollama_runtime_config
 from scripts import artifact_manifest, prepare_embedding, prepare_generation
 
@@ -174,3 +176,133 @@ def test_domestic_download_rejects_foreign_final_host(monkeypatch, tmp_path):
 def test_direct_script_entrypoints(script):
     result = subprocess.run([sys.executable, script, "--help"], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
+
+
+@pytest.fixture
+def frozen_embedding(monkeypatch, tmp_path):
+    source = tmp_path / "source"
+    source.mkdir()
+    contents = {"config.json": b"{}", "model.safetensors": b"weights", "README.md": b"model card"}
+    for name, content in contents.items():
+        (source / name).write_bytes(content)
+    files = tuple((name, len(data), hashlib.sha256(data).hexdigest()) for name, data in contents.items())
+    monkeypatch.setattr(prepare_embedding, "BGE_FILES", files)
+    target, path = tmp_path / "target", tmp_path / "embedding-manifest.json"
+    manifest = prepare_embedding.prepare(source, target, path, "local", None)
+    return source, target, path, manifest
+
+
+def test_embedding_identity_is_platform_independent(frozen_embedding):
+    _, target, path, manifest = frozen_embedding
+    entries = [(item["path"], item["sha256"]) for item in manifest["files"]]
+    posix = sorted(entries, key=lambda item: PurePosixPath(item[0]))
+    windows = sorted(entries, key=lambda item: PureWindowsPath(item[0]))
+    assert posix != windows  # This fixture actually exercises the original failure.
+    expected = hashlib.sha256("".join(name + digest for name, digest in posix).encode()).hexdigest()
+    assert revision_from_hashes(windows) == revision_from_hashes(posix) == expected
+    assert local_model_revision(str(target)) == manifest["directory_revision"] == expected
+    # Manifest serialization order must not change the content identity either.
+    manifest["files"].reverse()
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    assert prepare_embedding.verify_directory(target, path)["directory_revision"] == expected
+
+
+def test_embedding_rejects_extras_in_verify_and_prepare(frozen_embedding):
+    source, target, path, _ = frozen_embedding
+    before = path.read_bytes()
+    (target / "extra.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(RuntimeError, match="extra.json"):
+        prepare_embedding.verify_directory(target, path)
+    with pytest.raises(RuntimeError, match="extra.json"):
+        prepare_embedding.prepare(source, target, path, "local", None)
+    assert path.read_bytes() == before
+
+
+def test_embedding_rejects_duplicate_manifest_entries(frozen_embedding):
+    _, target, path, manifest = frozen_embedding
+    manifest["files"].append(manifest["files"][0])
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(RuntimeError, match="file list"):
+        prepare_embedding.verify_directory(target, path)
+
+
+def test_ollama_import_and_digest_use_selected_server(monkeypatch, tmp_path):
+    content = b"test-gguf"
+    source = tmp_path / "test.gguf"
+    source.write_bytes(content)
+    monkeypatch.setattr(prepare_generation, "GENERATION_GGUF_FILE", source.name)
+    monkeypatch.setattr(prepare_generation, "GENERATION_GGUF_BYTES", len(content))
+    monkeypatch.setattr(prepare_generation, "GENERATION_GGUF_SHA256", hashlib.sha256(content).hexdigest())
+    target, path = tmp_path / "model", tmp_path / "generation-manifest.json"
+    prepare_generation.prepare(source, target, path)
+    old_server, selected = "http://127.0.0.1:11434", "http://127.0.0.1:11435"
+    monkeypatch.setenv("OLLAMA_HOST", old_server)
+    servers = {old_server: "old-on-A", selected: "old-on-B"}
+    calls = []
+    def create(argv, *, check, env):
+        assert check is True
+        assert argv[1:3] == ["create", DEFAULT_OLLAMA_MODEL]
+        calls.append(env["OLLAMA_HOST"])
+        servers[env["OLLAMA_HOST"]] = "just-imported"
+    def digest(url, tag):
+        assert tag == DEFAULT_OLLAMA_MODEL
+        calls.append(url)
+        return servers[url]
+    monkeypatch.setattr(prepare_generation.subprocess, "run", create)
+    monkeypatch.setattr(prepare_generation, "ollama_digest", digest)
+    result = prepare_generation.import_ollama(target, path, selected + "/")
+    assert calls == [selected, selected]
+    assert result["ollama_digest"] == "just-imported"
+    assert result["ollama_base_url"] == selected
+    assert servers[old_server] == "old-on-A"
+    assert os.environ["OLLAMA_HOST"] == old_server
+
+
+@pytest.mark.parametrize("content, error", [(b"safe", None), (b"bad!", "SHA256 mismatch"),
+                                          (b"saf", "byte size mismatch"), (b"safe-more", "exceeds")])
+def test_downloader_bounds_stream_and_preserves_previous_artifact(monkeypatch, tmp_path, content, error):
+    reads = []
+    class Response(io.BytesIO):
+        def geturl(self):
+            return "https://modelscope.cn/model.bin"
+        def read(self, size):
+            reads.append(size)
+            return super().read(size)
+    class Opener:
+        def open(self, request, timeout):
+            return Response(content)
+    monkeypatch.setattr(download_policy.urllib.request, "build_opener", lambda handler: Opener())
+    target = tmp_path / "artifact.bin"
+    target.write_bytes(b"previous")
+    def download():
+        return download_policy.download_verified("https://modelscope.cn/model.bin", target, 4,
+            hashlib.sha256(b"safe").hexdigest(), {"modelscope.cn"})
+    if error:
+        with pytest.raises(RuntimeError, match=error):
+            download()
+        assert target.read_bytes() == b"previous"
+    else:
+        assert download()["bytes"] == 4
+        assert target.read_bytes() == b"safe"
+    if error == "exceeds":
+        assert reads == [5]  # Reject on the first excessive byte, without reading EOF.
+    assert not target.with_name(target.name + ".part").exists()
+
+
+def test_download_total_deadline_rejects_continuous_data(monkeypatch, tmp_path):
+    class Response(io.BytesIO):
+        def geturl(self):
+            return "https://modelscope.cn/model.bin"
+    class Opener:
+        def open(self, request, timeout):
+            assert timeout == 1
+            return Response(b"safe")
+    monkeypatch.setattr(download_policy.urllib.request, "build_opener", lambda handler: Opener())
+    times = iter([0, 0, 2])
+    monkeypatch.setattr(download_policy.time, "monotonic", lambda: next(times))
+    target = tmp_path / "artifact.bin"
+    with pytest.raises(TimeoutError, match="total deadline"):
+        download_policy.download_verified("https://modelscope.cn/model.bin", target, 4,
+            hashlib.sha256(b"safe").hexdigest(), {"modelscope.cn"}, total_timeout_seconds=1)
+    assert not target.exists()
+    assert not target.with_name(target.name + ".part").exists()

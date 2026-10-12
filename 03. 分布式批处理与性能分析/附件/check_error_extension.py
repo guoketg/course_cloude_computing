@@ -2,20 +2,24 @@
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 
-import pyarrow.parquet as pq
-
-ROOT = Path(__file__).resolve().parents[2]
+COURSE_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(COURSE_ROOT))
+from coursekit.common import DATA, OUT
+from coursekit.evidence import capture_callable
 
 
 def main():
+    import pyarrow.parquet as pq
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--threshold", type=int, default=2000)
     args = parser.parse_args()
-    result = json.loads((ROOT / f"outputs/lab03/student-latency-{args.threshold}.json").read_text(encoding="utf-8"))
+    result = json.loads((OUT / f"lab03/student-latency-{args.threshold}.json").read_text(encoding="utf-8"))
     expected = {}
-    for row in pq.read_table(ROOT / "data/silver/events.parquet", columns=["service", "status"]).to_pylist():
+    for row in pq.read_table(DATA / "silver/events.parquet", columns=["service", "status"]).to_pylist():
         service = row["service"]
         tally = expected.setdefault(service, {"requests": 0, "errors": 0})
         tally["requests"] += 1
@@ -33,4 +37,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(capture_callable("03", "check_error_extension", main))

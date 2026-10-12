@@ -1,18 +1,23 @@
 """个人 Dask 聚合：修改慢请求阈值，并用独立 SQL 核对。"""
 import json
 import os
+import sys
 from pathlib import Path
 
-import dask.dataframe as dd
-import duckdb
-from distributed import Client, LocalCluster
+COURSE_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(COURSE_ROOT))
+from coursekit.common import DATA, OUT, write_json
+from coursekit.evidence import capture_callable
 
-ROOT = Path(__file__).resolve().parents[2]
 SLOW_MS = 1000  # 本人改为 2000；运行前写下预测。
 
 
 def main():
-    source = ROOT / "data/silver/events.parquet"
+    import dask.dataframe as dd
+    import duckdb
+    from distributed import Client, LocalCluster
+
+    source = DATA / "silver/events.parquet"
     with LocalCluster(n_workers=2, threads_per_worker=1, processes=True,
                       memory_limit="1GiB", host="127.0.0.1", dashboard_address=None) as cluster:
         with Client(cluster) as client:
@@ -32,11 +37,10 @@ def main():
     actual["slow_rate"] = actual["slow_requests"] / actual["requests"]
     result = {"slow_ms": SLOW_MS, "worker_pids": pids, "matches_sql": True,
               "aggregate": actual.to_dict(orient="records")}
-    target = ROOT / f"outputs/lab03/student-latency-{SLOW_MS}.json"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    target = OUT / f"lab03/student-latency-{SLOW_MS}.json"
+    result = write_json(target, result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(capture_callable("03", "student_latency", main))

@@ -4,14 +4,17 @@ import sys
 from pathlib import Path
 
 # 此文件在“实验目录/附件”或“submissions/lab02”时，向上两层均为课程根目录。
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
-from coursekit.pipeline import validate_event
+COURSE_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(COURSE_ROOT))
+from coursekit.common import DATA, OUT, write_json
+from coursekit.evidence import capture_callable
 
 MAX_INPUT_TOKENS = 2000  # 本人将它改为 1200，先预测再运行。
 
 
 def policy(row):
+    from coursekit.pipeline import validate_event
+
     reason = validate_event(row)
     if reason is not None:
         return reason
@@ -21,7 +24,7 @@ def policy(row):
 
 
 def main():
-    records = [json.loads(line) for line in (ROOT / "data/raw/events.jsonl").read_text(encoding="utf-8").splitlines()]
+    records = [json.loads(line) for line in (DATA / "raw/events.jsonl").read_text(encoding="utf-8").splitlines()]
     kept, rejected, duplicates = {}, {}, 0
     for row in records:
         reason = policy(row)
@@ -45,11 +48,10 @@ def main():
         "probe_errors": {name: policy(row) for name, row in probes.items()},
     }
     assert len(records) == len(kept) + duplicates + sum(rejected.values())
-    target = ROOT / f"outputs/lab02/student-policy-{MAX_INPUT_TOKENS}.json"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    target = OUT / f"lab02/student-policy-{MAX_INPUT_TOKENS}.json"
+    result = write_json(target, result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(capture_callable("02", "student_quality_policy", main))

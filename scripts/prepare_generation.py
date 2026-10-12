@@ -183,8 +183,10 @@ def ollama_digest(base_url: str, tag: str) -> str:
 
 def import_ollama(output_dir: Path, manifest_path: Path, base_url: str) -> dict:
     manifest = verify_prepared(output_dir, manifest_path)
+    base_url = base_url.rstrip("/")
+    environment = {**os.environ, "OLLAMA_HOST": base_url}
     subprocess.run(["ollama", "create", DEFAULT_OLLAMA_MODEL, "-f", str(output_dir / "Modelfile")],
-                   check=True)
+                   check=True, env=environment)
     digest = ollama_digest(base_url, DEFAULT_OLLAMA_MODEL)
     manifest["ollama_digest"] = digest
     manifest["ollama_base_url"] = base_url.rstrip("/")

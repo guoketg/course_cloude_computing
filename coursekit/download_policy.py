@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+import time
 import urllib.request
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
@@ -45,8 +46,14 @@ class _RestrictedRedirectHandler(urllib.request.HTTPRedirectHandler):
 
 
 def download_verified(url: str, destination: Path, expected_bytes: int,
-                      expected_sha256: str, allowed_hosts: set[str]) -> dict:
+                      expected_sha256: str, allowed_hosts: set[str], *,
+                      total_timeout_seconds: float = 1800) -> dict:
     """Stream to a temporary file, verify it, then atomically publish it."""
+    if type(expected_bytes) is not int or expected_bytes < 0:
+        raise ValueError("expected_bytes must be a nonnegative integer")
+    if not 0 < total_timeout_seconds < float("inf"):
+        raise ValueError("total_timeout_seconds must be positive and finite")
+    deadline = time.monotonic() + total_timeout_seconds
     initial_host = (urlsplit(url).hostname or "").lower()
     normalized = {item.lower().rstrip(".") for item in allowed_hosts}
     if not _host_allowed(initial_host, normalized):
@@ -61,11 +68,21 @@ def download_verified(url: str, destination: Path, expected_bytes: int,
         request = urllib.request.Request(
             url, headers={"User-Agent": "BDP-course-artifact/1", "Accept-Encoding": "identity"}
         )
-        with opener.open(request, timeout=120) as response, temporary.open("wb") as output:
+        with opener.open(request, timeout=min(120, total_timeout_seconds)) as response, temporary.open("wb") as output:
             final_host = (urlsplit(response.geturl()).hostname or "").lower()
             if not _host_allowed(final_host, normalized):
                 raise RuntimeError(f"Download final host is not approved: {final_host}")
-            for block in iter(lambda: response.read(1024 * 1024), b""):
+            while True:
+                if time.monotonic() >= deadline:
+                    raise TimeoutError("Artifact download exceeded its total deadline")
+                # One extra byte detects an oversized response without consuming it all.
+                block = response.read(min(1024 * 1024, expected_bytes - size + 1))
+                if time.monotonic() >= deadline:
+                    raise TimeoutError("Artifact download exceeded its total deadline")
+                if not block:
+                    break
+                if size + len(block) > expected_bytes:
+                    raise RuntimeError(f"Artifact byte size exceeds expected {expected_bytes}")
                 output.write(block)
                 digest.update(block)
                 size += len(block)

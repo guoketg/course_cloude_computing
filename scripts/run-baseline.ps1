@@ -21,6 +21,7 @@ try {
     Invoke-Lab @('lab04')
     Invoke-Lab @('lab05','--mode','lexical')
     Invoke-Lab @('lab06','--split','dev','--generator','extractive')
+    Invoke-Lab @('freeze','--generator','extractive')
     Invoke-Lab @('lab06','--split','test','--generator','extractive')
     Write-Host "Baseline 01-06 complete. Data retained at $runRoot"
     Write-Host 'For 07-08 follow the two-terminal HTTP instructions using this BDP_ROOT.'

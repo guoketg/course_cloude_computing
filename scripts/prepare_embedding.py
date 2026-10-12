@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from coursekit.download_policy import download_verified
+from coursekit.artifact_identity import directory_files, revision_from_hashes
 from coursekit.model_config import (
     BGE_FILES,
     BGE_MODEL_ID,
@@ -45,8 +46,13 @@ def verify_directory(target: Path, manifest_path: Path) -> dict:
     expected_files = {path: (size, digest) for path, size, digest in BGE_FILES}
     actual_files = {item.get("path"): (item.get("bytes"), item.get("sha256"))
                     for item in manifest.get("files", [])}
-    if actual_files != expected_files:
+    if actual_files != expected_files or len(actual_files) != len(manifest.get("files", [])):
         raise RuntimeError("Embedding manifest file list differs from the frozen release")
+    on_disk = set(directory_files(target))
+    if on_disk != set(expected_files):
+        raise RuntimeError(f"Embedding directory inventory mismatch; "
+                           f"missing={sorted(set(expected_files) - on_disk)}, "
+                           f"extra={sorted(on_disk - set(expected_files))}")
     revision_input = []
     for item in manifest.get("files", []):
         path = target / item["path"]
@@ -57,10 +63,10 @@ def verify_directory(target: Path, manifest_path: Path) -> dict:
         actual = file_sha256(path)
         if actual != item["sha256"]:
             raise RuntimeError(f"Embedding SHA256 mismatch: {item['path']}")
-        revision_input.append(item["path"] + actual)
+        revision_input.append((item["path"], actual))
     if not (target / "model.safetensors").is_file():
         raise RuntimeError("Required safetensors weight missing")
-    actual_revision = hashlib.sha256("".join(revision_input).encode()).hexdigest()
+    actual_revision = revision_from_hashes(revision_input)
     if manifest.get("directory_revision") != actual_revision:
         raise RuntimeError("Embedding directory revision mismatch")
     return manifest
@@ -69,6 +75,9 @@ def verify_directory(target: Path, manifest_path: Path) -> dict:
 def prepare(source: Path, target: Path, manifest_path: Path, source_kind: str,
             endpoint: str | None, downloads: list[dict] | None = None) -> dict:
     target.mkdir(parents=True, exist_ok=True)
+    extra = set(directory_files(target)) - {name for name, _, _ in BGE_FILES}
+    if extra:
+        raise RuntimeError(f"Embedding directory inventory mismatch; extra={sorted(extra)}")
     files = []
     for relative_name, expected_bytes, expected_sha256 in BGE_FILES:
         item = source / relative_name
@@ -91,9 +100,7 @@ def prepare(source: Path, target: Path, manifest_path: Path, source_kind: str,
                       "sha256": expected_sha256})
     if not (target / "model.safetensors").is_file():
         raise RuntimeError("Required safetensors weight missing")
-    directory_revision = hashlib.sha256(
-        "".join(item["path"] + item["sha256"] for item in files).encode()
-    ).hexdigest()
+    directory_revision = revision_from_hashes((item["path"], item["sha256"]) for item in files)
     manifest = {
         "model_id": BGE_MODEL_ID,
         "upstream_revision": BGE_REVISION,

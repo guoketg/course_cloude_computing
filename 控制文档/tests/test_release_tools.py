@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts import capture_validation, package_course
+from scripts import capture_validation, package_course, prepare_embedding
 
 
 def test_base_capture_succeeds_without_model_artifacts(tmp_path):
@@ -35,7 +35,7 @@ def test_student_release_allow_list_excludes_control_and_maintenance_tools():
     relative = [path.relative_to(package_course.ROOT) for path in package_course.course_files()]
     assert not any("控制文档" in path.parts for path in relative)
     docs = {path.as_posix() for path in relative if path.parts[0] == "docs"}
-    assert docs == {"docs/Windows环境准备.md", "docs/运行包接口说明.md"}
+    assert docs == {"docs/Windows环境准备.md", "docs/运行包接口说明.md", "docs/学号与提交验收.md"}
     scripts = {path.as_posix() for path in relative if path.parts[0] == "scripts"}
     assert scripts == set(package_course.STUDENT_TOOLS)
 
@@ -77,6 +77,7 @@ def test_default_capture_rejects_wrong_imported_digest(monkeypatch, tmp_path):
 
     bge_content = b"bge"
     bge_sha = hashlib.sha256(bge_content).hexdigest()
+    monkeypatch.setattr(prepare_embedding, "BGE_FILES", (("model.safetensors", len(bge_content), bge_sha),))
     bge_file = tmp_path / "models/bge-small-zh-v1.5/model.safetensors"
     bge_file.parent.mkdir(parents=True)
     bge_file.write_bytes(bge_content)
@@ -110,4 +111,14 @@ def test_default_capture_rejects_wrong_imported_digest(monkeypatch, tmp_path):
     for name in ("evaluation_dev_ollama.json", "evaluation_test_ollama.json"):
         (tmp_path / "outputs/lab06" / name).write_text(json.dumps(report), encoding="utf-8")
     with pytest.raises(RuntimeError, match="digest does not match"):
+        capture_validation.validate_default_model(tmp_path)
+
+    # A matching Ollama digest is sufficient for this model-identity capture;
+    # the separate extractive release gate must not be applied to these reports.
+    report["details"][0]["result"]["model_digest"] = "expected-digest"
+    for name in ("evaluation_dev_ollama.json", "evaluation_test_ollama.json"):
+        (tmp_path / "outputs/lab06" / name).write_text(json.dumps(report), encoding="utf-8")
+    capture_validation.validate_default_model(tmp_path)
+    (bge_file.parent / "extra.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(RuntimeError, match="inventory mismatch"):
         capture_validation.validate_default_model(tmp_path)

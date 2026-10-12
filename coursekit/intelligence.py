@@ -14,6 +14,8 @@ from typing import Any
 
 import numpy as np
 
+from . import common
+from .artifact_identity import directory_revision
 from .common import DATA, OUT, emit, read_json, sha256, write_json
 from .model_config import BGE_MODEL_ID, BGE_REVISION, ollama_runtime_config
 
@@ -21,6 +23,7 @@ INDEX = DATA / "indexes" / "knowledge.json"
 SOURCE = DATA / "raw" / "documents.jsonl"
 QUESTIONS = DATA / "raw" / "questions.jsonl"
 DEFAULT_THRESHOLD = 0.13
+DEFAULT_K = 3
 CHUNK_SIZE = 160
 CHUNK_OVERLAP = 32
 INJECTION = re.compile(r"忽略.{0,12}(指令|规则)|泄露|输出.{0,8}密钥|打印.{0,8}口令|ignore.{0,20}instruction", re.I)
@@ -35,11 +38,7 @@ def embedding_model_selection() -> tuple[str, str, bool]:
 
 
 def local_model_revision(location: str) -> str:
-    root = Path(location).resolve()
-    files = sorted(path for path in root.rglob("*") if path.is_file())
-    return hashlib.sha256(
-        "".join(path.relative_to(root).as_posix() + sha256(path) for path in files).encode()
-    ).hexdigest()
+    return directory_revision(Path(location))
 
 
 class StaleIndexError(RuntimeError):
@@ -118,12 +117,16 @@ def terms(text: str) -> list[str]:
 
 def latest_documents(rows: list[dict]) -> list[dict]:
     latest: dict[str, dict] = {}
+    seen = set()
     for row in rows:
-        if row["visibility"] not in {"public", "internal"} or int(row["version"]) < 1:
+        if (row["visibility"] not in {"public", "internal"}
+                or type(row["version"]) is not int or row["version"] < 1):
             raise ValueError("Invalid visibility/version in document")
-        previous = latest.get(row["doc_id"])
-        if previous and row["version"] == previous["version"]:
+        identity = (row["doc_id"], row["version"])
+        if identity in seen:
             raise ValueError(f"Duplicate document version: {row['doc_id']}")
+        seen.add(identity)
+        previous = latest.get(row["doc_id"])
         if previous is None or row["version"] > previous["version"]:
             latest[row["doc_id"]] = row
     # Select latest FIRST, then filter; withdrawing v2 must not resurrect v1.
@@ -250,7 +253,7 @@ def load_index(source: Path = SOURCE, index_path: Path = INDEX) -> dict:
 _ENCODERS: dict[tuple[str, str], Any] = {}
 
 
-def search(question: str, role: str = "public", k: int = 3, method: str = "hybrid",
+def search(question: str, role: str = "public", k: int = DEFAULT_K, method: str = "hybrid",
            index: dict | None = None) -> list[dict]:
     if role not in {"public", "internal"}:
         raise ValueError("role must be public or internal")
@@ -323,7 +326,7 @@ def search(question: str, role: str = "public", k: int = 3, method: str = "hybri
              "bm25_score": float(bm25[j])} for j in order]
 
 
-def answer(question: str, role: str = "public", generator: str = "extractive", k: int = 3,
+def answer(question: str, role: str = "public", generator: str = "extractive", k: int = DEFAULT_K,
            threshold: float = DEFAULT_THRESHOLD, index: dict | None = None) -> dict:
     if generator not in {"extractive", "ollama"}:
         raise ValueError("generator must be extractive or ollama")
@@ -377,38 +380,205 @@ def answer(question: str, role: str = "public", generator: str = "extractive", k
     return result
 
 
-def evaluate(split: str = "dev", generator: str = "extractive", threshold: float = DEFAULT_THRESHOLD,
-             k: int = 3) -> dict:
+def _check_evaluation_parameters(generator: str, threshold: float, k: int) -> None:
+    if generator not in {"extractive", "ollama"}:
+        raise ValueError("generator must be extractive or ollama")
+    if (isinstance(threshold, bool) or not isinstance(threshold, (int, float))
+            or not math.isfinite(threshold) or threshold < 0):
+        raise ValueError("threshold must be finite and nonnegative")
+    if type(k) is not int or not 1 <= k <= 20:
+        raise ValueError("k must be an integer between 1 and 20")
+
+
+def _evaluation_identity(index: dict) -> dict:
+    # BDP_ROOT is a data root; it may not contain any source code.
+    source = Path(__file__).resolve()
+    dependencies = {name: sha256(source.parent / name)
+                    for name in ("common.py", "model_config.py", "artifact_identity.py")}
+    return {
+        "code_path": str(source), "code_sha256": sha256(source),
+        "code_dependencies": dependencies,
+        "index_sha256": sha256(INDEX), "questions_sha256": sha256(QUESTIONS),
+        "index_version": index["index_version"], "data_version": index["source_sha256"],
+        "retrieval_mode": index["mode"], "embedding_model_id": index["model_id"],
+        "embedding_model_revision": index["model_revision"],
+    }
+
+
+def _frozen_path(generator: str) -> Path:
+    name = "frozen_settings.json" if generator == "extractive" else "frozen_settings_ollama.json"
+    return OUT / "lab06" / name
+
+
+def freeze_settings(generator: str = "extractive", threshold: float = DEFAULT_THRESHOLD,
+                    k: int = DEFAULT_K) -> dict:
+    """Freeze the current implementation, data and parameters before a test run."""
+    common.require_identity()
+    _check_evaluation_parameters(generator, threshold, k)
+    index = load_index()
+    record = {"schema_version": 1, "generator": generator, "threshold": threshold, "k": k,
+              **_evaluation_identity(index)}
+    path = _frozen_path(generator)
+    write_json(path, record)
+    return common.read_evidence(path, lab="06")
+
+
+def _load_frozen_settings(generator: str, threshold: float, k: int, index: dict) -> tuple[dict, str]:
+    student = common.require_identity()
+    path = _frozen_path(generator)
+    if not path.is_file():
+        raise ValueError(f"Missing frozen settings for {generator}; run freeze before test")
+    frozen = common.read_evidence(path, lab="06")
+    common.verify_evidence(frozen, lab="06", student_id=student)
+    expected = {"schema_version": 1, "generator": generator, "threshold": threshold, "k": k,
+                **_evaluation_identity(index)}
+    for name, value in expected.items():
+        if frozen.get(name) != value:
+            raise ValueError(f"Frozen settings mismatch: {name}; freeze again and rerun test")
+    return frozen, sha256(path)
+
+
+def _evaluation_cases(split: str) -> list[dict]:
     if split not in {"dev", "test"}:
         raise ValueError("split must be dev or test")
-    index = load_index()
-    cases = [q for q in read_jsonl(QUESTIONS) if q["split"] == split]
-    details = []
+    questions = read_jsonl(QUESTIONS)
+    qids = [q["qid"] for q in questions]
+    if any(not isinstance(qid, str) or not qid for qid in qids) or len(set(qids)) != len(qids):
+        raise ValueError("Question qids must be nonempty and unique")
+    cases = [q for q in questions if q["split"] == split]
+    if not cases:
+        raise ValueError(f"No questions in {split} split")
     for q in cases:
-        result = answer(q["question"], q.get("role", "public"), generator, k, threshold, index)
+        if (type(q["answerable"]) is not bool
+                or not isinstance(q["relevant_doc_ids"], list)
+                or not all(isinstance(i, str) for i in q["relevant_doc_ids"])
+                or bool(q["relevant_doc_ids"]) != q["answerable"]
+                or not isinstance(q["expected_keywords"], list)
+                or not all(isinstance(w, str) for w in q["expected_keywords"])):
+            raise ValueError(f"Invalid evaluation labels: {q['qid']}")
+    return cases
+
+
+def _score_details(cases: list[dict], results: list[dict]) -> list[dict]:
+    details = []
+    for q, result in zip(cases, results, strict=True):
+        if type(result["refused"]) is not bool or not isinstance(result["answer"], str):
+            raise ValueError(f"Invalid evaluation result: {q['qid']}")
         gold = set(q["relevant_doc_ids"])
         got = {h["doc_id"] for h in result["hits"]}
         details.append({**q, "result": result, "recall_at_k": len(gold & got) / len(gold) if gold else None,
                         "decision_correct": result["refused"] == (not q["answerable"]),
                         "keyword_coverage": sum(w in result["answer"] for w in q["expected_keywords"]) / len(q["expected_keywords"]) if q["expected_keywords"] else None})
+    return details
+
+
+def _evaluation_metrics(details: list[dict]) -> dict:
     positive = [r for r in details if r["answerable"]]
     negative = [r for r in details if not r["answerable"]]
     answered = [r for r in details if not r["result"]["refused"]]
     mean = lambda values: sum(values) / len(values) if values else None
-    return {"split": split, "generator": generator, "threshold": threshold, "k": k,
-            "retrieval_mode": index["mode"], "embedding_model_id": index["model_id"], "embedding_model_revision": index["model_revision"],
-            "data_version": index["source_sha256"], "index_version": index["index_version"],
-            "questions_sha256": sha256(QUESTIONS), "n": len(cases), "answerable_n": len(positive),
+    citation_checks = []
+    for row in answered:
+        result = row["result"]
+        markers = re.findall(r"\[([^\]]+)\]", result["answer"])
+        valid = {c["chunk_id"] for c in result["citations"]}
+        citation_checks.append(bool(markers) and all(m in valid for m in markers))
+    return {"n": len(details), "answerable_n": len(positive),
             "unanswerable_n": len(negative), "recall_at_k": mean([r["recall_at_k"] for r in positive]),
             "answerable_accept_rate": mean([not r["result"]["refused"] for r in positive]),
             "unanswerable_refusal_rate": mean([r["result"]["refused"] for r in negative]),
             "decision_accuracy": mean([r["decision_correct"] for r in details]),
-            "citation_existence_rate": mean([r["result"].get("citation_exists", False) for r in answered]),
-            "keyword_coverage": mean([r["keyword_coverage"] for r in positive]),
-            "limitations": "引用存在性及关键词覆盖均不等于答案忠实度；小型合成题集不代表真实泛化。", "details": details}
+            "citation_existence_rate": mean(citation_checks),
+            "keyword_coverage": mean([r["keyword_coverage"] for r in positive])}
+
+
+def evaluate(split: str = "dev", generator: str = "extractive", threshold: float = DEFAULT_THRESHOLD,
+             k: int = DEFAULT_K) -> dict:
+    """Dev permits experiments; test requires a matching generator-specific freeze."""
+    _check_evaluation_parameters(generator, threshold, k)
+    index = load_index()
+    cases = _evaluation_cases(split)
+    identity = _evaluation_identity(index)
+    frozen_sha256 = None
+    if split == "test":
+        _, frozen_sha256 = _load_frozen_settings(generator, threshold, k, index)
+    results = [answer(q["question"], q.get("role", "public"), generator, k, threshold, index)
+               for q in cases]
+    details = _score_details(cases, results)
+    if _evaluation_identity(index) != identity:
+        raise ValueError("Implementation or evaluation data changed during evaluation")
+    if split == "test" and sha256(_frozen_path(generator)) != frozen_sha256:
+        raise ValueError("Frozen settings changed during evaluation")
+    return {"split": split, "generator": generator, "threshold": threshold, "k": k,
+            **identity, "frozen_settings_sha256": frozen_sha256, **_evaluation_metrics(details),
+            "limitations": "引用存在性及关键词覆盖均不等于答案忠实度；小型合成题集不代表真实泛化。",
+            "details": details}
+
+
+def validate_frozen_evaluation(report: dict, index: dict | None = None) -> dict:
+    """Validate an extractive release report and return recomputed metrics/identity.
+
+    Requires lab06 evidence for the current student, the current default serving
+    parameters, a matching freeze, every test qid exactly once, and deterministic
+    replay of each extractive result. Raises ValueError on a failed release check.
+    Ollama reports deliberately cannot satisfy this base-path release gate.
+    """
+    student = common.require_identity()
+    common.verify_evidence(report, lab="06", student_id=student)
+    if report.get("split") != "test" or report.get("generator") != "extractive":
+        raise ValueError("Release evaluation must be test/extractive")
+    threshold, k = report.get("threshold"), report.get("k")
+    _check_evaluation_parameters("extractive", threshold, k)
+    if threshold != DEFAULT_THRESHOLD or k != DEFAULT_K:
+        raise ValueError("Release evaluation parameters differ from serving defaults")
+    current_index = load_index()
+    if index is not None and index != current_index:
+        raise ValueError("Supplied index differs from current validated index")
+    index = current_index
+    _, frozen_sha256 = _load_frozen_settings("extractive", threshold, k, index)
+    identity = _evaluation_identity(index)
+    for name, value in {**identity, "frozen_settings_sha256": frozen_sha256}.items():
+        if report.get(name) != value:
+            raise ValueError(f"Evaluation identity mismatch: {name}")
+    cases = _evaluation_cases("test")
+    rows = report.get("details")
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError("Evaluation details must be a list of results")
+    qids = [row.get("qid") for row in rows]
+    if (any(not isinstance(qid, str) for qid in qids) or len(qids) != len(cases)
+            or len(set(qids)) != len(qids) or set(qids) != {q["qid"] for q in cases}):
+        raise ValueError("Evaluation qids are missing, duplicated or unexpected")
+    by_qid = {row["qid"]: row for row in rows}
+    results = []
+    for q in cases:
+        row = by_qid[q["qid"]]
+        if any(row.get(key) != value for key, value in q.items()):
+            raise ValueError(f"Evaluation labels differ from question set: {q['qid']}")
+        actual = answer(q["question"], q.get("role", "public"), "extractive", k, threshold, index)
+        if row.get("result") != actual:
+            raise ValueError(f"Evaluation result differs from replay: {q['qid']}")
+        results.append(actual)
+    details = _score_details(cases, results)
+    for row in details:
+        for name in ("recall_at_k", "decision_correct", "keyword_coverage"):
+            if by_qid[row["qid"]].get(name) != row[name]:
+                raise ValueError(f"Evaluation per-question metric mismatch: {row['qid']}/{name}")
+    metrics = _evaluation_metrics(details)
+    for name, value in metrics.items():
+        if report.get(name) != value:
+            raise ValueError(f"Evaluation aggregate metric mismatch: {name}")
+    if not metrics["answerable_n"] or not metrics["unanswerable_n"]:
+        raise ValueError("Release evaluation requires both positive and negative cases")
+    for name, minimum in (("answerable_accept_rate", 0.75), ("recall_at_k", 0.75),
+                          ("unanswerable_refusal_rate", 1.0)):
+        if metrics[name] < minimum:
+            raise ValueError(f"Release evaluation below minimum: {name} < {minimum}")
+    return {"generator": "extractive", "threshold": threshold, "k": k,
+            **identity, "frozen_settings_sha256": frozen_sha256, **metrics}
 
 
 def lab05(mode: str = "lexical") -> dict:
+    common.require_identity()
     index = build_index(mode=mode)
     methods = ("tfidf", "bm25", "hybrid", "semantic") if mode == "semantic" else ("tfidf", "bm25", "hybrid")
     comparison = {method: search("缓存键应包含哪些信息？", method=method, index=index) for method in methods}
@@ -421,7 +591,9 @@ def lab05(mode: str = "lexical") -> dict:
     return emit("05", "retrieval", report)
 
 
-def lab06(split: str = "dev", generator: str = "extractive") -> dict:
-    report = evaluate(split, generator)
+def lab06(split: str = "dev", generator: str = "extractive", threshold: float = DEFAULT_THRESHOLD,
+          k: int = DEFAULT_K) -> dict:
+    common.require_identity()
+    report = evaluate(split, generator, threshold, k)
     write_json(OUT / "lab06" / f"evaluation_{split}_{generator}.json", report)
     return emit("06", "evaluation", {k: v for k, v in report.items() if k != "details"})

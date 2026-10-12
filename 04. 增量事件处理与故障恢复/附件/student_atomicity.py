@@ -1,10 +1,15 @@
 """故意保留提前提交错误的个人练习；改为 False 后应满足原子性契约。"""
 import json
 import sqlite3
+import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+COURSE_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(COURSE_ROOT))
+from coursekit.common import OUT, write_json
+from coursekit.evidence import capture_callable
+
 COMMIT_EARLY = True  # 本人改为 False；先预测失败后的行数与检查点。
 
 
@@ -47,11 +52,10 @@ def main():
               "final_rows": final_rows, "final_offset": final_offset}
     assert final_rows == 1 and final_offset == 1
     label = "early" if COMMIT_EARLY else "atomic"
-    target = ROOT / f"outputs/lab04/student-atomicity-{label}.json"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    target = OUT / f"lab04/student-atomicity-{label}.json"
+    result = write_json(target, result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(capture_callable("04", "student_atomicity", main))

@@ -6,6 +6,7 @@ services:
       - "127.0.0.1:8000:8000"
     volumes:
       - ./data:/workspace/data:ro
+      - ./student.json:/workspace/student.json:ro
       - ./outputs/container:/workspace/outputs
     environment:
       BDP_ROOT: /workspace

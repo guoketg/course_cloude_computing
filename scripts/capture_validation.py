@@ -29,17 +29,20 @@ from coursekit.model_config import (
     GENERATION_SOURCE_REVISION,
     MODELSCOPE_ENDPOINT,
 )
+from scripts.prepare_embedding import verify_directory
 
 BASE_PATHS = [
     'outputs/lab01/storage.json', 'outputs/lab02/quality.json', 'outputs/lab02/quarantine.json',
     'outputs/lab03/benchmark-w1-p8.json', 'outputs/lab03/benchmark-w2-p8.json',
     'outputs/lab04/replay.json', 'outputs/lab05/retrieval_lexical.json',
     'outputs/lab06/evaluation_dev_extractive.json', 'outputs/lab06/evaluation_test_extractive.json',
+    'outputs/lab06/frozen_settings.json',
     'outputs/lab07/load_test.json', 'outputs/lab08/release_checks.json',
 ]
 DEFAULT_MODEL_PATHS = BASE_PATHS + [
     'outputs/lab05/retrieval_semantic.json',
     'outputs/lab06/evaluation_dev_ollama.json', 'outputs/lab06/evaluation_test_ollama.json',
+    'outputs/lab06/frozen_settings_ollama.json',
     'outputs/local-model-probe/result.json',
     'models/embedding-manifest.json', 'models/generation-manifest.json',
 ]
@@ -124,23 +127,8 @@ def validate_default_model(root: Path, model_root: Path | None = None):
     modelfile = model_root / 'models/qwen35/Modelfile'
     if not modelfile.is_file() or file_sha256(modelfile) != generation.get('modelfile_sha256'):
         raise RuntimeError('Default generation Modelfile is missing or does not match its manifest')
-    embedding = json.loads((model_root / 'models/embedding-manifest.json').read_text(encoding='utf-8-sig'))
-    if (embedding.get('model_id') != BGE_MODEL_ID
-            or embedding.get('upstream_revision') != BGE_REVISION
-            or embedding.get('source_revision') != BGE_SOURCE_REVISION):
-        raise RuntimeError(f'Default embedding manifest must use frozen {BGE_MODEL_ID}')
-    if not embedding.get('files'):
-        raise RuntimeError('Default embedding manifest has no files')
-    revision_input = []
-    for item in embedding.get('files', []):
-        path = model_root / 'models/bge-small-zh-v1.5' / item['path']
-        if (not path.is_file() or path.stat().st_size != item.get('bytes')
-                or file_sha256(path) != item['sha256']):
-            raise RuntimeError(f'Default BGE artifact mismatch: {item["path"]}')
-        revision_input.append(item['path'] + item['sha256'])
-    directory_revision = hashlib.sha256(''.join(revision_input).encode()).hexdigest()
-    if embedding.get('directory_revision') != directory_revision:
-        raise RuntimeError('Default embedding directory revision does not match its files')
+    embedding = verify_directory(model_root / 'models/bge-small-zh-v1.5',
+                                 model_root / 'models/embedding-manifest.json')
     semantic = json.loads((root / 'outputs/lab05/retrieval_semantic.json').read_text(encoding='utf-8-sig'))
     if semantic.get('mode') != 'semantic' or semantic.get('model_revision') != embedding['directory_revision']:
         raise RuntimeError('Default-model profile requires a real semantic retrieval result')
