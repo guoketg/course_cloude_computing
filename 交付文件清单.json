@@ -16,8 +16,8 @@
   },
   {
     "file": "00. 课程导论与准备/课程导论.md",
-    "bytes": 27461,
-    "sha256": "e8b62931b5b80a45ae604982dd76ac1fe9df66814bf1fbd5be726b2d1bf0dd12"
+    "bytes": 27446,
+    "sha256": "8196f1636272ad8d69b3da944a9f8c961b2ed9d85876e4b95a185bbc62bb77e7"
   },
   {
     "file": "01. 云端数据接口与可复现环境/实验手册.md",
@@ -127,12 +127,12 @@
   {
     "file": "05. AI知识数据与混合检索/实验手册.md",
     "bytes": 24728,
-    "sha256": "240db5c63b1a054e456d606878c6684e33fc485897e478e7c75ef4d2132650c7"
+    "sha256": "7ed0e03e6bfc4421934c35a9e4866150625cf8c105a718e588d9a0510490a668"
   },
   {
     "file": "05. AI知识数据与混合检索/实验报告提交及评分标准.md",
-    "bytes": 7109,
-    "sha256": "0d7212d62c083f75aefe3769c4bea460571c150a5bc692ba07453516f544545b"
+    "bytes": 7115,
+    "sha256": "d1e3feaa5b9ea466455b8d49675eb05167d426e2e6dae246470d6e601ab7b38c"
   },
   {
     "file": "05. AI知识数据与混合检索/附件/README.md",
@@ -156,8 +156,8 @@
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验手册.md",
-    "bytes": 22255,
-    "sha256": "7bf0ec48cd48cce4ef0bd8dd29bd48f17c447ac76d50e34921a2e914dc543efb"
+    "bytes": 22116,
+    "sha256": "6c3549ed7ca53dd9eb38dc7068ab45992fcd24c99962dfc887c8c175e42db2d6"
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验报告提交及评分标准.md",
@@ -171,8 +171,8 @@
   },
   {
     "file": "08. 数据治理与可信发布/实验手册.md",
-    "bytes": 22062,
-    "sha256": "5dc4598d30662be4a275b067bda16302cd23cedde1aa469705c48f46b8b877b3"
+    "bytes": 21945,
+    "sha256": "783f48561ff00d78a5a3b64c941b61cc5c11a8fbde50b5332ece5a03761ea92d"
   },
   {
     "file": "08. 数据治理与可信发布/实验报告提交及评分标准.md",
@@ -185,24 +185,14 @@
     "sha256": "85617d2c1d7f5fefd5ae724f928b2178d35cbebf57f2353787579de6054e6ad8"
   },
   {
-    "file": "09. 个人综合项目/项目任务书.md",
-    "bytes": 14969,
-    "sha256": "492fafbb8d8f31506d873006342a13c8e6ff90e40ae0863f0389189ae359897d"
-  },
-  {
-    "file": "09. 个人综合项目/项目方案手册.md",
-    "bytes": 23078,
-    "sha256": "b6cf721d81a3f7fd0a2176a77f7f97dd74ac52154982f644c77e2cacdfd182cc"
-  },
-  {
     "file": "Dockerfile",
     "bytes": 344,
     "sha256": "a0ca8ce1ef2384a24f2c42d4e5146d713c4994a4f565bb202a5773db632d8168"
   },
   {
     "file": "README.md",
-    "bytes": 8259,
-    "sha256": "5e18533f5998ceac481324b0eaac406c6c6ead73bf8bb630da2b97839dd89209"
+    "bytes": 7982,
+    "sha256": "852d7906727e97fe93471911653c21dc951d44f1614b71383b1a16c790fa2774"
   },
   {
     "file": "compose.yaml",
@@ -271,13 +261,13 @@
   },
   {
     "file": "docs/学号与提交验收.md",
-    "bytes": 12962,
-    "sha256": "bd2bda0e41f04ab06271efca73b16687e879a90a3e93508cc0720a68fac17ae2"
+    "bytes": 12509,
+    "sha256": "4d28554bee5761c23e606448f805e58abff04af10616aa71528b0dfe0ffb3a8a"
   },
   {
     "file": "docs/运行包接口说明.md",
-    "bytes": 9308,
-    "sha256": "72b482aa0c16db7d84c36a073468a8b87cafba631a6836efff7b7f851009c2e9"
+    "bytes": 9205,
+    "sha256": "b659624007cf75f55201e5007c9b8e06825a36e2ea8f54e96651496e333e5699"
   },
   {
     "file": "requirements-models.lock.txt",
@@ -361,7 +351,7 @@
   },
   {
     "file": "报告模板/实验报告模板.md",
-    "bytes": 7735,
-    "sha256": "52cc523e1f364aac053384c3f9da5ef604076859fbeb29a518fb93079fa85591"
+    "bytes": 7723,
+    "sha256": "d069b512e75bb4be6a21583f3b82417004c63e50dcc25048b0c74bfa46e188fd"
   }
 ]
