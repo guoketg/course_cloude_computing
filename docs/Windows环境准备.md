@@ -1,6 +1,6 @@
 # Windows 环境准备与启动检查
 
-请同学们使用自己的笔记本完成安装与预检，再进入实验 01。手册使用 Windows 11 x64、Python 3.12 和 CPU；基础路径不依赖模型、独立显卡或额外服务器。选择模型路径前应完成本机校验，设备运行过慢或内存不足时改做同分基础路径。本文所有命令均为 **PowerShell**，不是 CMD，也不是 WSL 中的 Bash。
+请同学们使用自己的笔记本完成安装与预检，再进入实验 01。手册使用 Windows 11 x64、Python 3.12 和 CPU，基础任务在本机 Python 环境中运行。选择模型路径前应完成本机校验，设备运行过慢或内存不足时改做同分基础路径。本文所有命令均为 **PowerShell**，不是 CMD，也不是 WSL 中的 Bash。
 
 ## 1. 先认识路径、终端和解释器
 
@@ -16,7 +16,7 @@ Get-ChildItem
 
 第一条切换当前工作目录；第二条应显示 `C:\BDP`；第三条列出文件。路径只是本手册约定，如果实际路径不同，修改 `Set-Location` 后所有相对路径仍可使用。含空格的路径要加引号，例如 `Set-Location 'D:\My Courses\BDP'`。
 
-各章用 Git 的 `diff --no-index` 保存本人改动，因此也需安装 Git for Windows。请从 [Git 官方页面](https://git-scm.com/downloads/win)取得安装器，并按下载页面提供的信息核对来源。安装后重开 PowerShell，运行 `git --version`。这里不需要注册 Git 账号，也不需要创建远程仓库。`git diff --no-index` 比较两个本地文件，有差异时退出码为 1，这是它的正常约定，不表示文件比较失败。代码编辑器可用已有的 VS Code 或其他能保存 UTF-8 的文本编辑器。
+各章用 Git 的 `diff --no-index` 保存本人改动，因此也需安装 Git for Windows。请从 [Git 官方页面](https://git-scm.com/downloads/win)取得安装器，并按下载页面提供的信息核对来源。安装后重开 PowerShell，运行 `git --version`。`git diff --no-index` 比较两个本地文件，有差异时退出码为 1，这是它的正常约定，不表示文件比较失败。代码编辑器可用已有的 VS Code 或其他能保存 UTF-8 的文本编辑器。
 
 复制代码块时不包含前后的三个反引号。出现 `PS C:\BDP>` 之类终端提示符时也不应复制。不要把 Python 代码直接当 PowerShell 命令执行。
 
@@ -60,7 +60,7 @@ if ($LASTEXITCODE -ne 0) { throw '依赖安装失败，请先处理上方第一�
 
 ### 使用离线 wheel 包
 
-离线缓存是可选的备用方式，不需要另一台电脑。请在自己的 Windows x64 / Python 3.12 笔记本能联网时执行下列命令；已有缓存和清单的同学可以直接从下一段校验命令开始：
+请在自己的 Windows x64 / Python 3.12 笔记本能联网时执行下列命令，保存离线安装所需的依赖包；已有缓存和清单的同学可以直接从下一段校验命令开始：
 
 ```powershell
 Set-Location C:\BDP
@@ -95,7 +95,7 @@ $studentId = Read-Host '请输入本人学号'
 
 ## 5. 可选模型对照的环境准备
 
-不安装模型也能完成 01—08 的基础路径并取得完整基础分。选择模型对照时，先在实验 01—04 后运行词法基线，再按实验 05 的步骤构建语义索引。课程压缩包不含模型权重；可通过下方国内下载命令准备，也可使用已取得且能通过 manifest 校验的离线目录。
+选择模型对照的同学，请先完成实验 01—04，再按实验 05 的步骤依次运行词法基线和构建语义索引。模型权重通过下方下载命令单独准备，也可使用已取得且能通过 manifest 校验的离线目录。
 
 如果已准备 `wheelhouse` 离线包，使用以下两条命令安装模型依赖：
 
@@ -159,7 +159,7 @@ $env:BDP_OLLAMA_MODEL = 'bdp-qwen35:0.8b-q8_0'
 Invoke-RestMethod -Uri http://127.0.0.1:11434/api/tags
 ```
 
-`prepare_generation.py` 的默认下载同样只允许 ModelScope 国内域名；课程步骤直接使用默认下载源，不需要校内镜像服务。脚本在导入前再次检查 GGUF 和 Modelfile，使用自定义 tag，避免连接 Ollama Registry。该 GGUF 是社区转换制品，不等于 Ollama 官方 tag 或 digest。默认请求关闭 thinking，使用 CPU、2线程、上下文2048、最多输出256 token；代码不会自动启用 GPU。模型文件大小和真正运行时内存不同，还需给运行时、KV cache 和 Windows 留出空间。本地运行无需按 token 付费。Ollama 应用通常在安装后运行；如本地接口无法连接，先打开 Ollama，再检查端口，不能把文件导入完成当作服务已可用。
+`prepare_generation.py` 从固定的 ModelScope 来源下载模型，并核对文件清单。脚本在导入前再次检查 GGUF 和 Modelfile，使用自定义 tag，避免连接 Ollama Registry。该 GGUF 是社区转换制品，不等于 Ollama 官方 tag 或 digest。默认请求关闭 thinking，使用 CPU、2线程、上下文2048、最多输出256 token；代码不会自动启用 GPU。模型文件大小和真正运行时内存不同，还需给运行时、KV cache 和 Windows 留出空间。Ollama 应用通常在安装后运行；如本地接口无法连接，先打开 Ollama，再检查端口，不能把文件导入完成当作服务已可用。
 
 此课程的小模型可能生成错误引用、遗漏条件或错误回答，这些都是实验 06 应保留和分析的观察。课程评价不要求小模型必然优于摘录基线。
 
@@ -193,13 +193,13 @@ Invoke-RestMethod -Uri http://127.0.0.1:8000/health
 .\.venv\Scripts\python.exe -m coursekit lab07 --requests 20
 ```
 
-`127.0.0.1` 只表示本机，不需要开放防火墙到公网。服务代码中的 `role` 是课堂权限模拟，不是生产认证系统，因此本课程不提供直接对外公开该服务的操作。完成实验，在终端 A 按 `Ctrl+C` 即可正常停止。
+`127.0.0.1` 是本机回环地址。服务代码中的 `role` 仅用于模拟权限，没有用户身份认证；实验服务应保持本机监听。完成实验，在终端 A 按 `Ctrl+C` 即可正常停止。
 
-## 7. Docker 的位置与必要条件
+## 7. 可选容器实验的环境准备
 
-容器化是实验 07 的可选部署对照。同学们先在自己的笔记本上用原生 Python 完成 HTTP 实验；本机已具备可用 Docker Desktop 时，再开展容器练习。准备前阅读 [Docker Desktop Windows 系统要求](https://docs.docker.com/desktop/setup/install/windows-install/)，核对本机后端、虚拟化条件与安装许可。尚未具备这些条件时，完成原生路径即可，不要求另找机房或服务器。
+容器化是实验 07 的可选部署对照。同学们先在自己的笔记本上用原生 Python 完成 HTTP 实验；本机已具备可用 Docker Desktop 时，再开展容器练习。准备前阅读 [Docker Desktop Windows 系统要求](https://docs.docker.com/desktop/setup/install/windows-install/)，核对本机后端、虚拟化条件与安装许可。
 
-`Dockerfile` 描述镜像，`compose.yaml` 描述端口、数据挂载、CPU/内存限制和健康检查。Windows 上启动的是 Docker 的 Linux 容器后端，不能用“都是 Windows 进程”来解释它。
+`Dockerfile` 描述镜像，`compose.yaml` 描述端口、数据挂载、CPU/内存限制和健康检查。Windows 上使用 Docker 的 Linux 容器后端运行该镜像，请区分宿主机、容器后端和容器内进程。
 
 ```powershell
 docker version

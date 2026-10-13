@@ -5,7 +5,7 @@
 - [运行源码](../../coursekit/intelligence.py)：seed_corpus、latest_documents、chunk_documents、build_index、search。
 - [课程安装与入口](../../README.md)：Windows环境、基础与模型依赖。
 - [完整实验手册](../实验手册.md)：逐阶段操作及预期结果。
-- [报告与评分](../实验报告提交及评分标准.md)：必交证据和评分分母。
+- [报告与评分](../实验报告提交及评分标准.md)：必交证据和评分标准。
 
 标准入口：`.\.venv\Scripts\python.exe -m coursekit lab05 --mode lexical`；语义对照把最后一个参数改为 `--mode semantic`。
 
