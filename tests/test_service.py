@@ -24,7 +24,7 @@ def ready(monkeypatch, tmp_path):
     stats = data / 'gold/realtime_service.json'
     common.write_json(stats, [{'service': 'assistant', 'requests': 5, 'input_tokens': 30, 'output_tokens': 10}])
     source, target = data / 'documents.jsonl', data / 'index.json'
-    source.write_text(json.dumps({'doc_id': 'quota', 'title': '学生CPU配额', 'text': '学生每周CPU推理配额为120分钟。',
+    source.write_text(json.dumps({'doc_id': 'quota', 'title': '模拟服务用户配额', 'text': '模拟服务的用户每周CPU推理配额为120分钟。',
                                   'version': 1, 'visibility': 'public'}, ensure_ascii=False), encoding='utf-8')
     intelligence.build_index(source, target)
     monkeypatch.setattr(service, 'load_index', lambda: intelligence.load_index(source, target))
@@ -41,7 +41,7 @@ def test_all_responses_and_pages_have_registered_identity(ready):
         response = client.get(route)
         assert response.status_code == 200
         assert common.verify_evidence(response.json(), '07')['student_id'] == '20261234'
-    response = client.post('/ask', json={'question': '学生每周CPU推理配额是多少分钟？'})
+    response = client.post('/ask', json={'question': '模拟服务的用户每周CPU推理配额是多少分钟？'})
     assert response.status_code == 200
     assert response.json()['refused'] is False
     common.verify_evidence(response.json(), '07')

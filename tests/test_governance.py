@@ -79,7 +79,7 @@ def replay(index):
 
 @pytest.fixture
 def http_report(index):
-    rule_question = '学生每周CPU推理配额是多少分钟？'
+    rule_question = '模拟服务的用户每周CPU推理配额是多少分钟？'
     rule = intelligence.answer(rule_question, 'public', index=index)
     stats = {'question': '查询实时服务统计', 'role': 'public', 'refused': False,
              'tool': 'service_stats', 'index_version': index['index_version'],

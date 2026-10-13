@@ -47,7 +47,7 @@ def test_local_embedding_path_has_stable_public_identity(monkeypatch, tmp_path):
 def test_default_ollama_request_fields(monkeypatch, tmp_path):
     source = tmp_path / "documents.jsonl"
     source.write_text(json.dumps({"doc_id": "quota", "title": "配额", "version": 1,
-                                  "visibility": "public", "text": "学生每周配额120分钟。"},
+                                  "visibility": "public", "text": "模拟服务的用户每周配额120分钟。"},
                                  ensure_ascii=False) + "\n", encoding="utf-8")
     index = build_index(source, tmp_path / "index.json")
     chunk_id = index["chunks"][0]["chunk_id"]
@@ -71,7 +71,7 @@ def test_default_ollama_request_fields(monkeypatch, tmp_path):
     monkeypatch.setattr("httpx.get", lambda *args, **kwargs: Response(
         {"models": [{"name": DEFAULT_OLLAMA_MODEL, "digest": "digest"}]}
     ))
-    result = answer("学生每周配额是多少分钟？", generator="ollama", index=index)
+    result = answer("模拟服务的用户每周配额是多少分钟？", generator="ollama", index=index)
     assert captured["request"]["model"] == DEFAULT_OLLAMA_MODEL
     assert captured["request"]["think"] is False
     assert captured["request"]["options"]["num_gpu"] == 0
@@ -88,11 +88,11 @@ def test_generation_hash_mismatch_is_rejected(monkeypatch, tmp_path):
         prepare_generation.verify_gguf(artifact)
 
 
-def test_school_generation_url_requires_explicit_host(tmp_path):
+def test_custom_generation_url_requires_explicit_host(tmp_path):
     with pytest.raises(ValueError, match="requires at least one --allowed-host"):
         prepare_generation.prepare(
             None, tmp_path / "models", tmp_path / "manifest.json",
-            "https://mirror.example.edu.cn/model.gguf", set(),
+            "https://mirror.example.com/model.gguf", set(),
         )
 
 

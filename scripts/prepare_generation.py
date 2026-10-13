@@ -136,8 +136,8 @@ def prepare(local_file: Path | None, output_dir: Path, manifest_path: Path,
             source_kind = "modelscope"
         else:
             if not hosts:
-                raise ValueError("A school --artifact-url requires at least one --allowed-host")
-            source_kind = "school-mirror"
+                raise ValueError("A custom --artifact-url requires at least one --allowed-host")
+            source_kind = "custom-mirror"
         download = download_verified(
             artifact_url, destination, GENERATION_GGUF_BYTES,
             GENERATION_GGUF_SHA256, hosts,
@@ -201,9 +201,9 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--artifact-url", default=DEFAULT_ARTIFACT_URL,
-                        help="Pinned ModelScope URL, or a school static mirror with the same SHA256")
+                        help="Pinned ModelScope URL, or a custom static mirror with the same SHA256")
     parser.add_argument("--allowed-host", action="append", default=[],
-                        help="Additional domestic redirect host for a school mirror")
+                        help="Additional allowed redirect host for a custom mirror")
     parser.add_argument("--ollama-url", default=os.environ.get("BDP_OLLAMA_URL", "http://127.0.0.1:11434"))
     args = parser.parse_args()
     output_dir = args.output_dir.resolve()

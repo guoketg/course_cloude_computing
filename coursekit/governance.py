@@ -118,7 +118,7 @@ def validate_http_evidence(report, index=None):
     require_check(type(report['requests']) is int and report['requests'] >= 20
                   and isinstance(details, list) and len(details) == report['requests'], 'Need at least 20 HTTP requests')
     require_check(report['errors'] == 0, 'HTTP benchmark contains failures')
-    rule_question = '学生每周CPU推理配额是多少分钟？'
+    rule_question = '模拟服务的用户每周CPU推理配额是多少分钟？'
     stats_questions = {'查询实时服务统计', '各服务有多少请求'}
     expected_rule = answer(rule_question, 'public', index=index)
     require_check(expected_rule['refused'] is False and expected_rule.get('citation_exists') is True,
@@ -193,9 +193,9 @@ def lab08() -> dict:
             source.write_bytes(SOURCE.read_bytes())
             old = build_index(source, index_path)
             source.write_text(source.read_text(encoding="utf-8") + json.dumps({
-                "doc_id": "quota", "title": "学生算力配额", "version": 3, "visibility": "public",
+                "doc_id": "quota", "title": "模拟服务用户配额", "version": 3, "visibility": "public",
                 "updated_at": "2026-09-02T00:00:00Z", "status": "approved",
-                "text": "学生每周CPU推理配额已经调整为180分钟。"}, ensure_ascii=False) + "\n", encoding="utf-8")
+                "text": "模拟服务的用户每周CPU推理配额已经调整为180分钟。"}, ensure_ascii=False) + "\n", encoding="utf-8")
             rejected = False
             try:
                 validate_index(source, index_path)

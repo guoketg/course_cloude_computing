@@ -26,7 +26,7 @@ from .common import (DATA, OUT, IdentityError, emit, evidence_metadata, normaliz
                      read_json, require_identity, save_run, verify_evidence, write_json)
 from .intelligence import StaleIndexError, answer, load_index, validate_index
 
-app = FastAPI(title='校园 AI 数据平台（本机教学身份模拟）', docs_url=None, redoc_url=None)
+app = FastAPI(title='模拟服务使用分析与规则查询平台', docs_url=None, redoc_url=None)
 _CACHE: dict[str, dict] = {}
 _LOCK = threading.RLock()
 _LATENCIES = deque(maxlen=10000)
@@ -200,7 +200,7 @@ def identity_banner():
 
 @app.get('/docs', include_in_schema=False)
 def docs():
-    page = get_swagger_ui_html(openapi_url=app.openapi_url, title='带学号的课程接口文档')
+    page = get_swagger_ui_html(openapi_url=app.openapi_url, title='模拟服务使用分析与规则查询平台 · 课程接口文档')
     return HTMLResponse(page.body.decode().replace('<body>', '<body>' + identity_banner(), 1))
 
 
@@ -212,10 +212,12 @@ def evidence_view():
             'background:#f4f6f8}main{max-width:1100px;margin:auto;padding:24px}button,input,select{font:inherit;'
             'padding:8px;margin:4px}input{width:min(90%,600px)}pre{white-space:pre-wrap;overflow-wrap:anywhere;'
             'padding:20px;background:white;border:1px solid #cbd5e1}</style>' + identity_banner() +
-            '<main><p>截图必须同屏保留顶部学号、编号、run_id与下面的实际响应。服务只监听本机，role是教学模拟。</p>'
+            '<main><h1>模拟服务使用分析与规则查询平台</h1>'
+            '<p>平台在本人笔记本上运行，使用合成事件与虚构服务规则；服务监听本机，role是教学模拟。</p>'
+            '<p>截图必须同屏保留顶部学号、编号、run_id与下面的实际响应。</p>'
             '<p><button data-route="health">健康</button><button data-route="stats">统计</button>'
             '<button data-route="metrics">指标</button></p><form id="ask">'
-            '<label>问题 <input id="question" value="学生每周CPU推理配额是多少分钟？" maxlength="1000" required></label>'
+            '<label>问题 <input id="question" value="模拟服务的用户每周CPU推理配额是多少分钟？" maxlength="1000" required></label>'
             '<label>角色 <select id="role"><option>public</option><option>internal</option></select></label>'
             '<button>实际提问</button></form><p><a id="raw" hidden download>下载本次原始JSON</a> '
             '<a id="page" hidden download>下载本次证据HTML</a></p>'
@@ -258,7 +260,7 @@ def lab07(requests: int = 20) -> dict:
         before = client.get('/metrics').json()
         started = time.perf_counter()
         for i in range(requests):
-            question = '查询实时服务统计' if i % 5 == 0 else '学生每周CPU推理配额是多少分钟？'
+            question = '查询实时服务统计' if i % 5 == 0 else '模拟服务的用户每周CPU推理配额是多少分钟？'
             tick = time.perf_counter()
             response = client.post('/ask', json={'question': question, 'role': 'public'})
             elapsed = (time.perf_counter() - tick) * 1000

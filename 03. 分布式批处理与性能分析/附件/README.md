@@ -2,7 +2,7 @@
 
 共享运行入口位于 `coursekit/pipeline.py` 的 `lab03()`。从课程根目录运行 `.\.venv\Scripts\python.exe -m coursekit lab03 --workers 2 --partitions 8`。
 
-`student_latency_aggregate.py` 是必做个人改动：复制到 `submissions/lab03`，先将慢请求阈值从 1000 改成 2000，再新增每服务 `errors/error_rate` 的 Dask 与 SQL 实现。保存完整源码 diff、预测与实际输出。它会启动两个 Worker 进程，在主入口保护内执行，并使用独立 SQL 检查结果。
+`student_latency_aggregate.py` 是必做个人改动：复制到 `submissions/lab03`，先将慢请求阈值从 1000 改成 2000，再新增每服务 `errors/error_rate` 的 Dask 与 SQL 实现。保存完整源码 diff、预测与实际输出。它会在本人笔记本上启动两个 Worker 进程，在主入口保护内执行，并使用独立 SQL 检查结果。
 
 `check_error_extension.py --threshold 2000` 逐行读取 Silver，独立验证同学们新增的错误统计。初始练习文件尚未实现新字段，专项核验会提示缺少字段；完成独立编码后应通过。不得修改核验器冒充完成。
 

@@ -8,7 +8,7 @@ from .common import (IdentityError, emit, normalize_lab, register_identity,
 
 
 def main():
-    parser = argparse.ArgumentParser(description='BDP: cloud data and AI evidence lab kit')
+    parser = argparse.ArgumentParser(description='BDP：模拟服务使用分析与规则查询平台')
     sub = parser.add_subparsers(dest='command', required=True)
     identity = sub.add_parser('identity')
     identity.add_argument('--student-id', required=True)

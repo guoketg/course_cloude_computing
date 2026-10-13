@@ -1,0 +1,592 @@
+{
+  "date": "2026-10-12",
+  "scope": "学生材料全面复核及新版语料基础流程回归",
+  "baseline_commit": "7b7d615c6c4d0fc69752d3f6b305649afab184de",
+  "status": "文本修订与本机基础回归通过；Windows、固定模型、容器及物理16GB兼容性未作本次通过声明",
+  "document_summary": {
+    "student_documents": 33,
+    "changed_documents": 19,
+    "code_blocks": 175,
+    "powershell_blocks": 127,
+    "python_blocks": 28,
+    "changed_code_blocks": 3,
+    "non_document_changed": 9,
+    "broken_links": 0,
+    "fence_errors": 0,
+    "python_parse_errors": 0
+  },
+  "source_review": {
+    "files": 73,
+    "python_files": 30,
+    "python_string_literals": 4085,
+    "strong_marker_matches": []
+  },
+  "code_examples": {
+    "total": 175,
+    "changed": [
+      {
+        "file": "06. 证据问答与系统评价/实验手册.md",
+        "block": 2,
+        "language": "powershell",
+        "change": "question string only"
+      },
+      {
+        "file": "06. 证据问答与系统评价/实验手册.md",
+        "block": 13,
+        "language": "powershell",
+        "change": "question string only"
+      },
+      {
+        "file": "07. 云服务部署与推理可观测性/实验手册.md",
+        "block": 4,
+        "language": "powershell",
+        "change": "question string only"
+      }
+    ],
+    "unchanged": 172,
+    "python_ast": "28 blocks passed",
+    "powershell": "Only 3 question literals changed (one in embedded Python); no fresh Windows PowerShell parse this revision (FF11 unavailable)."
+  },
+  "student_documents": [
+    {
+      "path": "00. 课程导论与准备/课程导论.md",
+      "sha256": "e8b62931b5b80a45ae604982dd76ac1fe9df66814bf1fbd5be726b2d1bf0dd12",
+      "lines": 355,
+      "changed": true
+    },
+    {
+      "path": "01. 云端数据接口与可复现环境/实验手册.md",
+      "sha256": "3de7d7a1267616c3525b26eb80c5d57fba106bcf1ee07981d5c6c7690e5b5f27",
+      "lines": 243,
+      "changed": true
+    },
+    {
+      "path": "01. 云端数据接口与可复现环境/实验报告提交及评分标准.md",
+      "sha256": "57f38104984473a34ddb7fb7a294ceaea7ff4dd788b143464f796ac2290e60b2",
+      "lines": 77,
+      "changed": false
+    },
+    {
+      "path": "01. 云端数据接口与可复现环境/附件/README.md",
+      "sha256": "d79f5ad31905ebc1c6b928cc9d2fe4f2b514e16694eda53e3cac834add1d2566",
+      "lines": 15,
+      "changed": false
+    },
+    {
+      "path": "02. 数据湖与质量契约/实验手册.md",
+      "sha256": "79f8a7363cd6d5c45a8dc30305acabe02d43c6dc8795c41ac0b57394a6b09d69",
+      "lines": 251,
+      "changed": true
+    },
+    {
+      "path": "02. 数据湖与质量契约/实验报告提交及评分标准.md",
+      "sha256": "4b56b9470c9b44434fded6a478922faf46dcddceabeda6869a7ac4359cde9022",
+      "lines": 74,
+      "changed": false
+    },
+    {
+      "path": "02. 数据湖与质量契约/附件/README.md",
+      "sha256": "7994d4bda779ee4494dff1e2f3802d513e4f1bf08c24761dff1b75e0c1098c8c",
+      "lines": 14,
+      "changed": false
+    },
+    {
+      "path": "03. 分布式批处理与性能分析/实验手册.md",
+      "sha256": "f6d539d78cc346ca7d68dc3130475b7357dad55e547f5ef1a4f9d621ada4e200",
+      "lines": 293,
+      "changed": true
+    },
+    {
+      "path": "03. 分布式批处理与性能分析/实验报告提交及评分标准.md",
+      "sha256": "8bee57a2b349a95e6e14d12099e18ea8f4a43d4edd89602d68d6c7c2a2ee05cb",
+      "lines": 75,
+      "changed": false
+    },
+    {
+      "path": "03. 分布式批处理与性能分析/附件/README.md",
+      "sha256": "17fe5b7f7f77de0332711f613568d83dca3bb76cbd3cf80e4a32b34a4e95da12",
+      "lines": 15,
+      "changed": true
+    },
+    {
+      "path": "04. 增量事件处理与故障恢复/实验手册.md",
+      "sha256": "56647d131dee5f6d28182674e493fd2971d61e7275734e494f9feb8ca349bf71",
+      "lines": 276,
+      "changed": true
+    },
+    {
+      "path": "04. 增量事件处理与故障恢复/实验报告提交及评分标准.md",
+      "sha256": "9ecf01f271746974ee917a2ce764f8f5ae5b5b9ebae36f68d545ecbb1f0d4884",
+      "lines": 77,
+      "changed": true
+    },
+    {
+      "path": "04. 增量事件处理与故障恢复/附件/README.md",
+      "sha256": "2730c4b9134a9ff3b0da5ca400e1e5d4c0364c36f7dbdf112a0fe86ac37935bf",
+      "lines": 16,
+      "changed": false
+    },
+    {
+      "path": "05. AI知识数据与混合检索/实验手册.md",
+      "sha256": "240db5c63b1a054e456d606878c6684e33fc485897e478e7c75ef4d2132650c7",
+      "lines": 339,
+      "changed": true
+    },
+    {
+      "path": "05. AI知识数据与混合检索/实验报告提交及评分标准.md",
+      "sha256": "0d7212d62c083f75aefe3769c4bea460571c150a5bc692ba07453516f544545b",
+      "lines": 102,
+      "changed": false
+    },
+    {
+      "path": "05. AI知识数据与混合检索/附件/README.md",
+      "sha256": "b08fe8974b80f59dc9d00fcc27018b953cb6d63057295a6447259d7db48ac50d",
+      "lines": 14,
+      "changed": false
+    },
+    {
+      "path": "06. 证据问答与系统评价/实验手册.md",
+      "sha256": "311a3a4923ce1e6cc08ff8ce5a934891e684d4a12090c2084397be354a00ff1d",
+      "lines": 317,
+      "changed": true
+    },
+    {
+      "path": "06. 证据问答与系统评价/实验报告提交及评分标准.md",
+      "sha256": "15da30325e74054c0be46df40466f4dcdd408444b718a81b5b0cbb6f42afd191",
+      "lines": 96,
+      "changed": false
+    },
+    {
+      "path": "06. 证据问答与系统评价/附件/README.md",
+      "sha256": "1123e3f9fdd480d98e26fefbd5efbbc49fbad1f9085ab9ea7f630cd1204813bd",
+      "lines": 14,
+      "changed": true
+    },
+    {
+      "path": "07. 云服务部署与推理可观测性/实验手册.md",
+      "sha256": "7bf0ec48cd48cce4ef0bd8dd29bd48f17c447ac76d50e34921a2e914dc543efb",
+      "lines": 315,
+      "changed": true
+    },
+    {
+      "path": "07. 云服务部署与推理可观测性/实验报告提交及评分标准.md",
+      "sha256": "55dcd01bdf93ddcc3ee6fa356864b0b09f7342d5b864aca7b2868a9b07dba7f8",
+      "lines": 95,
+      "changed": true
+    },
+    {
+      "path": "07. 云服务部署与推理可观测性/附件/README.md",
+      "sha256": "0bb083d13b639b1fd77b6860ea7eebdf5c39fe9e5980ae91294fa1eeee8ea8ed",
+      "lines": 12,
+      "changed": false
+    },
+    {
+      "path": "08. 数据治理与可信发布/实验手册.md",
+      "sha256": "5dc4598d30662be4a275b067bda16302cd23cedde1aa469705c48f46b8b877b3",
+      "lines": 328,
+      "changed": true
+    },
+    {
+      "path": "08. 数据治理与可信发布/实验报告提交及评分标准.md",
+      "sha256": "e5b51a6f6b940c41b5b789aa95d8d5564c37d7e2fb88e441e6d7f78a889383d7",
+      "lines": 93,
+      "changed": true
+    },
+    {
+      "path": "08. 数据治理与可信发布/附件/README.md",
+      "sha256": "85617d2c1d7f5fefd5ae724f928b2178d35cbebf57f2353787579de6054e6ad8",
+      "lines": 12,
+      "changed": true
+    },
+    {
+      "path": "09. 个人综合项目/项目任务书.md",
+      "sha256": "492fafbb8d8f31506d873006342a13c8e6ff90e40ae0863f0389189ae359897d",
+      "lines": 153,
+      "changed": true
+    },
+    {
+      "path": "09. 个人综合项目/项目方案手册.md",
+      "sha256": "b6cf721d81a3f7fd0a2176a77f7f97dd74ac52154982f644c77e2cacdfd182cc",
+      "lines": 298,
+      "changed": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "5e18533f5998ceac481324b0eaac406c6c6ead73bf8bb630da2b97839dd89209",
+      "lines": 75,
+      "changed": true
+    },
+    {
+      "path": "docs/Windows环境准备.md",
+      "sha256": "8113b1f21ad37158c7fa7e4d2dc3451a33919cb00e34203c2f0f57560cdf5479",
+      "lines": 253,
+      "changed": true
+    },
+    {
+      "path": "docs/学号与提交验收.md",
+      "sha256": "bd2bda0e41f04ab06271efca73b16687e879a90a3e93508cc0720a68fac17ae2",
+      "lines": 115,
+      "changed": false
+    },
+    {
+      "path": "docs/运行包接口说明.md",
+      "sha256": "72b482aa0c16db7d84c36a073468a8b87cafba631a6836efff7b7f851009c2e9",
+      "lines": 61,
+      "changed": false
+    },
+    {
+      "path": "报告模板/AI使用记录模板.md",
+      "sha256": "327f5d7c2bde73f015d413a627d6981f4e7b3f58047808def11f6cb3e1e54f1e",
+      "lines": 55,
+      "changed": false
+    },
+    {
+      "path": "报告模板/实验报告模板.md",
+      "sha256": "52cc523e1f364aac053384c3f9da5ef604076859fbeb29a518fb93079fa85591",
+      "lines": 121,
+      "changed": false
+    }
+  ],
+  "coursekit_sha256": {
+    "coursekit/service.py": "a793e2220bedcdc2f7f1c187110e047442a0e4a85e8d7cd8650f889dad854f8e",
+    "coursekit/model_config.py": "72495d5b3f90fb740b35ced063cc8b12b638b2715a44e8a052b97977c31a3e8c",
+    "coursekit/__init__.py": "37ddce23a06f12173733972a0ddd9e9645c4dd96438e339487bd6784df9a69ab",
+    "coursekit/intelligence.py": "d18e0c42e068cbec4faa10da3ec44767ff5c0b70dae90ad6a8b1b3f472c915e9",
+    "coursekit/artifact_identity.py": "c95f198a532159d571c440e20d4ee652def9eca770b5f4665794e9cb2d68df3c",
+    "coursekit/download_policy.py": "b79e8ab3f35702adc531a9a8f551dcaa1ce0a9e8249b8c368a6253a7675eddba",
+    "coursekit/common.py": "47f00ce51a514fa45e62cc8bb47e1f5bf66405dda4a313b9d9c8f287e1abcfee",
+    "coursekit/pipeline.py": "ff58b1276a1b248e2183f169798e14f51543cb17c48cbc41896700fb2abc6573",
+    "coursekit/evidence.py": "0a7cb4eb2683d751d8977790c5ac31b7fd704171a9e5f8e5e97dce8ee22138aa",
+    "coursekit/__main__.py": "a0a452ee8c0fb0c33da2c588628830415b45c98f9c280ae30a361843e44b9315",
+    "coursekit/governance.py": "7a1cdc3825901bb4009beaaf46f9521cb526e5798d72a66b642e04adcee46c87"
+  },
+  "runtime": {
+    "platform": "macOS; original locked versions except Windows-only pywin32",
+    "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:12:32) [Clang 20.1.8 ]",
+    "memory_bytes": 137438953472,
+    "dependency_lock_mismatches": {},
+    "tests": {
+      "passed": 250,
+      "failed": 0,
+      "warnings": 3
+    },
+    "post_rename_package_tests": {
+      "passed": 4
+    },
+    "commands": [
+      {
+        "label": "pip-check",
+        "args": [
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.228,
+        "process_tree_peak_rss_sum_bytes": 47120384
+      },
+      {
+        "label": "pytest",
+        "args": [
+          "-m",
+          "pytest",
+          "tests",
+          "控制文档/tests",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "<validation-root>/pytest-base"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 28.209,
+        "process_tree_peak_rss_sum_bytes": 219332608
+      },
+      {
+        "label": "missing-student",
+        "args": [
+          "-m",
+          "coursekit",
+          "seed",
+          "--rows",
+          "100"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "passed": true,
+        "seconds": 0.116,
+        "process_tree_peak_rss_sum_bytes": 10567680
+      },
+      {
+        "label": "identity",
+        "args": [
+          "-m",
+          "coursekit",
+          "identity",
+          "--student-id",
+          "20261234",
+          "--lab",
+          "01"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.117,
+        "process_tree_peak_rss_sum_bytes": 10764288
+      },
+      {
+        "label": "seed",
+        "args": [
+          "-m",
+          "coursekit",
+          "seed",
+          "--rows",
+          "20000"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.225,
+        "process_tree_peak_rss_sum_bytes": 53002240
+      },
+      {
+        "label": "lab01",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab01"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 3.308,
+        "process_tree_peak_rss_sum_bytes": 132792320
+      },
+      {
+        "label": "lab02",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab02"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.458,
+        "process_tree_peak_rss_sum_bytes": 189562880
+      },
+      {
+        "label": "lab03-w1",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab03",
+          "--workers",
+          "1",
+          "--partitions",
+          "8"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 9.76,
+        "process_tree_peak_rss_sum_bytes": 408109056
+      },
+      {
+        "label": "lab03-w2",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab03",
+          "--workers",
+          "2",
+          "--partitions",
+          "8"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 2.039,
+        "process_tree_peak_rss_sum_bytes": 605831168
+      },
+      {
+        "label": "lab04",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab04"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.455,
+        "process_tree_peak_rss_sum_bytes": 135413760
+      },
+      {
+        "label": "lab05",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab05",
+          "--mode",
+          "lexical"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.119,
+        "process_tree_peak_rss_sum_bytes": 10698752
+      },
+      {
+        "label": "lab06-dev",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab06",
+          "--split",
+          "dev"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.117,
+        "process_tree_peak_rss_sum_bytes": 10780672
+      },
+      {
+        "label": "freeze",
+        "args": [
+          "-m",
+          "coursekit",
+          "freeze"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.116,
+        "process_tree_peak_rss_sum_bytes": 10665984
+      },
+      {
+        "label": "lab06-test",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab06",
+          "--split",
+          "test"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.117,
+        "process_tree_peak_rss_sum_bytes": 10747904
+      },
+      {
+        "label": "lab07",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab07",
+          "--requests",
+          "20"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.34,
+        "process_tree_peak_rss_sum_bytes": 68075520
+      },
+      {
+        "label": "lab08",
+        "args": [
+          "-m",
+          "coursekit",
+          "lab08"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "passed": true,
+        "seconds": 0.233,
+        "process_tree_peak_rss_sum_bytes": 54788096
+      }
+    ],
+    "identity": {
+      "01": {
+        "native_json_html_pairs": 2,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "02": {
+        "native_json_html_pairs": 1,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "03": {
+        "native_json_html_pairs": 2,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "04": {
+        "native_json_html_pairs": 1,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "05": {
+        "native_json_html_pairs": 1,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "06": {
+        "native_json_html_pairs": 3,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "07": {
+        "native_json_html_pairs": 27,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      },
+      "08": {
+        "native_json_html_pairs": 1,
+        "student_id": "20261234",
+        "lab_and_run_id_match": true
+      }
+    },
+    "generated_content": {
+      "documents": 16,
+      "questions": 24,
+      "quota_title": "模拟服务用户配额",
+      "source_sha256": "662d117c49cc35d61040695171fca6b9d6fce67f0ffef885ef412a2497fbc64a",
+      "questions_sha256": "9925a059faa9edc430bfaf542127840f75898a252087ed9e2a38ac83f2756c21",
+      "answer_quote_matches_corpus": true,
+      "http_response_student_id": "20261234",
+      "governance_checks": "8/8",
+      "ui_html_checked": 3,
+      "visual_review": "Two original Chrome screenshots inspected; visible student ID, experiment ID, run_id and new fictional case text. Form screenshot is initial state; response screenshot is a separate real request record."
+    },
+    "renderer": "Chrome produced the initial screenshot but did not exit within 30 seconds. A separate response screenshot was captured; both visually inspected."
+  },
+  "package": {
+    "files": 74,
+    "manifest_entries": 73,
+    "crc": "PASS",
+    "all_manifest_hashes": "PASS",
+    "matches_current_source": "PASS",
+    "excluded_teacher_and_personal_data": "PASS",
+    "project_path": "09. 个人综合项目",
+    "docker_optional_files_preserved": true,
+    "bytes": 272702,
+    "sha256": "b9f6fc58b66808c3268eb772e0d6ff9934ef661c4fd15bffd2b8ab72e880815a"
+  },
+  "limitations": [
+    "FF11 SSH连接超时；本次未重跑Windows安装与PowerShell解析。",
+    "新版语料上的固定BGE/Qwen3.5模型路径未运行，旧语料的模型质量指标不可沿用。",
+    "Docker选做文件和文档保留，本次未构建或运行容器。",
+    "物理16GB笔记本未实测；本次macOS机器为128GiB，历史FF11约93GiB。",
+    "未进行真实学生试教；09个人项目无统一学生实现，本次仅验证共用组件和身份验收规则。"
+  ],
+  "historical_evidence": "控制文档中的旧验证与研究记录保持原样且不进入学生包；其中旧目录名应结合对应历史Git提交阅读。"
+}

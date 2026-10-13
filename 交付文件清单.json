@@ -16,13 +16,13 @@
   },
   {
     "file": "00. 课程导论与准备/课程导论.md",
-    "bytes": 27517,
-    "sha256": "21a7486a624007455c62de10879a0812217694c6811d6d6b5e6a183bf4b919cc"
+    "bytes": 27461,
+    "sha256": "e8b62931b5b80a45ae604982dd76ac1fe9df66814bf1fbd5be726b2d1bf0dd12"
   },
   {
     "file": "01. 云端数据接口与可复现环境/实验手册.md",
-    "bytes": 16847,
-    "sha256": "7aa8e946ae4a7821af4a62efd45aa2b9fe9f6ec11c1fe747f449c3a8b1a36fa3"
+    "bytes": 16883,
+    "sha256": "3de7d7a1267616c3525b26eb80c5d57fba106bcf1ee07981d5c6c7690e5b5f27"
   },
   {
     "file": "01. 云端数据接口与可复现环境/实验报告提交及评分标准.md",
@@ -41,8 +41,8 @@
   },
   {
     "file": "02. 数据湖与质量契约/实验手册.md",
-    "bytes": 17389,
-    "sha256": "35f84212b5379f531436f3c4661b77f98d22a54ed73d70f188e886bab517c1f1"
+    "bytes": 17470,
+    "sha256": "79f8a7363cd6d5c45a8dc30305acabe02d43c6dc8795c41ac0b57394a6b09d69"
   },
   {
     "file": "02. 数据湖与质量契约/实验报告提交及评分标准.md",
@@ -66,8 +66,8 @@
   },
   {
     "file": "03. 分布式批处理与性能分析/实验手册.md",
-    "bytes": 19733,
-    "sha256": "a4ffb33681994bcd2fd1c781c5ea83910c490c6caf2a3b7753c6b50d1298782e"
+    "bytes": 19854,
+    "sha256": "f6d539d78cc346ca7d68dc3130475b7357dad55e547f5ef1a4f9d621ada4e200"
   },
   {
     "file": "03. 分布式批处理与性能分析/实验报告提交及评分标准.md",
@@ -76,8 +76,8 @@
   },
   {
     "file": "03. 分布式批处理与性能分析/附件/README.md",
-    "bytes": 1797,
-    "sha256": "9fd172ad3e631fce01478a4fb9e40f774846127ad71013e41de73e8d2e62f294"
+    "bytes": 1818,
+    "sha256": "17fe5b7f7f77de0332711f613568d83dca3bb76cbd3cf80e4a32b34a4e95da12"
   },
   {
     "file": "03. 分布式批处理与性能分析/附件/check_error_extension.py",
@@ -91,13 +91,13 @@
   },
   {
     "file": "04. 增量事件处理与故障恢复/实验手册.md",
-    "bytes": 18632,
-    "sha256": "0c7bcc577973c175784f318ba5e9cfe415b18ef9b96a2846a55a366e8a51333f"
+    "bytes": 18674,
+    "sha256": "56647d131dee5f6d28182674e493fd2971d61e7275734e494f9feb8ca349bf71"
   },
   {
     "file": "04. 增量事件处理与故障恢复/实验报告提交及评分标准.md",
-    "bytes": 5555,
-    "sha256": "1af9281fd5d07092f8da4e2506e665a536582d9d60eab299a39ed41112986c85"
+    "bytes": 5537,
+    "sha256": "9ecf01f271746974ee917a2ce764f8f5ae5b5b9ebae36f68d545ecbb1f0d4884"
   },
   {
     "file": "04. 增量事件处理与故障恢复/附件/README.md",
@@ -126,8 +126,8 @@
   },
   {
     "file": "05. AI知识数据与混合检索/实验手册.md",
-    "bytes": 24560,
-    "sha256": "116de8e8b8e35087289d58b53fd935cac35f2e31406d3907682cc8b53358cf41"
+    "bytes": 24728,
+    "sha256": "240db5c63b1a054e456d606878c6684e33fc485897e478e7c75ef4d2132650c7"
   },
   {
     "file": "05. AI知识数据与混合检索/实验报告提交及评分标准.md",
@@ -141,8 +141,8 @@
   },
   {
     "file": "06. 证据问答与系统评价/实验手册.md",
-    "bytes": 22928,
-    "sha256": "e9047078b76428a86af89f976208b103c30b3f9afe7980cba61ffbe71d537c83"
+    "bytes": 23039,
+    "sha256": "311a3a4923ce1e6cc08ff8ce5a934891e684d4a12090c2084397be354a00ff1d"
   },
   {
     "file": "06. 证据问答与系统评价/实验报告提交及评分标准.md",
@@ -151,18 +151,18 @@
   },
   {
     "file": "06. 证据问答与系统评价/附件/README.md",
-    "bytes": 1368,
-    "sha256": "f67a8200a98468420ddb47d90d6b23de9d2db7016711f6a873f0885a294fbd44"
+    "bytes": 1390,
+    "sha256": "1123e3f9fdd480d98e26fefbd5efbbc49fbad1f9085ab9ea7f630cd1204813bd"
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验手册.md",
-    "bytes": 22004,
-    "sha256": "c78694b3e86f25267f17a7739fbe5793ef52a9458ff83cead319e261b1a3725a"
+    "bytes": 22255,
+    "sha256": "7bf0ec48cd48cce4ef0bd8dd29bd48f17c447ac76d50e34921a2e914dc543efb"
   },
   {
     "file": "07. 云服务部署与推理可观测性/实验报告提交及评分标准.md",
-    "bytes": 6581,
-    "sha256": "9671556c3d943221a6ce782951ad519930dfe99370e4360d73d8f4a4e79d325f"
+    "bytes": 6611,
+    "sha256": "55dcd01bdf93ddcc3ee6fa356864b0b09f7342d5b864aca7b2868a9b07dba7f8"
   },
   {
     "file": "07. 云服务部署与推理可观测性/附件/README.md",
@@ -171,28 +171,28 @@
   },
   {
     "file": "08. 数据治理与可信发布/实验手册.md",
-    "bytes": 21948,
-    "sha256": "11316823960a5974b7c2f857b5cb69d934786cdd63ec970d3c4535b950ba0fac"
+    "bytes": 22062,
+    "sha256": "5dc4598d30662be4a275b067bda16302cd23cedde1aa469705c48f46b8b877b3"
   },
   {
     "file": "08. 数据治理与可信发布/实验报告提交及评分标准.md",
-    "bytes": 6149,
-    "sha256": "e0d174410fabaf7713cf01ab20119c90ff675a6484a293ca50e6468edd71a888"
+    "bytes": 6152,
+    "sha256": "e5b51a6f6b940c41b5b789aa95d8d5564c37d7e2fb88e441e6d7f78a889383d7"
   },
   {
     "file": "08. 数据治理与可信发布/附件/README.md",
-    "bytes": 1344,
-    "sha256": "b73a7d1a42406e56d9de423796ae6175a7e4def88063dbeb26b6343071c923ff"
+    "bytes": 1410,
+    "sha256": "85617d2c1d7f5fefd5ae724f928b2178d35cbebf57f2353787579de6054e6ad8"
   },
   {
-    "file": "09. 两周个人综合项目/项目任务书.md",
-    "bytes": 15071,
-    "sha256": "2b030cce0c8d1202aefe2f3e9632316785a2dbf45be2a26aa80bc1eb64e3203b"
+    "file": "09. 个人综合项目/项目任务书.md",
+    "bytes": 14969,
+    "sha256": "492fafbb8d8f31506d873006342a13c8e6ff90e40ae0863f0389189ae359897d"
   },
   {
-    "file": "09. 两周个人综合项目/项目方案手册.md",
-    "bytes": 23051,
-    "sha256": "611351c775cf4b3218e4132f580126493864316936c082a777e48da7a92a86ee"
+    "file": "09. 个人综合项目/项目方案手册.md",
+    "bytes": 23078,
+    "sha256": "b6cf721d81a3f7fd0a2176a77f7f97dd74ac52154982f644c77e2cacdfd182cc"
   },
   {
     "file": "Dockerfile",
@@ -201,8 +201,8 @@
   },
   {
     "file": "README.md",
-    "bytes": 8272,
-    "sha256": "c637d183c014f0e54cbea048d02ccf07f779220eed49d3d6dcd0b3ed784c5708"
+    "bytes": 8259,
+    "sha256": "5e18533f5998ceac481324b0eaac406c6c6ead73bf8bb630da2b97839dd89209"
   },
   {
     "file": "compose.yaml",
@@ -216,8 +216,8 @@
   },
   {
     "file": "coursekit/__main__.py",
-    "bytes": 5124,
-    "sha256": "9856ee9268e8fac89f2d01314db25470bee328480fe51d2a0da959cf9be89d6e"
+    "bytes": 5136,
+    "sha256": "a0a452ee8c0fb0c33da2c588628830415b45c98f9c280ae30a361843e44b9315"
   },
   {
     "file": "coursekit/artifact_identity.py",
@@ -241,13 +241,13 @@
   },
   {
     "file": "coursekit/governance.py",
-    "bytes": 16600,
-    "sha256": "2d24d23bc0f0ac40e270614232fb0bbd8e5a0c235407ba195d8f003d7a2c3612"
+    "bytes": 16636,
+    "sha256": "7a1cdc3825901bb4009beaaf46f9521cb526e5798d72a66b642e04adcee46c87"
   },
   {
     "file": "coursekit/intelligence.py",
-    "bytes": 36934,
-    "sha256": "c0f52992b41c170fd02e772c8864af472d715668418da2ff85d651d92d566235"
+    "bytes": 37078,
+    "sha256": "d18e0c42e068cbec4faa10da3ec44767ff5c0b70dae90ad6a8b1b3f472c915e9"
   },
   {
     "file": "coursekit/model_config.py",
@@ -261,13 +261,13 @@
   },
   {
     "file": "coursekit/service.py",
-    "bytes": 13767,
-    "sha256": "be0d8fbb3d38aeea83a24e49e99538143deb4c1814e3ec6651dc68facb51a3f9"
+    "bytes": 13993,
+    "sha256": "a793e2220bedcdc2f7f1c187110e047442a0e4a85e8d7cd8650f889dad854f8e"
   },
   {
     "file": "docs/Windows环境准备.md",
-    "bytes": 17642,
-    "sha256": "287c8c4193d20d01c1eed8ee14e5809c7c131fec6c94a8fefdbd450e6857339b"
+    "bytes": 17621,
+    "sha256": "8113b1f21ad37158c7fa7e4d2dc3451a33919cb00e34203c2f0f57560cdf5479"
   },
   {
     "file": "docs/学号与提交验收.md",
@@ -311,8 +311,8 @@
   },
   {
     "file": "scripts/prepare_generation.py",
-    "bytes": 9403,
-    "sha256": "654b6892f20c0e42ef1c469a26fbbf4eaca00e8e16b68b414d32e584e5db5b00"
+    "bytes": 9402,
+    "sha256": "563e61eab873976d0a65c7eef435025d63a8eacfa3445a452034595629a2de33"
   },
   {
     "file": "scripts/verify-environment.ps1",
@@ -326,18 +326,18 @@
   },
   {
     "file": "tests/test_governance.py",
-    "bytes": 14181,
-    "sha256": "5abd533d8b1bbc8f8762b7791f2c98ce6f91790c1fbc3ecb433bb68011e3acd2"
+    "bytes": 14196,
+    "sha256": "0a25b98b99c5e207f02c40fdd2e0185c2d89bdae31267e4a1608c644d856f64d"
   },
   {
     "file": "tests/test_intelligence.py",
-    "bytes": 13560,
-    "sha256": "5d9c208e6e290dc4564d29206b422fc73faf282c13789dbb0783f55758efa679"
+    "bytes": 13656,
+    "sha256": "1c1c1b8c1145f9b24abb967c7b6eae9538a1efe29ca842b84adcf48dca388438"
   },
   {
     "file": "tests/test_model_tools.py",
-    "bytes": 13908,
-    "sha256": "1aae1d5e279ffcd54907f779ad2fd7d992324cf6d7055d7fd0861543b391fe28"
+    "bytes": 13935,
+    "sha256": "6b1521a43e868a59d1d36a7230c97a115830fab9430bf9fe3f9a3f44514cf5a5"
   },
   {
     "file": "tests/test_pipeline.py",
@@ -346,8 +346,8 @@
   },
   {
     "file": "tests/test_service.py",
-    "bytes": 6322,
-    "sha256": "b6b926c72ff81d100bce7fcacc95aafa67d498c3aba69c3894481c9521d014b8"
+    "bytes": 6361,
+    "sha256": "59acb34fa69f23f3d228d2ad12cd8c918e232e5ca6a7a83b46812c1f8215ef4d"
   },
   {
     "file": "tests/test_student_scripts.py",
