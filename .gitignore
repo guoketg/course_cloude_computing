@@ -11,3 +11,6 @@ wheelhouse/
 models/
 .test-tmp-*/
 submissions/
+.trae/
+exp-*/
+提交/
